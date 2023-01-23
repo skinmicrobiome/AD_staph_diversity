@@ -1,0 +1,350 @@
+---
+title: "Figure S3"
+author: "Sara"
+date: "4/28/2021"
+output: html_document
+---
+
+```{r, warning=FALSE,message=FALSE}
+rm(list=ls())
+
+# libraries
+library(ggplot2)
+library(ggrastr)
+library(dplyr)
+library(cowplot)
+library(ggrastr)
+library(RColorBrewer)
+library(rich)
+library(reshape2)
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+
+```
+
+
+functions for accumulation curve
+```{r,eval=TRUE}
+
+# set function to build accumulation stats
+df.rarefy = function(x, y){
+  metadata = x 
+  rownames(metadata) = metadata$run_accession
+  raref.all = data.frame(N.genomes=seq(0,nrow(metadata),y), N.species=0)
+  for (r in 2:nrow(raref.all)){
+    genomes = sample(metadata$run_accession, raref.all[r,1])
+    species = metadata[genomes,"ST"]
+    raref.all[r,2] = length(unique(species))
+  }
+  return(raref.all)
+}
+
+
+
+repeat_BS_HV = function (metadata){
+  numb_HV=unique(metadata$Subject)
+  numb_BS=unique(metadata$Site)
+  q=0
+  for (z in numb_HV){
+  metadata_tmp1=metadata[metadata$Subject==z,]
+  for (r in numb_BS){
+  metadata_tmp=metadata_tmp1[metadata_tmp1$Site==r,]
+  if (nrow(metadata_tmp)>3){
+  iso.plot = df.rarefy(metadata_tmp, 1)
+  iso.plot$Set = r
+  iso.plot$Set2 = z
+  if (q==0){
+    all.plot=iso.plot
+  }
+  q<-q+1
+  all.plot = rbind(iso.plot, all.plot)
+  }
+  }
+  }
+ return(all.plot)
+}
+
+```
+
+
+S. epi dataset
+```{r,eval=TRUE}
+
+mlst_external=read.csv("metadata/Table3.csv")%>%
+  filter(Country=="United States")%>%
+  filter(Study=="PRJNA558989")%>%
+  filter(Species=="Staphylococcus epidermidis")%>%
+  select(run_accession,ST,Site,Subject)
+
+
+
+```
+
+
+NIH epi
+```{r,eval=TRUE}
+
+mlst_nih_epi=read.csv("metadata/Table3.csv")%>%
+  filter(Country=="United States")%>%
+  filter(Study=="To be announced")%>%
+  filter(Species=="Staphylococcus epidermidis")%>%
+  select(run_accession,ST,Site,Subject)
+
+```
+
+
+NIH aur
+```{r,eval=TRUE}
+
+mlst_nih_aur=read.csv("metadata/Table3.csv")%>%
+  filter(Country=="United States")%>%
+  filter(Study=="To be announced")%>%
+  filter(Species=="Staphylococcus aureus")%>%
+  select(run_accession,ST,Site,Subject)
+
+```
+
+SAP vs SEP
+
+```{r,eval=TRUE}
+ident_subj=readRDS("intermediates/SAP_vs_SEP.rds")
+iso=read.csv("metadata/Table3.csv", stringsAsFactors = F) 
+iso=iso[which(iso$Study=="To be announced"),]%>%filter(Species%in%c("Staphylococcus aureus", "Staphylococcus epidermidis"))%>%filter(Site%in%c("N","Ac"))
+ident_subj=ident_subj[which(ident_subj$Subject_ID%in%iso$Subject),]
+table(ident_subj$signature)
+
+
+#SAP
+SEP=ident_subj$Subject_ID[which(ident_subj$signature=="SEP")]
+colors_SEP=c("#FCBBA1","#FC9272","#FB6A4A","#EF3B2C","#CB181D") #"#FEE0D2",
+
+#brewer.pal(9,"Blues")
+SAP=ident_subj$Subject_ID[which(ident_subj$signature=="SAP")]
+colors_SAP=c("#EFF3FF","#C6DBEF","#9ECAE1","#6BAED6","#3182BD","#08519C") 
+
+OSP=ident_subj$Subject_ID[which(ident_subj$signature=="OSP")]
+colors_OSP=c("#756bb1")
+
+#brewer.pal(9,"Greens")
+HC=ident_subj$Subject_ID[which(ident_subj$signature=="HC")]
+colors_HC=c("#E5F5E0","#C7E9C0","#A1D99B","#74C476","#41AB5D","#238B45","#006D2C")
+
+palette_id=c(SEP,SAP,HC,OSP)
+palette_colors=c(colors_SEP,colors_SAP,colors_HC,colors_OSP)
+
+names(palette_colors)=palette_id
+
+```
+
+
+
+```{r setup,eval=TRUE}
+
+#run functions for external
+accum.plot1 = repeat_BS_HV(mlst_external)
+accum.plot1 = accum.plot1[accum.plot1$Set%in%c("N","Ac"),]
+accum.plot1$Set=gsub("N","naris",accum.plot1$Set)
+accum.plot1$Set=gsub("^","*S. epidermidis*, adult, ",accum.plot1$Set)
+
+accum.plot1$Set2=gsub("_.*","",accum.plot1$Set2)
+scatter_external = ggplot(accum.plot1, aes(x=N.genomes, y=N.species, colour=Set2)) + 
+  geom_point_rast(size=0.8, alpha=0.8) +
+  geom_smooth() +
+  theme_bw() +
+  facet_wrap(~ Set, scales = "free",nrow=2) +
+  ylim(0,13) +
+  xlim(0,20) +
+  xlab("Number of genomes") + 
+  ylab("Number of STs") +
+  theme(panel.grid.minor = element_blank(), panel.grid.major = element_blank()) + 
+  theme(legend.text = element_text(size = 10)) +
+  theme(strip.background=element_rect(fill=NA, color=NA),
+        strip.text=element_text(size=12, face="bold")) +
+  theme(axis.title = element_text(size=14)) + 
+  theme(axis.text = element_text(size=12)) +
+  theme(strip.text = ggtext::element_markdown())+
+  theme(legend.position = "bottom")+guides(colour=guide_legend(title="Healthy adult"))
+
+
+  
+
+#run functions for nih epi
+accum.plot2 = repeat_BS_HV(mlst_nih_epi)
+accum.plot2 = accum.plot2[accum.plot2$Set%in%c("N","Ac"),]
+accum.plot2$Set=gsub("N","naris",accum.plot2$Set)
+accum.plot2$Set=gsub("^","*S. epidermidis*, child, ",accum.plot2$Set)
+
+
+accum.plot2=accum.plot2[which(accum.plot2$N.genomes<30),]
+
+scatter_nih_epi = ggplot(accum.plot2, aes(x=N.genomes, y=N.species, colour=Set2)) + 
+  geom_point_rast(size=0.8, alpha=0.8) +
+  geom_smooth() +
+  theme_bw() +
+  facet_wrap(~ Set, scales = "free",nrow=2) +
+  ylim(0,13) +
+  xlim(0,20) +
+  xlab("Number of genomes") + 
+  ylab("Number of STs") +
+  theme(panel.grid.minor = element_blank(), panel.grid.major = element_blank()) + 
+  theme(legend.text = element_text(size = 10)) +
+  theme(strip.background=element_rect(fill=NA, color=NA),
+        strip.text=element_text(size=12, face="bold")) +
+  theme(axis.title = element_text(size=14)) + 
+  theme(axis.text = element_text(size=12)) +
+  scale_color_manual(values=palette_colors)+
+  theme(strip.text = ggtext::element_markdown())+
+  theme(legend.position = "bottom")
+
+
+
+
+#run functions for nih aur
+accum.plot3 = repeat_BS_HV(mlst_nih_aur)
+accum.plot3 = accum.plot3[accum.plot3$Set%in%c("N","Ac"),]
+accum.plot3$Set=gsub("N","naris",accum.plot3$Set)
+accum.plot3$Set=gsub("^","*S. aureus*, child, ",accum.plot3$Set)
+unique(accum.plot3$Set2)
+
+scatter_nih_aur = ggplot(accum.plot3, aes(x=N.genomes, y=N.species, colour=Set2)) + 
+  geom_point_rast(size=0.8, alpha=0.8) +
+  geom_smooth() +
+  theme_bw() + 
+  facet_wrap(~ Set, scales = "free",nrow=2) +
+  ylim(0,13) +
+  xlim(0,20) +
+  xlab("Number of genomes") + 
+  ylab("Number of STs") +
+  theme(panel.grid.minor = element_blank(), panel.grid.major = element_blank()) + 
+  theme(legend.text = element_text(size = 10)) +
+  theme(strip.background=element_rect(fill=NA, color=NA),
+        strip.text=element_text(size=12, face="bold")) +
+  theme(axis.title = element_text(size=14)) + 
+  theme(axis.text = element_text(size=12)) +
+  scale_color_manual(values=palette_colors)+
+  theme(strip.text = ggtext::element_markdown())+
+  theme(legend.position = "bottom")+
+  guides(colour = guide_legend(nrow = 3))#+
+
+
+
+
+
+accum.plot_all=rbind.data.frame(accum.plot2,accum.plot3)
+
+#how many STs does it saturate
+accum.plot3%>%group_by(Set,Set2)%>%dplyr::summarise(summ_sat=max(N.species))
+unique(accum.plot3$Set2)
+#n_distinct(accum.plot3$Set2)
+
+legend_SAP = ggplot(accum.plot_all[accum.plot_all$Set2%in%SAP,], aes(x=N.genomes, y=N.species, colour=Set2)) +   scale_color_manual(values=palette_colors[which(names(palette_colors)%in%SAP)])+geom_point_rast(size=0.8, alpha=0.8)+guides(colour=guide_legend(title="SAP",nrow = 1,override.aes = list(size=4)))+theme(legend.position = "bottom")
+legend_SEP = ggplot(accum.plot_all[accum.plot_all$Set2%in%SEP,], aes(x=N.genomes, y=N.species, colour=Set2)) + scale_color_manual(values=palette_colors[which(names(palette_colors)%in%SEP)])+geom_point_rast(size=0.8, alpha=0.8)+guides(colour=guide_legend(title="SEP",nrow = 1,override.aes = list(size=4)))+theme(legend.position = "bottom")
+legend_HC = ggplot(accum.plot_all[accum.plot_all$Set2%in%HC,], aes(x=N.genomes, y=N.species, colour=Set2)) + scale_color_manual(values=palette_colors[which(names(palette_colors)%in%HC)])+geom_point_rast(size=0.8, alpha=0.8)+guides(colour=guide_legend(title="HC",nrow = 1,override.aes = list(size=4)))+theme(legend.position = "bottom")
+legend_OSP = ggplot(accum.plot_all[accum.plot_all$Set2%in%OSP,], aes(x=N.genomes, y=N.species, colour=Set2)) + scale_color_manual(values=palette_colors[which(names(palette_colors)%in%OSP)])+geom_point_rast(size=0.8, alpha=0.8)+guides(colour=guide_legend(title="OSP",nrow = 1,override.aes = list(size=4)))+theme(legend.position = "bottom")
+
+```
+
+
+
+```{r,eval=TRUE, warning=FALSE,message=FALSE}
+top<-plot_grid(scatter_external+theme(legend.position="none"),scatter_nih_epi+theme(legend.position="none"),scatter_nih_aur+theme(legend.position="none"),nrow=1,labels=c("A","B","C"))
+
+
+top_legends<-plot_grid(get_legend(scatter_external),NULL,get_legend(legend_SEP),get_legend(legend_OSP),nrow=1,rel_widths = c(0.32,0.07,0.32,0.25))
+bottom_legends<-plot_grid(get_legend(legend_SAP),get_legend(legend_HC),nrow=1)
+legends<-plot_grid(top_legends,bottom_legends,nrow=2)
+
+plot_grid(top,legends,rel_heights=c(0.85,0.15),nrow=2)
+
+ggsave("figures/FigureS3.png",width=12,height=7, bg='white')
+ggsave("figures/FigureS3.svg",width=12,height=7, bg='white')
+
+```
+
+
+```{r, warning=FALSE,message=FALSE}
+
+iso=read.csv("metadata/Table3.csv",stringsAsFactors = F)
+iso=iso[which(iso$Study=="To be announced"),]
+iso$val=1
+iso_aur=iso[(grepl("_aur",iso$ST)),]
+iso_aur_mat=acast(iso_aur,Subject~ST,value.var = "val", fun.aggregate = sum)
+
+iso_epi=iso[(grepl("_epi",iso$ST)),]
+iso_epi_mat=acast(iso_epi,Subject~ST,value.var = "val", fun.aggregate = sum)
+
+
+iso_aur%>%group_by(Subject,Site)%>%dplyr::summarise(count_ST=n_distinct(ST))
+iso_epi%>%group_by(Subject,Site)%>%dplyr::summarise(count_ST=n_distinct(ST))
+
+
+#The function rich computes the species richness on the basis of bootstrap estimation.
+
+#The mean species richness i.e. the average value over the sampling units is given in the slot
+#$mr and its standard deviation is given in $mrsd. The cumulated richness is given in $cr.
+#The bootstrap estimate of the cumulated richness is stored in $bootCR. $cr.obs is simply
+#the observed cumulated value whereas the corresponding bootstrapped value is reported in
+#$cr.boot.
+
+rich(matrix=iso_aur_mat, nrandom=99)
+rich(matrix=iso_epi_mat, nrandom=99)
+
+
+
+rich(matrix=iso_epi_mat[SEP,], nrandom=99)
+rich(matrix=iso_epi_mat[intersect(rownames(iso_epi_mat),SAP),], nrandom=99)
+rich(matrix=iso_epi_mat[intersect(rownames(iso_epi_mat),HC),], nrandom=99)
+
+```
+
+
+SAP VS SEP VS HC
+```{r, warning=FALSE,message=FALSE}
+
+iso=read.csv("metadata/Table3.csv")
+iso=iso[which(iso$Study=="To be announced"),]
+SAP_SEP=readRDS("intermediates/SAP_vs_SEP.rds")
+SAP_SEP$Subject=SAP_SEP$Subject_ID
+iso=merge(iso,SAP_SEP,by="Subject")
+iso=iso[((grepl("epi",iso$ST))),]
+
+
+iso%>%group_by(Subject)%>%dplyr::summarise(count_ST=n_distinct(ST))
+iso%>%group_by(Subject)%>%dplyr::summarise(count_ST=unique(ST))
+
+iso$val=1
+
+
+iso_SAP=iso[which(iso$signature=="SAP"),]
+iso_SAP_mat=acast(iso_SAP,Subject~ST,value.var = "val", fun.aggregate = sum)
+
+iso_SEP=iso[which(iso$signature=="SEP"),]
+iso_SEP_mat=acast(iso_SEP,Subject~ST,value.var = "val", fun.aggregate = sum)
+
+iso_HC=iso[which(iso$signature=="HC"),]
+iso_HC_mat=acast(iso_HC,Subject~ST,value.var = "val", fun.aggregate = sum)
+
+
+#The function rich computes the species richness on the basis of bootstrap estimation.
+
+#The mean species richness i.e. the average value over the sampling units is given in the slot
+#$mr and its standard deviation is given in $mrsd. The cumulated richness is given in $cr.
+#The bootstrap estimate of the cumulated richness is stored in $bootCR. $cr.obs is simply
+#the observed cumulated value whereas the corresponding bootstrapped value is reported in
+#$cr.boot.
+
+rich(matrix=iso_SAP_mat, nrandom=99)
+rich(matrix=iso_SEP_mat, nrandom=99)
+rich(matrix=iso_HC_mat, nrandom=99)
+
+
+
+
+
+
+
+```
+
+
+
+

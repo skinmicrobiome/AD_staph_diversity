@@ -1,0 +1,1225 @@
+Sample_ID,Subject_ID,status,Site,symmetry,visit_rank,visit_year,affected_or_unaffected,scorad,scorad_category,Study,secondary_study_accession,Country
+ERR5084072,A01,AD child,Vf,NA,NA,NA,NA,61.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5084073,A01,AD child,Ac,NA,NA,NA,NA,61.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5084074,A01,AD child,Ch,NA,NA,NA,NA,61.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5084076,A02,AD child,Ac,NA,NA,NA,NA,61,NA,PRJEB42399,ERP126250,Singapore
+ERR5084077,A02,AD child,Ch,NA,NA,NA,NA,61,NA,PRJEB42399,ERP126250,Singapore
+ERR5084078,A02,AD child,LE,NA,NA,NA,NA,61,NA,PRJEB42399,ERP126250,Singapore
+ERR5084083,A03,AD child,LE,NA,NA,NA,NA,29.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084080,A03,AD child,Vf,NA,NA,NA,NA,29.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084081,A03,AD child,Ac,NA,NA,NA,NA,29.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084082,A03,AD child,Ch,NA,NA,NA,NA,29.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084088,A04,AD child,Ch,NA,NA,NA,NA,66.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084087,A04,AD child,Ac,NA,NA,NA,NA,66.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084089,A04,AD child,LE,NA,NA,NA,NA,66.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084086,A04,AD child,Vf,NA,NA,NA,NA,66.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084092,A05,AD child,Vf,NA,NA,NA,NA,72.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084093,A05,AD child,Ac,NA,NA,NA,NA,72.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084094,A05,AD child,Ch,NA,NA,NA,NA,72.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084095,A05,AD child,LE,NA,NA,NA,NA,72.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084101,A06,AD child,LE,NA,NA,NA,NA,82.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084100,A06,AD child,Ch,NA,NA,NA,NA,82.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084098,A06,AD child,Vf,NA,NA,NA,NA,82.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084099,A06,AD child,Ac,NA,NA,NA,NA,82.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084116,A07,AD child,LE,NA,NA,NA,NA,73.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084115,A07,AD child,Ac,NA,NA,NA,NA,73.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084114,A07,AD child,Vf,NA,NA,NA,NA,73.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084119,A08,AD child,Vf,NA,NA,NA,NA,49.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084121,A08,AD child,LE,NA,NA,NA,NA,49.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084120,A08,AD child,Ac,NA,NA,NA,NA,49.7,NA,PRJEB42399,ERP126250,Singapore
+ERR5084164,A09,AD child,LE,NA,NA,NA,NA,71.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084148,A09,AD child,Vf,NA,NA,NA,NA,71.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084149,A09,AD child,Ac,NA,NA,NA,NA,71.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084172,A12,AD child,Ac,NA,NA,NA,NA,40.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084171,A12,AD child,Vf,NA,NA,NA,NA,40.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084173,A12,AD child,Ch,NA,NA,NA,NA,40.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5084166,A13,AD child,Ac,NA,NA,NA,NA,48.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5084165,A13,AD child,Vf,NA,NA,NA,NA,48.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5084167,A13,AD child,LE,NA,NA,NA,NA,48.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5084168,A13,AD child,Ch,NA,NA,NA,NA,48.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5084145,A14,AD child,LE,NA,NA,NA,NA,59.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084143,A14,AD child,Vf,NA,NA,NA,NA,59.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084144,A14,AD child,Ac,NA,NA,NA,NA,59.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5084152,A15,AD child,LE,NA,NA,NA,NA,50.5,NA,PRJEB42399,ERP126250,Singapore
+ERR5084104,A16,AD child,Vf,NA,NA,NA,NA,65.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084106,A16,AD child,LE,NA,NA,NA,NA,65.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084105,A16,AD child,Ac,NA,NA,NA,NA,65.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5084125,A17,AD child,Ac,NA,NA,NA,NA,51,NA,PRJEB42399,ERP126250,Singapore
+ERR5084124,A17,AD child,Vf,NA,NA,NA,NA,51,NA,PRJEB42399,ERP126250,Singapore
+ERR5084126,A17,AD child,LE,NA,NA,NA,NA,51,NA,PRJEB42399,ERP126250,Singapore
+ERR5084157,A18,AD child,LE,NA,NA,NA,NA,65,NA,PRJEB42399,ERP126250,Singapore
+ERR5084156,A18,AD child,Ac,NA,NA,NA,NA,65,NA,PRJEB42399,ERP126250,Singapore
+ERR5084155,A18,AD child,Vf,NA,NA,NA,NA,65,NA,PRJEB42399,ERP126250,Singapore
+ERR5083179,A19,AD child,Ch,NA,NA,NA,NA,33.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5083177,A19,AD child,Vf,NA,NA,NA,NA,33.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5083178,A19,AD child,Ac,NA,NA,NA,NA,33.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5083180,A19,AD child,LE,NA,NA,NA,NA,33.6,NA,PRJEB42399,ERP126250,Singapore
+ERR5083185,A20,AD child,Ch,NA,NA,NA,NA,30.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5083184,A20,AD child,Ac,NA,NA,NA,NA,30.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5083183,A20,AD child,Vf,NA,NA,NA,NA,30.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5083186,A20,AD child,LE,NA,NA,NA,NA,30.9,NA,PRJEB42399,ERP126250,Singapore
+ERR5083191,A21,AD child,LE,NA,NA,NA,NA,48.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083190,A21,AD child,Ac,NA,NA,NA,NA,48.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083189,A21,AD child,Vf,NA,NA,NA,NA,48.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083195,A22,AD child,Ac,NA,NA,NA,NA,27.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5083194,A22,AD child,Vf,NA,NA,NA,NA,27.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5083196,A22,AD child,LE,NA,NA,NA,NA,27.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5083199,A23,AD child,Vf,NA,NA,NA,NA,36.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5083200,A23,AD child,Ac,NA,NA,NA,NA,36.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5083201,A23,AD child,LE,NA,NA,NA,NA,36.1,NA,PRJEB42399,ERP126250,Singapore
+ERR5083204,A24,AD child,Vf,NA,NA,NA,NA,46.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083207,A24,AD child,LE,NA,NA,NA,NA,46.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083205,A24,AD child,Ac,NA,NA,NA,NA,46.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083206,A24,AD child,Ch,NA,NA,NA,NA,46.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083211,A25,AD child,Ac,NA,NA,NA,NA,43.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083212,A25,AD child,LE,NA,NA,NA,NA,43.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083210,A25,AD child,Vf,NA,NA,NA,NA,43.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083217,A26,AD child,LE,NA,NA,NA,NA,36.2,NA,PRJEB42399,ERP126250,Singapore
+ERR5083216,A26,AD child,Ac,NA,NA,NA,NA,36.2,NA,PRJEB42399,ERP126250,Singapore
+ERR5083215,A26,AD child,Vf,NA,NA,NA,NA,36.2,NA,PRJEB42399,ERP126250,Singapore
+ERR5083222,A27,AD child,Ch,NA,NA,NA,NA,29.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083221,A27,AD child,Ac,NA,NA,NA,NA,29.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083220,A27,AD child,Vf,NA,NA,NA,NA,29.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083223,A27,AD child,LE,NA,NA,NA,NA,29.8,NA,PRJEB42399,ERP126250,Singapore
+ERR5083226,A28,AD child,Vf,NA,NA,NA,NA,36.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083228,A28,AD child,LE,NA,NA,NA,NA,36.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083227,A28,AD child,Ac,NA,NA,NA,NA,36.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083231,A29,AD child,Vf,NA,NA,NA,NA,47.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083233,A29,AD child,LE,NA,NA,NA,NA,47.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083232,A29,AD child,Ac,NA,NA,NA,NA,47.3,NA,PRJEB42399,ERP126250,Singapore
+ERR5083237,A30,AD child,Ac,NA,NA,NA,NA,29,NA,PRJEB42399,ERP126250,Singapore
+ERR5083238,A30,AD child,LE,NA,NA,NA,NA,29,NA,PRJEB42399,ERP126250,Singapore
+ERR5083236,A30,AD child,Vf,NA,NA,NA,NA,29,NA,PRJEB42399,ERP126250,Singapore
+ERR4605208,AD001,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605154,AD001,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605209,AD002,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605155,AD002,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605156,AD004,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605210,AD004,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605112,AD005,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605166,AD005,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605123,AD005A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605177,AD005A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605124,AD005C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605178,AD005C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605125,AD005D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605179,AD005D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605113,AD007,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605167,AD007,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605126,AD007A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605180,AD007A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605127,AD007C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605181,AD007C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605128,AD007D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605182,AD007D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605211,AD008,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605157,AD008,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605168,AD009,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605114,AD009,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605129,AD009B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605183,AD009B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605130,AD009C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605184,AD009C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605131,AD009D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605185,AD009D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605212,AD010,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605158,AD010,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605213,AD011,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605159,AD011,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605169,AD012,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605115,AD012,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605132,AD012D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605186,AD012D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605133,AD012E,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605187,AD012E,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605160,AD015,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605214,AD015,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605170,AD017,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605116,AD017,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605134,AD017A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605188,AD017A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605135,AD017B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605189,AD017B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605136,AD017C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605190,AD017C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605137,AD018A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605191,AD018A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605138,AD018B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605192,AD018B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605215,AD019,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605161,AD019,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+MET4655,AD02,AD child,Ac,R,flare-1,2009,A,32.6,Moderate,To be announced,To be announced,United States
+MET5250,AD02,AD child,Ac,L,flare-1,2009,U,32.6,Moderate,To be announced,To be announced,United States
+MET5251,AD02,AD child,Pc,L,flare-1,2009,U,32.6,Moderate,To be announced,To be announced,United States
+ERR4605216,AD020,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605162,AD020,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605171,AD022,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605117,AD022,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605139,AD022A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605193,AD022A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605140,AD022B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605194,AD022B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605141,AD022C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605195,AD022C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605172,AD025,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605118,AD025,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605142,AD025A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605196,AD025A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605143,AD025B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605197,AD025B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605144,AD025C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605198,AD025C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605145,AD025D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605199,AD025D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605217,AD026,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605163,AD026,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605119,AD027,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605173,AD027,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605146,AD027A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605200,AD027A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605147,AD027B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605201,AD027B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605148,AD027D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605202,AD027D,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605174,AD028,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605120,AD028,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605149,AD028A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605203,AD028A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605150,AD028B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605204,AD028B,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605151,AD028C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605205,AD028C,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605175,AD029,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605121,AD029,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605152,AD029A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605206,AD029A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605122,AD030,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605176,AD030,AD adult,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605153,AD030A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605207,AD030A,Healthy adult,Ac/cervicalspine,NA,NA,NA,NA,0,NA,PRJEB40358,ERP123984,India
+ERR4605164,AD032,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605218,AD032,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605165,AD033,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+ERR4605219,AD033,AD child,Ac/cervicalspine,NA,NA,NA,NA,NA,NA,PRJEB40358,ERP123984,India
+MET5304,AD04,AD child,Pc,L,flare-1,2009,A,72.2,Severe,To be announced,To be announced,United States
+MET5303,AD04,AD child,Ac,L,flare-1,2009,A,72.2,Severe,To be announced,To be announced,United States
+MET5254,AD07,AD child,Pc,L,flare-1,2010,A,55.6,Severe,To be announced,To be announced,United States
+MET5253,AD07,AD child,Ac,L,flare-1,2010,A,55.6,Severe,To be announced,To be announced,United States
+MET4657,AD07,AD child,Ac,R,flare-1,2010,A,55.6,Severe,To be announced,To be announced,United States
+MET4659,AD10,AD child,Ac,R,flare-1,2010,A,34.4,Moderate,To be announced,To be announced,United States
+MET5256,AD10,AD child,Pc,L,flare-1,2010,A,34.4,Moderate,To be announced,To be announced,United States
+MET5255,AD10,AD child,Ac,L,flare-1,2010,A,34.4,Moderate,To be announced,To be announced,United States
+MET4661,AD11,AD child,Ac,R,flare-1,2010,A,48.9,Severe,To be announced,To be announced,United States
+MET5257,AD11,AD child,Ac,L,flare-1,2010,A,48.9,Severe,To be announced,To be announced,United States
+MET5258,AD11,AD child,Pc,L,flare-1,2010,A,48.9,Severe,To be announced,To be announced,United States
+MET4663,AD12,AD child,Ac,R,flare-1,2010,A,41.6,Severe,To be announced,To be announced,United States
+MET5261,AD12,AD child,Ac,L,flare-1,2010,A,41.6,Severe,To be announced,To be announced,United States
+MET5262,AD12,AD child,Pc,L,flare-1,2010,A,41.6,Severe,To be announced,To be announced,United States
+MET5307,AD13,AD child,Ac,L,flare-1,2010,A,52.8,Severe,To be announced,To be announced,United States
+MET5308,AD13,AD child,Pc,L,flare-1,2010,A,52.8,Severe,To be announced,To be announced,United States
+MET5263,AD14,AD child,Ac,L,flare-1,2010,A,61.6,Severe,To be announced,To be announced,United States
+MET5264,AD14,AD child,Pc,L,flare-1,2010,A,61.6,Severe,To be announced,To be announced,United States
+MET4665,AD14,AD child,Ac,R,flare-1,2010,A,61.6,Severe,To be announced,To be announced,United States
+MET5267,AD15,AD child,Pc,L,flare-1,2013,A,50.6,Severe,To be announced,To be announced,United States
+MET5266,AD15,AD child,Ac,L,flare-1,2013,A,50.6,Severe,To be announced,To be announced,United States
+MET4667,AD15,AD child,Ac,R,flare-1,2013,A,50.6,Severe,To be announced,To be announced,United States
+MET1428,AD16,AD child,Gb,C,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1430,AD16,AD child,Ic,L,flare-1,2013,U,49.9,Severe,To be announced,To be announced,United States
+MET1427,AD16,AD child,Ac,L,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1437,AD16,AD child,Vf,L,flare-1,2013,U,49.9,Severe,To be announced,To be announced,United States
+MET1436,AD16,AD child,Vf,R,flare-1,2013,U,49.9,Severe,To be announced,To be announced,United States
+MET1431,AD16,AD child,Oc,C,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1426,AD16,AD child,Ac,R,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1429,AD16,AD child,Ic,R,flare-1,2013,U,49.9,Severe,To be announced,To be announced,United States
+MET1432,AD16,AD child,Pc,R,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1435,AD16,AD child,Ra,L,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1433,AD16,AD child,Pc,L,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1434,AD16,AD child,Ra,R,flare-1,2013,A,49.9,Severe,To be announced,To be announced,United States
+MET1450,AD16,AD child,Vf,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1440,AD16,AD child,Gb,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1448,AD16,AD child,Ra,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1438,AD16,AD child,Ac,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1451,AD16,AD child,Vf,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1444,AD16,AD child,Oc,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1446,AD16,AD child,Pc,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1447,AD16,AD child,Pc,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1449,AD16,AD child,Ra,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1439,AD16,AD child,Ac,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1442,AD16,AD child,Ic,R,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1443,AD16,AD child,Ic,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1445,AD16,AD child,Oc,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1441,AD16,AD child,Gb,L,flare-2,2014,A,54.3,Severe,To be announced,To be announced,United States
+MET1461,AD16,AD child,Pc,L,post-flare-1,2014,A,10.1,Mild,To be announced,To be announced,United States
+MET1455,AD16,AD child,Gb,L,post-flare-1,2014,A,10.1,Mild,To be announced,To be announced,United States
+MET1463,AD16,AD child,Ra,L,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1453,AD16,AD child,Ac,L,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1454,AD16,AD child,Gb,R,post-flare-1,2014,A,10.1,Mild,To be announced,To be announced,United States
+MET1462,AD16,AD child,Ra,R,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1465,AD16,AD child,Vf,L,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1464,AD16,AD child,Vf,R,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1452,AD16,AD child,Ac,R,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1458,AD16,AD child,Oc,R,post-flare-1,2014,A,10.1,Mild,To be announced,To be announced,United States
+MET1456,AD16,AD child,Ic,R,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1460,AD16,AD child,Pc,R,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1459,AD16,AD child,Oc,L,post-flare-1,2014,A,10.1,Mild,To be announced,To be announced,United States
+MET1457,AD16,AD child,Ic,L,post-flare-1,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET0971,AD16,AD child,Ra,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0965,AD16,AD child,Ic,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0966,AD16,AD child,Ic,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0961,AD16,AD child,Ac,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0962,AD16,AD child,Ac,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0968,AD16,AD child,Oc,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0972,AD16,AD child,Ra,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0970,AD16,AD child,Pc,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0963,AD16,AD child,Gb,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0974,AD16,AD child,Vf,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0973,AD16,AD child,Vf,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0969,AD16,AD child,Pc,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0964,AD16,AD child,Gb,L,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET0967,AD16,AD child,Oc,R,post-flare-2,2014,NA,8.4,Mild,To be announced,To be announced,United States
+MET1109,AD16,AD child,Oc,L,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1111,AD16,AD child,Pc,L,flare-3,2014,U,25.7,Moderate,To be announced,To be announced,United States
+MET1106,AD16,AD child,Ic,R,flare-3,2014,U,25.7,Moderate,To be announced,To be announced,United States
+MET1107,AD16,AD child,Ic,L,flare-3,2014,U,25.7,Moderate,To be announced,To be announced,United States
+MET1110,AD16,AD child,Pc,R,flare-3,2014,U,25.7,Moderate,To be announced,To be announced,United States
+MET1112,AD16,AD child,Ra,R,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1113,AD16,AD child,Ra,L,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1105,AD16,AD child,Gb,L,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1104,AD16,AD child,Gb,R,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1103,AD16,AD child,Ac,L,flare-3,2014,U,25.7,Moderate,To be announced,To be announced,United States
+MET1115,AD16,AD child,Vf,L,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1102,AD16,AD child,Ac,R,flare-3,2014,U,25.7,Moderate,To be announced,To be announced,United States
+MET1114,AD16,AD child,Vf,R,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1108,AD16,AD child,Oc,R,flare-3,2014,A,25.7,Moderate,To be announced,To be announced,United States
+MET1120,AD16,AD child,Ic,R,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1125,AD16,AD child,Pc,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1117,AD16,AD child,Ac,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1116,AD16,AD child,Ac,R,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1118,AD16,AD child,Gb,R,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1123,AD16,AD child,Oc,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1127,AD16,AD child,Ra,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1119,AD16,AD child,Gb,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1126,AD16,AD child,Ra,R,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1121,AD16,AD child,Ic,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1124,AD16,AD child,Pc,R,flare-4,2014,U,39.2,Moderate,To be announced,To be announced,United States
+MET1122,AD16,AD child,Oc,R,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1129,AD16,AD child,Vf,L,flare-4,2014,A,39.2,Moderate,To be announced,To be announced,United States
+MET1136,AD16,AD child,Oc,R,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1140,AD16,AD child,Ra,R,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1134,AD16,AD child,Ic,R,post-flare-3,2014,U,17.7,Mild,To be announced,To be announced,United States
+MET1131,AD16,AD child,Ac,L,post-flare-3,2014,U,17.7,Mild,To be announced,To be announced,United States
+MET1143,AD16,AD child,Vf,L,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1133,AD16,AD child,Gb,L,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1142,AD16,AD child,Vf,R,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1139,AD16,AD child,Pc,L,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1132,AD16,AD child,Gb,R,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1130,AD16,AD child,Ac,R,post-flare-3,2014,U,17.7,Mild,To be announced,To be announced,United States
+MET1138,AD16,AD child,Pc,R,post-flare-3,2014,A,17.7,Mild,To be announced,To be announced,United States
+MET1135,AD16,AD child,Ic,L,post-flare-3,2014,U,17.7,Mild,To be announced,To be announced,United States
+MET1384,AD16,AD child,Ac,L,post-flare-4,2014,U,12,Mild,To be announced,To be announced,United States
+MET1390,AD16,AD child,Oc,L,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1387,AD16,AD child,Ic,R,post-flare-4,2014,U,12,Mild,To be announced,To be announced,United States
+MET1392,AD16,AD child,Pc,L,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1393,AD16,AD child,Ra,R,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1391,AD16,AD child,Pc,R,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1395,AD16,AD child,Vf,R,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1383,AD16,AD child,Ac,R,post-flare-4,2014,U,12,Mild,To be announced,To be announced,United States
+MET1394,AD16,AD child,Ra,L,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1389,AD16,AD child,Oc,R,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1396,AD16,AD child,Vf,L,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1385,AD16,AD child,Gb,R,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1386,AD16,AD child,Gb,L,post-flare-4,2014,A,12,Mild,To be announced,To be announced,United States
+MET1388,AD16,AD child,Ic,L,post-flare-4,2014,U,12,Mild,To be announced,To be announced,United States
+MET1402,AD16,AD child,Ic,L,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1410,AD16,AD child,Vf,L,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1404,AD16,AD child,Oc,L,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1400,AD16,AD child,Gb,L,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1407,AD16,AD child,Ra,R,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1409,AD16,AD child,Vf,R,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1398,AD16,AD child,Ac,L,flare-5,2014,U,16.6,Mild,To be announced,To be announced,United States
+MET1405,AD16,AD child,Pc,R,flare-5,2014,U,16.6,Mild,To be announced,To be announced,United States
+MET1401,AD16,AD child,Ic,R,flare-5,2014,U,16.6,Mild,To be announced,To be announced,United States
+MET1403,AD16,AD child,Oc,R,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1399,AD16,AD child,Gb,R,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1406,AD16,AD child,Pc,L,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1397,AD16,AD child,Ac,R,flare-5,2014,U,16.6,Mild,To be announced,To be announced,United States
+MET1408,AD16,AD child,Ra,L,flare-5,2014,A,16.6,Mild,To be announced,To be announced,United States
+MET1653,AD16,AD child,Vf,L,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1645,AD16,AD child,Gb,L,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1652,AD16,AD child,Vf,R,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1642,AD16,AD child,Ac,R,flare-6,2015,U,19.8,Mild,To be announced,To be announced,United States
+MET1644,AD16,AD child,Gb,R,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1648,AD16,AD child,Pc,R,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1646,AD16,AD child,Ic,R,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1647,AD16,AD child,Ic,L,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1649,AD16,AD child,Pc,L,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1643,AD16,AD child,Ac,L,flare-6,2015,U,19.8,Mild,To be announced,To be announced,United States
+MET1650,AD16,AD child,Ra,R,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1651,AD16,AD child,Ra,L,flare-6,2015,A,19.8,Mild,To be announced,To be announced,United States
+MET1033,AD17,AD child,Gb,L,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1041,AD17,AD child,Ic,R,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1042,AD17,AD child,Oc,R,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1043,AD17,AD child,Pc,R,flare-1,2014,A,29.3,Moderate,To be announced,To be announced,United States
+MET1036,AD17,AD child,Pc,L,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1034,AD17,AD child,Ic,L,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1032,AD17,AD child,Ac,L,flare-1,2014,A,29.3,Moderate,To be announced,To be announced,United States
+MET1040,AD17,AD child,Gb,R,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1038,AD17,AD child,Vf,L,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1044,AD17,AD child,Ra,R,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1039,AD17,AD child,Ac,R,flare-1,2014,A,29.3,Moderate,To be announced,To be announced,United States
+MET1035,AD17,AD child,Oc,L,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1037,AD17,AD child,Ra,L,flare-1,2014,U,29.3,Moderate,To be announced,To be announced,United States
+MET1046,AD17,AD child,Ac,L,post-flare-1,2014,A,13.8,Mild,To be announced,To be announced,United States
+MET1052,AD17,AD child,Vf,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1047,AD17,AD child,Gb,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1048,AD17,AD child,Ic,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1058,AD17,AD child,Ra,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1051,AD17,AD child,Ra,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1057,AD17,AD child,Pc,R,post-flare-1,2014,A,13.8,Mild,To be announced,To be announced,United States
+MET1055,AD17,AD child,Ic,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1049,AD17,AD child,Oc,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1050,AD17,AD child,Pc,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1054,AD17,AD child,Gb,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1059,AD17,AD child,Vf,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1056,AD17,AD child,Oc,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1053,AD17,AD child,Ac,R,post-flare-1,2014,A,13.8,Mild,To be announced,To be announced,United States
+MET1062,AD17,AD child,Ic,L,baseline-2,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1060,AD17,AD child,Ac,L,baseline-2,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1072,AD17,AD child,Ra,R,baseline-2,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1063,AD17,AD child,Oc,L,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1061,AD17,AD child,Gb,L,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1069,AD17,AD child,Ic,R,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1066,AD17,AD child,Vf,L,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1068,AD17,AD child,Gb,R,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1071,AD17,AD child,Pc,R,baseline-2,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1070,AD17,AD child,Oc,R,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1065,AD17,AD child,Ra,L,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1073,AD17,AD child,Vf,R,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1067,AD17,AD child,Ac,R,baseline-2,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1064,AD17,AD child,Pc,L,baseline-2,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET0811,AD18,AD child,Ac,R,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0813,AD18,AD child,Pc,R,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0814,AD18,AD child,Ra,R,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0805,AD18,AD child,Oc,C,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0810,AD18,AD child,Vf,L,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0807,AD18,AD child,Ic,L,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0808,AD18,AD child,Pc,L,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0815,AD18,AD child,Vf,R,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0806,AD18,AD child,Ac,L,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0809,AD18,AD child,Ra,L,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0812,AD18,AD child,Ic,R,flare-1,2013,A,68.9,Severe,To be announced,To be announced,United States
+MET0804,AD18,AD child,Gb,C,flare-1,2013,U,68.9,Severe,To be announced,To be announced,United States
+MET0820,AD18,AD child,Ac,L,post-flare-1,2013,U,18.9,Mild,To be announced,To be announced,United States
+MET0821,AD18,AD child,Ic,L,post-flare-1,2013,U,18.9,Mild,To be announced,To be announced,United States
+MET0819,AD18,AD child,Oc,C,post-flare-1,2013,A,18.9,Mild,To be announced,To be announced,United States
+MET0818,AD18,AD child,Gb,C,post-flare-1,2013,A,18.9,Mild,To be announced,To be announced,United States
+MET0825,AD18,AD child,Ac,R,post-flare-1,2013,U,18.9,Mild,To be announced,To be announced,United States
+MET0823,AD18,AD child,Ra,L,post-flare-1,2013,U,18.9,Mild,To be announced,To be announced,United States
+MET0824,AD18,AD child,Vf,L,post-flare-1,2013,A,18.9,Mild,To be announced,To be announced,United States
+MET0826,AD18,AD child,Ic,R,post-flare-1,2013,U,18.9,Mild,To be announced,To be announced,United States
+MET0829,AD18,AD child,Vf,R,post-flare-1,2013,A,18.9,Mild,To be announced,To be announced,United States
+MET0827,AD18,AD child,Pc,R,post-flare-1,2013,A,18.9,Mild,To be announced,To be announced,United States
+MET0822,AD18,AD child,Pc,L,post-flare-1,2013,A,18.9,Mild,To be announced,To be announced,United States
+MET0828,AD18,AD child,Ra,R,post-flare-1,2013,U,18.9,Mild,To be announced,To be announced,United States
+MET0837,AD18,AD child,Ra,L,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0832,AD18,AD child,Ac,L,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0833,AD18,AD child,Gb,L,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0838,AD18,AD child,Vf,L,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0834,AD18,AD child,Ic,L,baseline-1,2013,A,6.95,Mild,To be announced,To be announced,United States
+MET0844,AD18,AD child,Ra,R,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0836,AD18,AD child,Pc,L,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0835,AD18,AD child,Oc,L,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0845,AD18,AD child,Vf,R,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0839,AD18,AD child,Ac,R,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0843,AD18,AD child,Pc,R,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0841,AD18,AD child,Ic,R,baseline-1,2013,A,6.95,Mild,To be announced,To be announced,United States
+MET0840,AD18,AD child,Gb,R,baseline-1,2013,U,6.95,Mild,To be announced,To be announced,United States
+MET0842,AD18,AD child,Oc,R,baseline-1,2013,A,6.95,Mild,To be announced,To be announced,United States
+MET5269,AD19,AD child,Pc,L,flare-1,2013,A,41.7,Severe,To be announced,To be announced,United States
+MET5268,AD19,AD child,Ac,L,flare-1,2013,A,41.7,Severe,To be announced,To be announced,United States
+MET4669,AD19,AD child,Ac,R,flare-1,2013,A,41.7,Severe,To be announced,To be announced,United States
+MET0856,AD20,AD child,Gb,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0848,AD20,AD child,Ac,L,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0852,AD20,AD child,Pc,L,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0860,AD20,AD child,Ra,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0857,AD20,AD child,Ic,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0854,AD20,AD child,Vf,L,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0853,AD20,AD child,Ra,L,flare-1,2013,U,61.2,Severe,To be announced,To be announced,United States
+MET0851,AD20,AD child,Oc,L,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0861,AD20,AD child,Vf,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0855,AD20,AD child,Ac,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0858,AD20,AD child,Oc,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0850,AD20,AD child,Ic,L,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0849,AD20,AD child,Gb,L,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0859,AD20,AD child,Pc,R,flare-1,2013,A,61.2,Severe,To be announced,To be announced,United States
+MET0877,AD20,AD child,Vf,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0873,AD20,AD child,Ic,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0875,AD20,AD child,Pc,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0876,AD20,AD child,Ra,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0872,AD20,AD child,Gb,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0871,AD20,AD child,Ac,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0874,AD20,AD child,Oc,R,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0870,AD20,AD child,Vf,L,post-flare-1,2013,U,19.1,Mild,To be announced,To be announced,United States
+MET0888,AD20,AD child,Gb,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0886,AD20,AD child,Vf,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0889,AD20,AD child,Ic,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0887,AD20,AD child,Ac,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0893,AD20,AD child,Vf,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0881,AD20,AD child,Gb,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0884,AD20,AD child,Pc,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0880,AD20,AD child,Ac,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0890,AD20,AD child,Oc,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0891,AD20,AD child,Pc,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0885,AD20,AD child,Ra,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0883,AD20,AD child,Oc,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0892,AD20,AD child,Ra,R,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET0882,AD20,AD child,Ic,L,baseline-1,2014,U,19.4,Mild,To be announced,To be announced,United States
+MET1150,AD20,AD child,Oc,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1154,AD20,AD child,Ra,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1148,AD20,AD child,Ic,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1157,AD20,AD child,Vf,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1156,AD20,AD child,Vf,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1153,AD20,AD child,Pc,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1145,AD20,AD child,Ac,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1151,AD20,AD child,Oc,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1146,AD20,AD child,Gb,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1155,AD20,AD child,Ra,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1144,AD20,AD child,Ac,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1147,AD20,AD child,Gb,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1149,AD20,AD child,Ic,L,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1152,AD20,AD child,Pc,R,baseline-2,2014,U,9.4,Mild,To be announced,To be announced,United States
+MET1170,AD20,AD child,Vf,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1166,AD20,AD child,Pc,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1169,AD20,AD child,Ra,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1165,AD20,AD child,Oc,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1164,AD20,AD child,Oc,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1160,AD20,AD child,Gb,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1167,AD20,AD child,Pc,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1162,AD20,AD child,Ic,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1158,AD20,AD child,Ac,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1163,AD20,AD child,Ic,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1171,AD20,AD child,Vf,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1168,AD20,AD child,Ra,R,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1159,AD20,AD child,Ac,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1161,AD20,AD child,Gb,L,baseline-3,2014,U,15.3,Mild,To be announced,To be announced,United States
+MET1176,AD20,AD child,Ic,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1185,AD20,AD child,Vf,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1172,AD20,AD child,Ac,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1184,AD20,AD child,Vf,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1181,AD20,AD child,Pc,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1183,AD20,AD child,Ra,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1179,AD20,AD child,Oc,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1173,AD20,AD child,Ac,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1178,AD20,AD child,Oc,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1177,AD20,AD child,Ic,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1175,AD20,AD child,Gb,L,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1174,AD20,AD child,Gb,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1182,AD20,AD child,Ra,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1180,AD20,AD child,Pc,R,flare-2,2014,U,24.9,Moderate,To be announced,To be announced,United States
+MET1192,AD20,AD child,Oc,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1199,AD20,AD child,Vf,L,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1189,AD20,AD child,Gb,L,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1186,AD20,AD child,Ac,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1187,AD20,AD child,Ac,L,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1193,AD20,AD child,Oc,L,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1188,AD20,AD child,Gb,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1198,AD20,AD child,Vf,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1195,AD20,AD child,Pc,L,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1197,AD20,AD child,Ra,L,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1196,AD20,AD child,Ra,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1194,AD20,AD child,Pc,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET1190,AD20,AD child,Ic,R,post-flare-2,2014,U,10.1,Mild,To be announced,To be announced,United States
+MET5272,AD21,AD child,Ac,L,flare-1,2014,A,52.5,Severe,To be announced,To be announced,United States
+MET5273,AD21,AD child,Pc,L,flare-1,2014,A,52.5,Severe,To be announced,To be announced,United States
+MET4672,AD21,AD child,Ac,R,flare-1,2014,A,52.5,Severe,To be announced,To be announced,United States
+MET1273,AD22,AD child,Oc,L,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1277,AD22,AD child,Ac,R,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1274,AD22,AD child,Pc,L,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1279,AD22,AD child,Ic,R,flare-1,2014,U,41.1,Severe,To be announced,To be announced,United States
+MET1280,AD22,AD child,Oc,R,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1276,AD22,AD child,Vf,L,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1270,AD22,AD child,Ac,L,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1275,AD22,AD child,Ra,L,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1283,AD22,AD child,Vf,R,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1272,AD22,AD child,Ic,L,flare-1,2014,U,41.1,Severe,To be announced,To be announced,United States
+MET1282,AD22,AD child,Ra,R,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1271,AD22,AD child,Gb,L,flare-1,2014,U,41.1,Severe,To be announced,To be announced,United States
+MET1281,AD22,AD child,Pc,R,flare-1,2014,A,41.1,Severe,To be announced,To be announced,United States
+MET1278,AD22,AD child,Gb,R,flare-1,2014,U,41.1,Severe,To be announced,To be announced,United States
+MET1284,AD22,AD child,Ac,L,post-flare-1,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1295,AD22,AD child,Pc,R,post-flare-1,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1292,AD22,AD child,Gb,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1297,AD22,AD child,Vf,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1291,AD22,AD child,Ac,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1293,AD22,AD child,Ic,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1286,AD22,AD child,Ic,L,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1294,AD22,AD child,Oc,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1697,AD22,AD child,Ac,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1285,AD22,AD child,Gb,L,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1290,AD22,AD child,Vf,L,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1296,AD22,AD child,Ra,R,post-flare-1,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1288,AD22,AD child,Pc,L,post-flare-1,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1698,AD22,AD child,Ac,R,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1289,AD22,AD child,Ra,L,post-flare-1,2014,A,11.7,Mild,To be announced,To be announced,United States
+MET1287,AD22,AD child,Oc,L,post-flare-1,2014,U,11.7,Mild,To be announced,To be announced,United States
+MET1298,AD22,AD child,Ac,L,baseline-1,2014,A,17.4,Mild,To be announced,To be announced,United States
+MET1307,AD22,AD child,Ic,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1308,AD22,AD child,Oc,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1300,AD22,AD child,Ic,L,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1306,AD22,AD child,Gb,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1694,AD22,AD child,Vf,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1304,AD22,AD child,Vf,L,baseline-1,2014,A,17.4,Mild,To be announced,To be announced,United States
+MET1695,AD22,AD child,Vf,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1303,AD22,AD child,Ra,L,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1301,AD22,AD child,Oc,L,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1302,AD22,AD child,Pc,L,baseline-1,2014,A,17.4,Mild,To be announced,To be announced,United States
+MET1299,AD22,AD child,Gb,L,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1311,AD22,AD child,Vf,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1696,AD22,AD child,Vf,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1305,AD22,AD child,Ac,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1309,AD22,AD child,Pc,R,baseline-1,2014,A,17.4,Mild,To be announced,To be announced,United States
+MET1310,AD22,AD child,Ra,R,baseline-1,2014,U,17.4,Mild,To be announced,To be announced,United States
+MET1202,AD23,AD child,Gb,R,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1206,AD23,AD child,Oc,R,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1201,AD23,AD child,Ac,L,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1212,AD23,AD child,Vf,R,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1209,AD23,AD child,Pc,L,baseline-1,2014,A,26.3,Moderate,To be announced,To be announced,United States
+MET1213,AD23,AD child,Vf,L,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1211,AD23,AD child,Ra,L,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1208,AD23,AD child,Pc,R,baseline-1,2014,A,26.3,Moderate,To be announced,To be announced,United States
+MET1210,AD23,AD child,Ra,R,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1204,AD23,AD child,Ic,R,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1203,AD23,AD child,Gb,L,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1205,AD23,AD child,Ic,L,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1200,AD23,AD child,Ac,R,baseline-1,2014,A,26.3,Moderate,To be announced,To be announced,United States
+MET1207,AD23,AD child,Oc,L,baseline-1,2014,U,26.3,Moderate,To be announced,To be announced,United States
+MET1225,AD23,AD child,Ra,L,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1227,AD23,AD child,Vf,L,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1224,AD23,AD child,Ra,R,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1222,AD23,AD child,Pc,R,baseline-2,2014,A,27.6,Moderate,To be announced,To be announced,United States
+MET1221,AD23,AD child,Oc,L,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1216,AD23,AD child,Gb,R,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1215,AD23,AD child,Ac,L,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1218,AD23,AD child,Ic,R,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1214,AD23,AD child,Ac,R,baseline-2,2014,A,27.6,Moderate,To be announced,To be announced,United States
+MET1217,AD23,AD child,Gb,L,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1223,AD23,AD child,Pc,L,baseline-2,2014,A,27.6,Moderate,To be announced,To be announced,United States
+MET1219,AD23,AD child,Ic,L,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1226,AD23,AD child,Vf,R,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1220,AD23,AD child,Oc,R,baseline-2,2014,U,27.6,Moderate,To be announced,To be announced,United States
+MET1238,AD23,AD child,Ra,R,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1231,AD23,AD child,Gb,L,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1234,AD23,AD child,Oc,R,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1233,AD23,AD child,Ic,L,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1228,AD23,AD child,Ac,R,flare-1,2014,A,36.8,Moderate,To be announced,To be announced,United States
+MET1239,AD23,AD child,Ra,L,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1241,AD23,AD child,Vf,L,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1229,AD23,AD child,Ac,L,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1230,AD23,AD child,Gb,R,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1235,AD23,AD child,Oc,L,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1240,AD23,AD child,Vf,R,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1232,AD23,AD child,Ic,R,flare-1,2014,U,36.8,Moderate,To be announced,To be announced,United States
+MET1237,AD23,AD child,Pc,L,flare-1,2014,A,36.8,Moderate,To be announced,To be announced,United States
+MET1236,AD23,AD child,Pc,R,flare-1,2014,A,36.8,Moderate,To be announced,To be announced,United States
+MET1249,AD23,AD child,Oc,L,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1244,AD23,AD child,Gb,R,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1243,AD23,AD child,Ac,L,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1254,AD23,AD child,Vf,R,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1253,AD23,AD child,Ra,L,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1248,AD23,AD child,Oc,R,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1252,AD23,AD child,Ra,R,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1246,AD23,AD child,Ic,R,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1247,AD23,AD child,Ic,L,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1255,AD23,AD child,Vf,L,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1250,AD23,AD child,Pc,R,flare-2,2014,A,32.8,Moderate,To be announced,To be announced,United States
+MET1242,AD23,AD child,Ac,R,flare-2,2014,A,32.8,Moderate,To be announced,To be announced,United States
+MET1245,AD23,AD child,Gb,L,flare-2,2014,U,32.8,Moderate,To be announced,To be announced,United States
+MET1251,AD23,AD child,Pc,L,flare-2,2014,A,32.8,Moderate,To be announced,To be announced,United States
+MET1423,AD23,AD child,Ra,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1421,AD23,AD child,Pc,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1415,AD23,AD child,Gb,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1422,AD23,AD child,Ra,R,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1418,AD23,AD child,Oc,R,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1412,AD23,AD child,Ac,R,baseline-3,2014,A,7.2,Mild,To be announced,To be announced,United States
+MET1424,AD23,AD child,Vf,R,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1417,AD23,AD child,Ic,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1416,AD23,AD child,Ic,R,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1425,AD23,AD child,Vf,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1414,AD23,AD child,Gb,R,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1420,AD23,AD child,Pc,R,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1413,AD23,AD child,Ac,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET1419,AD23,AD child,Oc,L,baseline-3,2014,U,7.2,Mild,To be announced,To be announced,United States
+MET4674,AD24,AD child,Ac,R,flare-1,2014,A,43.5,Severe,To be announced,To be announced,United States
+MET5275,AD24,AD child,Pc,L,flare-1,2014,A,43.5,Severe,To be announced,To be announced,United States
+MET5274,AD24,AD child,Ac,L,flare-1,2014,A,43.5,Severe,To be announced,To be announced,United States
+MET1473,AD25,AD child,Oc,R,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1477,AD25,AD child,Ra,R,flare-1,2014,U,42,Severe,To be announced,To be announced,United States
+MET1479,AD25,AD child,Vf,R,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1476,AD25,AD child,Pc,L,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1474,AD25,AD child,Oc,L,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1472,AD25,AD child,Ic,L,flare-1,2014,U,42,Severe,To be announced,To be announced,United States
+MET1480,AD25,AD child,Vf,L,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1478,AD25,AD child,Ra,L,flare-1,2014,U,42,Severe,To be announced,To be announced,United States
+MET1475,AD25,AD child,Pc,R,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1470,AD25,AD child,Gb,L,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1467,AD25,AD child,Ac,R,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1469,AD25,AD child,Gb,R,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1471,AD25,AD child,Ic,R,flare-1,2014,U,42,Severe,To be announced,To be announced,United States
+MET1468,AD25,AD child,Ac,L,flare-1,2014,A,42,Severe,To be announced,To be announced,United States
+MET1492,AD25,AD child,Ra,L,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1490,AD25,AD child,Pc,L,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1485,AD25,AD child,Ic,R,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1494,AD25,AD child,Vf,L,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1481,AD25,AD child,Ac,R,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1482,AD25,AD child,Ac,L,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1489,AD25,AD child,Pc,R,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1483,AD25,AD child,Gb,R,post-flare-1,2014,U,18.3,Mild,To be announced,To be announced,United States
+MET1491,AD25,AD child,Ra,R,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1486,AD25,AD child,Ic,L,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1488,AD25,AD child,Oc,L,post-flare-1,2014,U,18.3,Mild,To be announced,To be announced,United States
+MET1493,AD25,AD child,Vf,R,post-flare-1,2014,A,18.3,Mild,To be announced,To be announced,United States
+MET1487,AD25,AD child,Oc,R,post-flare-1,2014,U,18.3,Mild,To be announced,To be announced,United States
+MET1484,AD25,AD child,Gb,L,post-flare-1,2014,U,18.3,Mild,To be announced,To be announced,United States
+MET1659,AD25,AD child,Ic,L,flare-2,2015,U,38.6,Moderate,To be announced,To be announced,United States
+MET1665,AD25,AD child,Vf,L,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1661,AD25,AD child,Pc,L,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1658,AD25,AD child,Ic,R,flare-2,2015,U,38.6,Moderate,To be announced,To be announced,United States
+MET1654,AD25,AD child,Ac,R,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1662,AD25,AD child,Ra,R,flare-2,2015,U,38.6,Moderate,To be announced,To be announced,United States
+MET1660,AD25,AD child,Pc,R,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1663,AD25,AD child,Ra,L,flare-2,2015,U,38.6,Moderate,To be announced,To be announced,United States
+MET1656,AD25,AD child,Gb,R,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1657,AD25,AD child,Gb,L,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1664,AD25,AD child,Vf,R,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET1655,AD25,AD child,Ac,L,flare-2,2015,A,38.6,Moderate,To be announced,To be announced,United States
+MET4577,AD25,AD child,Ac,NA,baseline-1,2015,NA,30.5,Moderate,To be announced,To be announced,United States
+MET4578,AD25,AD child,Ac,NA,flare-3,2016,NA,52.8,Severe,To be announced,To be announced,United States
+MET1342,AD26,AD child,Gb,L,flare-1,2014,U,45.2,Severe,To be announced,To be announced,United States
+MET1353,AD26,AD child,Ra,R,flare-1,2014,U,45.2,Severe,To be announced,To be announced,United States
+MET1352,AD26,AD child,Pc,R,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1349,AD26,AD child,Gb,R,flare-1,2014,U,45.2,Severe,To be announced,To be announced,United States
+MET1341,AD26,AD child,Ac,L,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1350,AD26,AD child,Ic,R,flare-1,2014,U,45.2,Severe,To be announced,To be announced,United States
+MET1351,AD26,AD child,Oc,R,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1346,AD26,AD child,Ra,L,flare-1,2014,U,45.2,Severe,To be announced,To be announced,United States
+MET1343,AD26,AD child,Ic,L,flare-1,2014,U,45.2,Severe,To be announced,To be announced,United States
+MET1354,AD26,AD child,Vf,R,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1348,AD26,AD child,Ac,R,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1344,AD26,AD child,Oc,L,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1347,AD26,AD child,Vf,L,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1345,AD26,AD child,Pc,L,flare-1,2014,A,45.2,Severe,To be announced,To be announced,United States
+MET1364,AD26,AD child,Ic,R,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1360,AD26,AD child,Ra,L,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1361,AD26,AD child,Vf,L,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1367,AD26,AD child,Ra,R,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1365,AD26,AD child,Oc,R,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1366,AD26,AD child,Pc,R,post-flare-1,2014,A,20.5,Moderate,To be announced,To be announced,United States
+MET1356,AD26,AD child,Gb,L,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1363,AD26,AD child,Gb,R,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1359,AD26,AD child,Pc,L,post-flare-1,2014,A,20.5,Moderate,To be announced,To be announced,United States
+MET1357,AD26,AD child,Ic,L,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1355,AD26,AD child,Ac,L,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1368,AD26,AD child,Vf,R,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1362,AD26,AD child,Ac,R,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1358,AD26,AD child,Oc,L,post-flare-1,2014,U,20.5,Moderate,To be announced,To be announced,United States
+MET1378,AD26,AD child,Ic,R,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1373,AD26,AD child,Pc,L,baseline-1,2014,A,13.2,Mild,To be announced,To be announced,United States
+MET1372,AD26,AD child,Oc,L,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1380,AD26,AD child,Pc,R,baseline-1,2014,A,13.2,Mild,To be announced,To be announced,United States
+MET1381,AD26,AD child,Ra,R,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1379,AD26,AD child,Oc,R,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1369,AD26,AD child,Ac,L,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1370,AD26,AD child,Gb,L,baseline-1,2014,A,13.2,Mild,To be announced,To be announced,United States
+MET1376,AD26,AD child,Ac,R,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1375,AD26,AD child,Vf,L,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1371,AD26,AD child,Ic,L,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1382,AD26,AD child,Vf,R,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1377,AD26,AD child,Gb,R,baseline-1,2014,A,13.2,Mild,To be announced,To be announced,United States
+MET1374,AD26,AD child,Ra,L,baseline-1,2014,U,13.2,Mild,To be announced,To be announced,United States
+MET1496,AD27,AD child,Ac,L,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1504,AD27,AD child,Pc,L,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1506,AD27,AD child,Ra,L,flare-1,2014,U,38.7,Moderate,To be announced,To be announced,United States
+MET1508,AD27,AD child,Vf,L,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1507,AD27,AD child,Vf,R,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1495,AD27,AD child,Ac,R,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1500,AD27,AD child,Ic,L,flare-1,2014,U,38.7,Moderate,To be announced,To be announced,United States
+MET1502,AD27,AD child,Oc,L,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1501,AD27,AD child,Oc,R,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1499,AD27,AD child,Ic,R,flare-1,2014,U,38.7,Moderate,To be announced,To be announced,United States
+MET1497,AD27,AD child,Gb,R,flare-1,2014,U,38.7,Moderate,To be announced,To be announced,United States
+MET1503,AD27,AD child,Pc,R,flare-1,2014,A,38.7,Moderate,To be announced,To be announced,United States
+MET1498,AD27,AD child,Gb,L,flare-1,2014,U,38.7,Moderate,To be announced,To be announced,United States
+MET1505,AD27,AD child,Ra,R,flare-1,2014,U,38.7,Moderate,To be announced,To be announced,United States
+MET1513,AD27,AD child,Ic,R,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1521,AD27,AD child,Vf,R,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1522,AD27,AD child,Vf,L,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1509,AD27,AD child,Ac,R,post-flare-1,2014,A,18.8,Mild,To be announced,To be announced,United States
+MET1515,AD27,AD child,Oc,R,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1520,AD27,AD child,Ra,L,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1511,AD27,AD child,Gb,R,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1517,AD27,AD child,Pc,R,post-flare-1,2014,A,18.8,Mild,To be announced,To be announced,United States
+MET1516,AD27,AD child,Oc,L,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1512,AD27,AD child,Gb,L,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1510,AD27,AD child,Ac,L,post-flare-1,2014,A,18.8,Mild,To be announced,To be announced,United States
+MET1519,AD27,AD child,Ra,R,post-flare-1,2014,U,18.8,Mild,To be announced,To be announced,United States
+MET1588,AD28,AD child,Pc,R,flare-1,2014,A,35.8,Moderate,To be announced,To be announced,United States
+MET1592,AD28,AD child,Vf,R,flare-1,2014,A,35.8,Moderate,To be announced,To be announced,United States
+MET1590,AD28,AD child,Ra,R,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1584,AD28,AD child,Ic,R,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1582,AD28,AD child,Gb,R,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1581,AD28,AD child,Ac,L,flare-1,2014,A,35.8,Moderate,To be announced,To be announced,United States
+MET1587,AD28,AD child,Oc,L,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1591,AD28,AD child,Ra,L,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1585,AD28,AD child,Ic,L,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1580,AD28,AD child,Ac,R,flare-1,2014,A,35.8,Moderate,To be announced,To be announced,United States
+MET1589,AD28,AD child,Pc,L,flare-1,2014,A,35.8,Moderate,To be announced,To be announced,United States
+MET1583,AD28,AD child,Gb,L,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1586,AD28,AD child,Oc,R,flare-1,2014,U,35.8,Moderate,To be announced,To be announced,United States
+MET1593,AD28,AD child,Vf,L,flare-1,2014,A,35.8,Moderate,To be announced,To be announced,United States
+MET1599,AD28,AD child,Ic,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1605,AD28,AD child,Ra,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1606,AD28,AD child,Vf,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1607,AD28,AD child,Vf,L,post-flare-1,2014,A,13.8,Mild,To be announced,To be announced,United States
+MET1597,AD28,AD child,Gb,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1600,AD28,AD child,Oc,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1601,AD28,AD child,Oc,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1603,AD28,AD child,Pc,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1602,AD28,AD child,Pc,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1594,AD28,AD child,Ac,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1596,AD28,AD child,Gb,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1598,AD28,AD child,Ic,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1595,AD28,AD child,Ac,L,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1604,AD28,AD child,Ra,R,post-flare-1,2014,U,13.8,Mild,To be announced,To be announced,United States
+MET1564,AD29,AD child,Vf,R,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1562,AD29,AD child,Ra,R,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1563,AD29,AD child,Ra,L,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1559,AD29,AD child,Oc,L,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1552,AD29,AD child,Ac,R,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1556,AD29,AD child,Ic,R,flare-1,2014,U,41.6,Severe,To be announced,To be announced,United States
+MET1557,AD29,AD child,Ic,L,flare-1,2014,U,41.6,Severe,To be announced,To be announced,United States
+MET1565,AD29,AD child,Vf,L,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1555,AD29,AD child,Gb,L,flare-1,2014,U,41.6,Severe,To be announced,To be announced,United States
+MET1553,AD29,AD child,Ac,L,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1560,AD29,AD child,Pc,R,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1554,AD29,AD child,Gb,R,flare-1,2014,U,41.6,Severe,To be announced,To be announced,United States
+MET1558,AD29,AD child,Oc,R,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1561,AD29,AD child,Pc,L,flare-1,2014,A,41.6,Severe,To be announced,To be announced,United States
+MET1574,AD29,AD child,Pc,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1573,AD29,AD child,Oc,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1568,AD29,AD child,Gb,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1575,AD29,AD child,Pc,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1566,AD29,AD child,Ac,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1567,AD29,AD child,Ac,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1569,AD29,AD child,Gb,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1578,AD29,AD child,Vf,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1572,AD29,AD child,Oc,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1579,AD29,AD child,Vf,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1576,AD29,AD child,Ra,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1577,AD29,AD child,Ra,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1570,AD29,AD child,Ic,R,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET1571,AD29,AD child,Ic,L,post-flare-1,2014,U,7,Mild,To be announced,To be announced,United States
+MET5278,AD30,AD child,Pc,L,flare-1,2015,A,66.2,Severe,To be announced,To be announced,United States
+MET4676,AD30,AD child,Ac,R,flare-1,2015,A,66.2,Severe,To be announced,To be announced,United States
+MET5277,AD30,AD child,Ac,L,flare-1,2015,A,66.2,Severe,To be announced,To be announced,United States
+MET5282,AD31,AD child,Pc,L,flare-1,2015,A,48.6,Severe,To be announced,To be announced,United States
+MET4678,AD31,AD child,Ac,R,flare-1,2015,A,48.6,Severe,To be announced,To be announced,United States
+MET5281,AD31,AD child,Ac,L,flare-1,2015,A,48.6,Severe,To be announced,To be announced,United States
+MET5284,AD32,AD child,Pc,L,flare-1,2015,A,49.2,Severe,To be announced,To be announced,United States
+MET5283,AD32,AD child,Ac,L,flare-1,2015,A,49.2,Severe,To be announced,To be announced,United States
+MET4680,AD32,AD child,Ac,R,flare-1,2015,A,49.2,Severe,To be announced,To be announced,United States
+MET1530,AD33,AD child,Oc,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1531,AD33,AD child,Oc,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1537,AD33,AD child,Vf,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1536,AD33,AD child,Vf,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1529,AD33,AD child,Ic,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1532,AD33,AD child,Pc,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1526,AD33,AD child,Gb,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1525,AD33,AD child,Ac,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1524,AD33,AD child,Ac,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1527,AD33,AD child,Gb,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1535,AD33,AD child,Ra,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1528,AD33,AD child,Ic,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1533,AD33,AD child,Pc,L,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1534,AD33,AD child,Ra,R,flare-1,2015,A,62.7,Severe,To be announced,To be announced,United States
+MET1545,AD33,AD child,Oc,L,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1541,AD33,AD child,Gb,L,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1546,AD33,AD child,Pc,R,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1547,AD33,AD child,Pc,L,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1548,AD33,AD child,Ra,R,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1538,AD33,AD child,Ac,R,post-flare-1,2015,U,11.3,Mild,To be announced,To be announced,United States
+MET1549,AD33,AD child,Ra,L,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1539,AD33,AD child,Ac,L,post-flare-1,2015,U,11.3,Mild,To be announced,To be announced,United States
+MET1550,AD33,AD child,Vf,R,post-flare-1,2015,U,11.3,Mild,To be announced,To be announced,United States
+MET1540,AD33,AD child,Gb,R,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1542,AD33,AD child,Ic,R,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1551,AD33,AD child,Vf,L,post-flare-1,2015,U,11.3,Mild,To be announced,To be announced,United States
+MET1544,AD33,AD child,Oc,R,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET1543,AD33,AD child,Ic,L,post-flare-1,2015,A,11.3,Mild,To be announced,To be announced,United States
+MET5286,AD34,AD child,Ac,L,flare-1,2015,A,59.5,Severe,To be announced,To be announced,United States
+MET4682,AD34,AD child,Ac,R,flare-1,2015,A,59.5,Severe,To be announced,To be announced,United States
+MET5287,AD34,AD child,Pc,L,flare-1,2015,A,59.5,Severe,To be announced,To be announced,United States
+MET1904,AD35,AD child,Ra,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1893,AD35,AD child,Ac,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1900,AD35,AD child,Oc,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1897,AD35,AD child,Ic,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1895,AD35,AD child,Gb,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1906,AD35,AD child,Vf,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1899,AD35,AD child,Oc,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1898,AD35,AD child,Ic,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1901,AD35,AD child,Pc,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1903,AD35,AD child,Ra,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1905,AD35,AD child,Vf,R,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1902,AD35,AD child,Pc,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1896,AD35,AD child,Gb,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1894,AD35,AD child,Ac,L,flare-1,2015,A,84,Severe,To be announced,To be announced,United States
+MET1913,AD35,AD child,Oc,R,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1911,AD35,AD child,Ic,R,post-flare-1,2015,U,20.5,Moderate,To be announced,To be announced,United States
+MET1909,AD35,AD child,Gb,R,post-flare-1,2015,U,20.5,Moderate,To be announced,To be announced,United States
+MET1917,AD35,AD child,Ra,R,post-flare-1,2015,U,20.5,Moderate,To be announced,To be announced,United States
+MET1915,AD35,AD child,Pc,R,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1908,AD35,AD child,Ac,L,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1914,AD35,AD child,Oc,L,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1920,AD35,AD child,Vf,L,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1910,AD35,AD child,Gb,L,post-flare-1,2015,U,20.5,Moderate,To be announced,To be announced,United States
+MET1919,AD35,AD child,Vf,R,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1907,AD35,AD child,Ac,R,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1918,AD35,AD child,Ra,L,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1916,AD35,AD child,Pc,L,post-flare-1,2015,A,20.5,Moderate,To be announced,To be announced,United States
+MET1912,AD35,AD child,Ic,L,post-flare-1,2015,U,20.5,Moderate,To be announced,To be announced,United States
+MET5289,AD36,AD child,Ac,L,flare-1,2016,U,NA,Moderate,To be announced,To be announced,United States
+MET4684,AD36,AD child,Ac,R,flare-1,2016,A,NA,Moderate,To be announced,To be announced,United States
+MET5310,AD37,AD child,Ac,L,flare-1,2016,A,57.7,Severe,To be announced,To be announced,United States
+MET5311,AD37,AD child,Pc,L,flare-1,2016,A,57.7,Severe,To be announced,To be announced,United States
+MET5313,AD38,AD child,Pc,L,flare-1,2016,A,63.5,Severe,To be announced,To be announced,United States
+MET4686,AD39,AD child,Ac,R,flare-1,2016,A,73.3,Severe,To be announced,To be announced,United States
+MET5292,AD39,AD child,Pc,L,flare-1,2016,A,73.3,Severe,To be announced,To be announced,United States
+MET5291,AD39,AD child,Ac,L,flare-1,2016,A,73.3,Severe,To be announced,To be announced,United States
+MET5294,AD40,AD child,Pc,L,flare-1,2017,A,49.1,Severe,To be announced,To be announced,United States
+MET5293,AD40,AD child,Ac,L,flare-1,2017,A,49.1,Severe,To be announced,To be announced,United States
+MET5298,AD41,AD child,Pc,L,flare-1,2017,A,50.4,Severe,To be announced,To be announced,United States
+MET5297,AD41,AD child,Ac,L,flare-1,2017,A,50.4,Severe,To be announced,To be announced,United States
+MET5299,AD42,AD child,Ac,L,flare-1,2018,A,44.2,Severe,To be announced,To be announced,United States
+MET5301,AD43,AD child,Ac,L,flare-1,2018,A,41.3,Severe,To be announced,To be announced,United States
+MET5302,AD43,AD child,Pc,L,flare-1,2018,A,41.3,Severe,To be announced,To be announced,United States
+MET3521,AD44,AD child,Ac,R,flare-1,2018,A,85,Severe,To be announced,To be announced,United States
+MET3522,AD44,AD child,Ic,R,flare-1,2018,A,85,Severe,To be announced,To be announced,United States
+MET3523,AD44,AD child,N,R,flare-1,2018,U,85,Severe,To be announced,To be announced,United States
+MET3524,AD44,AD child,Pc,R,flare-1,2018,A,85,Severe,To be announced,To be announced,United States
+MET3525,AD44,AD child,Ra,R,flare-1,2018,A,85,Severe,To be announced,To be announced,United States
+ERR5084111,C01,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084109,C01,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084110,C01,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084129,C02,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084130,C02,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084131,C02,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084196,C03,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084194,C03,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084195,C03,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084176,C04,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084177,C04,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084178,C04,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083256,C05,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083255,C05,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083254,C05,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084182,C06,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084183,C06,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084181,C06,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084187,C07,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084186,C07,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084190,C08,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084191,C08,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083126,C09,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083127,C09,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084160,C10,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084161,C10,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083260,C11,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083259,C11,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083241,C12,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083243,C12,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083242,C12,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084136,C13,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084134,C13,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084135,C13,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083131,C14,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083130,C14,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083247,C15,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083246,C15,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084139,C16,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5084140,C16,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083251,C17,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083250,C17,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083264,C18,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083263,C18,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083173,C19,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083174,C19,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083172,C19,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083163,C20,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083165,C20,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083164,C20,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083139,C21,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083138,C21,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083268,C22,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083267,C22,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083168,C23,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083169,C23,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083123,C24,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083122,C24,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083121,C24,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083134,C25,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083135,C25,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083160,C26,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083159,C26,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083151,C27,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083152,C27,Healthy child,Ch,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083150,C27,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083155,C28,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083156,C28,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083146,C29,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083147,C29,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083143,C30,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+ERR5083142,C30,Healthy child,Vf,NA,NA,NA,NA,0,NA,PRJEB42399,ERP126250,Singapore
+MET0895,HC01,Healthy child,Gb,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0900,HC01,Healthy child,Ax,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0901,HC01,Healthy child,Ch,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0896,HC01,Healthy child,Mb,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0906,HC01,Healthy child,Ra,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0903,HC01,Healthy child,Gb,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0899,HC01,Healthy child,Ac,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0905,HC01,Healthy child,Pc,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0898,HC01,Healthy child,Al,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0907,HC01,Healthy child,Vf,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0902,HC01,Healthy child,Ea,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0904,HC01,Healthy child,Ic,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0894,HC01,Healthy child,Ba,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0897,HC01,Healthy child,Oc,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0992,HC01,Healthy child,Ac,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0991,HC01,Healthy child,Al,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0994,HC01,Healthy child,Ba,C,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0995,HC01,Healthy child,Ch,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0996,HC01,Healthy child,Ea,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0997,HC01,Healthy child,Gb,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0999,HC01,Healthy child,Ic,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1000,HC01,Healthy child,Mb,C,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1003,HC01,Healthy child,Ra,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1002,HC01,Healthy child,Pc,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1004,HC01,Healthy child,Vf,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0998,HC01,Healthy child,Gb,C,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0993,HC01,Healthy child,Ax,R,V0-2,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0990,HC02,Healthy child,Vf,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0987,HC02,Healthy child,Oc,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0984,HC02,Healthy child,Gb,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0981,HC02,Healthy child,Ch,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0982,HC02,Healthy child,Ea,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0986,HC02,Healthy child,Mb,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0989,HC02,Healthy child,Ra,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0977,HC02,Healthy child,Al,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0983,HC02,Healthy child,Gb,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0979,HC02,Healthy child,Ax,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0980,HC02,Healthy child,Ba,C,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0978,HC02,Healthy child,Ac,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0988,HC02,Healthy child,Pc,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0985,HC02,Healthy child,Ic,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0918,HC02,Healthy child,Ic,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0911,HC02,Healthy child,Oc,C,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0920,HC02,Healthy child,Ra,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0912,HC02,Healthy child,Al,R,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0916,HC02,Healthy child,Ea,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0909,HC02,Healthy child,Gb,C,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0919,HC02,Healthy child,Pc,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0908,HC02,Healthy child,Ba,C,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0917,HC02,Healthy child,Gb,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0921,HC02,Healthy child,Vf,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0914,HC02,Healthy child,Ax,L,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0913,HC02,Healthy child,Ac,R,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0910,HC02,Healthy child,Mb,C,V0-2,2012,U,0,Healthy,To be announced,To be announced,United States
+MET4579,HC03,Healthy child,Ac,NA,V0-1,2010,U,0,Healthy,To be announced,To be announced,United States
+MET4580,HC04,Healthy child,Ac,NA,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET4581,HC05,Healthy child,Ac,NA,V0-1,2010,U,0,Healthy,To be announced,To be announced,United States
+MET0934,HC06,Healthy child,Pc,L,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0932,HC06,Healthy child,Ea,L,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0928,HC06,Healthy child,Ic,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0929,HC06,Healthy child,Pc,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0931,HC06,Healthy child,Vf,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0922,HC06,Healthy child,Al,L,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0927,HC06,Healthy child,Gb,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0925,HC06,Healthy child,Ch,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0924,HC06,Healthy child,Ax,L,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0933,HC06,Healthy child,Ic,L,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0923,HC06,Healthy child,Ac,L,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0926,HC06,Healthy child,Ea,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET0930,HC06,Healthy child,Ra,R,V0-1,2012,U,0,Healthy,To be announced,To be announced,United States
+MET1332,HC07,Healthy child,Ic,L,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1334,HC07,Healthy child,Pc,L,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1338,HC07,Healthy child,Vf,L,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1335,HC07,Healthy child,Ra,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1329,HC07,Healthy child,Gb,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1337,HC07,Healthy child,Vf,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1330,HC07,Healthy child,Gb,L,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1331,HC07,Healthy child,Ic,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1327,HC07,Healthy child,Ac,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1333,HC07,Healthy child,Pc,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1336,HC07,Healthy child,Ra,L,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1328,HC07,Healthy child,Ac,L,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1010,HC08,Healthy child,Ea,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1009,HC08,Healthy child,Ch,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1005,HC08,Healthy child,Al,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1012,HC08,Healthy child,Gb,C,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1014,HC08,Healthy child,Mb,C,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1017,HC08,Healthy child,Ra,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1006,HC08,Healthy child,Ac,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1018,HC08,Healthy child,Vf,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1007,HC08,Healthy child,Ax,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1011,HC08,Healthy child,Gb,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1016,HC08,Healthy child,Pc,R,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1008,HC08,Healthy child,Ba,C,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET1015,HC08,Healthy child,Oc,C,V0-1,2013,U,0,Healthy,To be announced,To be announced,United States
+MET0947,HC08,Healthy child,Vf,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0946,HC08,Healthy child,Ra,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0935,HC08,Healthy child,Al,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0944,HC08,Healthy child,Oc,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0937,HC08,Healthy child,Ax,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0936,HC08,Healthy child,Ac,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0938,HC08,Healthy child,Ba,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0939,HC08,Healthy child,Ch,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0941,HC08,Healthy child,Gb,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0945,HC08,Healthy child,Pc,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0942,HC08,Healthy child,Ic,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0943,HC08,Healthy child,Mb,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0940,HC08,Healthy child,Ea,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0960,HC09,Healthy child,Vf,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0951,HC09,Healthy child,Ba,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0957,HC09,Healthy child,Oc,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0958,HC09,Healthy child,Pc,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0948,HC09,Healthy child,Al,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0950,HC09,Healthy child,Ax,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0949,HC09,Healthy child,Ac,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0959,HC09,Healthy child,Ra,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0952,HC09,Healthy child,Ch,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0956,HC09,Healthy child,Mb,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0953,HC09,Healthy child,Ea,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0954,HC09,Healthy child,Gb,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET0955,HC09,Healthy child,Ic,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1031,HC09,Healthy child,Vf,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1029,HC09,Healthy child,Pc,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1024,HC09,Healthy child,Ea,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1025,HC09,Healthy child,Gb,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1028,HC09,Healthy child,Oc,C,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1023,HC09,Healthy child,Ch,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1021,HC09,Healthy child,Ax,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1022,HC09,Healthy child,Ba,C,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1030,HC09,Healthy child,Ra,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1020,HC09,Healthy child,Ac,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1026,HC09,Healthy child,Ic,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1019,HC09,Healthy child,Al,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1027,HC09,Healthy child,Mb,C,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1262,HC10,Healthy child,Vf,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1257,HC10,Healthy child,Gb,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1261,HC10,Healthy child,Ra,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1260,HC10,Healthy child,Pc,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1256,HC10,Healthy child,Ac,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1259,HC10,Healthy child,Oc,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1258,HC10,Healthy child,Ic,R,V0-1,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1267,HC10,Healthy child,Pc,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1265,HC10,Healthy child,Ic,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1266,HC10,Healthy child,Oc,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1263,HC10,Healthy child,Ac,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1269,HC10,Healthy child,Vf,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1268,HC10,Healthy child,Ra,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+MET1264,HC10,Healthy child,Gb,R,V0-2,2014,U,0,Healthy,To be announced,To be announced,United States
+SRR9680481,SRR9680481,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680482,SRR9680482,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680483,SRR9680483,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680484,SRR9680484,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680485,SRR9680485,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680486,SRR9680486,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680487,SRR9680487,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680488,SRR9680488,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680489,SRR9680489,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680490,SRR9680490,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680491,SRR9680491,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680492,SRR9680492,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680493,SRR9680493,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680494,SRR9680494,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680495,SRR9680495,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680496,SRR9680496,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680497,SRR9680497,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680498,SRR9680498,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680499,SRR9680499,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR9680500,SRR9680500,AD adult,Upper back/posterior thigh,NA,NA,NA,NA,NA,NA,PRJNA554499,SRP214545,Germany
+SRR1950743,WBE004,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950744,WBE004,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950713,WBE006,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950714,WBE006,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950715,WBE008,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950716,WBE008,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950745,WBE010,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950746,WBE010,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950747,WBE012,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950748,WBE012,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950749,WBE014,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950750,WBE014,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950751,WBE016,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950752,WBE016,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950717,WBE018,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950718,WBE018,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950719,WBE020,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950720,WBE020,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950753,WBE022,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950754,WBE022,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950755,WBE024,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950756,WBE024,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950757,WBE027,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950758,WBE027,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950759,WBE029,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950760,WBE029,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950761,WBE031,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950762,WBE031,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950763,WBE033,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950764,WBE033,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950765,WBE035,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950766,WBE035,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950767,WBE037,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950768,WBE037,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950769,WBE039,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950770,WBE039,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950771,WBE041,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950772,WBE041,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950790,WBE043,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950791,WBE043,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950773,WBE045,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950774,WBE045,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950775,WBE047,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950776,WBE047,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950777,WBE049,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950778,WBE049,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950782,WBS013,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950783,WBS013,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950784,WBS015,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950785,WBS015,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950721,WBS017,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950722,WBS017,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950723,WBS019,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950724,WBS019,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950786,WBS021,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950787,WBS021,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950788,WBS023,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950789,WBS023,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950726,WBU002,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950727,WBU004,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950728,WBU004,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950779,WBU006,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950780,WBU006,AD child,Ac,NA,NA,NA,NA,NA,NA,PRJNA277905,SRP056821,Singapore
+SRR1950729,WBU008,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950730,WBU008,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950731,WBU010,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950732,WBU010,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950733,WBU012,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950734,WBU012,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950735,WBU014,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950736,WBU014,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950737,WBU016,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950738,WBU016,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950739,WBU018,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950740,WBU018,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950741,WBU020,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore
+SRR1950742,WBU020,Healthy child,Ac,NA,NA,NA,NA,0,NA,PRJNA277905,SRP056821,Singapore

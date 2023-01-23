@@ -1,0 +1,453 @@
+---
+title: "fig5"
+output: html_document
+date: '2022-04-11'
+---
+
+fig 5a
+
+```{r, warning=FALSE, message=FALSE}
+library(cowplot)
+library(dplyr)
+library(igraph)
+library(ggnetwork)
+library(reshape2)
+library(randomcoloR)
+library(network)
+library(ggnet)
+library(ggpattern)
+library(gridExtra)
+library(sna)
+library(ggplot2)
+library(tidyverse)
+library(gggenomes)
+library(thacklr)
+library(ggnewscale)
+library(randomcoloR)
+library(ape)
+library(ggtree)
+library(paletteer)
+library(ggnewscale)
+
+rm(list=ls())
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+#load species palette
+
+breaks=c("*Staphylococcus epidermidis*","*Staphylococcus aureus*","*Staphylococcus capitis*","*Staphylococcus argenteus*"   ,"*Staphylococcus warneri*","*Staphylococcus hominis*","*Staphylococcus caprae*","*Staphylococcus pettenkoferi*","*Staphylococcus succinus*","*Staphylococcus lugdunensis*","Present","Absent")
+palette2=c("#A6CEE3","#1F78B4","#B2DF8A","#33A02C","#FB9A99","#E31A1C","#FDBF6F","#FF7F00","#CAB2D6","#944DE6","#999999","#F2F2F2")
+names(palette2)=breaks
+
+
+#get isolate medata
+# 4320 isolates -> #3966 high quality isolates -> #3951 high quality staph isolates -+ #681 high qual NIH isolates
+iso_met=read.csv("metadata/Table3.csv", stringsAsFactors = F)%>%
+  filter(QC=="Passed QC")
+iso_met$Species=gsub("^","*",iso_met$Species)
+iso_met$Species=gsub("$","*",iso_met$Species)
+
+
+iso_met$status=gsub(" .*","",iso_met$status) 
+nrow(iso_met)
+iso_met_staph=iso_met%>%filter(iso_met$Genus=="g__Staphylococcus")
+nrow(iso_met_staph)
+iso_met_us=iso_met%>%filter(iso_met$Study=="To be announced")
+
+unzip("results/phage/mmseqs_matrix.tsv.zip",exdir = "results/phage/")
+
+```
+
+
+
+##SMGCC results
+#subsetting to isolates for which we have culture data
+```{r}
+
+#load SCCmec results and format
+scc=read.delim("results/amr/SCC_types.txt",stringsAsFactors = F)
+colnames(scc)[1]="run_accession"
+scc$`mecA status`=gsub("True","mecA positive",scc$meca)
+scc$`mecA status`=gsub("False","mecA negative",scc$`mecA status`)
+
+#combine
+scc_met_vf=merge(scc,iso_met_staph,by="run_accession",all.y=T)
+
+#stats The majority of S. epidermidis (181 of 464 isolates) isolates from our cohort were methicillin-resistant
+scc_met_vf%>% dplyr::filter(Study=="To be announced") %>%  dplyr::filter((Species=="*Staphylococcus epidermidis*")|(Species=="*Staphylococcus aureus*")) %>% group_by(Species,`mecA status`,Study)%>%dplyr::summarise(n=n()) 
+
+
+#subset to subjects 
+keep=c("AD20","AD16","AD17","AD22","AD29","AD25","AD33","AD23","AD27") #"AD18",
+scc_met_vf_nih=scc_met_vf[scc_met_vf$Subject%in%keep,]
+
+summary=scc_met_vf_nih%>%group_by(Subject,`mecA status`,Species)%>%dplyr::summarise(n=n())
+
+
+fig5b<-ggplot(summary, aes(fill=Species, y=n, x=Subject, pattern = `mecA status`)) +
+  geom_bar_pattern(position="stack", stat="identity", pattern_fill = "black", colour = "black", pattern_spacing = 0.03,pattern_frequency = 5, pattern_angle = 45) +
+  ggpubr::theme_pubr() + ggpattern::scale_pattern_manual(values=c(`mecA negative`="none",`mecA positive`="stripe"),guide = guide_legend(override.aes = list(fill = "white")))+ylab("Number of\nisolates")+scale_fill_manual(values=palette2,guide="none")+theme_classic(base_size = 12)+theme(axis.title = element_text(size=14))+theme(legend.position="none")
+fig5b
+
+```
+
+
+
+```{r}
+
+summary=scc_met_vf[grepl("aureus",scc_met_vf$Species),] #1947 isolates
+summary=summary%>%group_by(Country,`mecA status`,Species)%>%dplyr::summarise(n=n_distinct(Subject))
+summary$Country=gsub(" ","\n",summary$Country)
+
+fig5a<-ggplot(summary, aes(fill=Species, y=n, x=Country, pattern = `mecA status`)) +
+  geom_bar_pattern(position="stack", stat="identity", pattern_fill = "black", colour = "black", pattern_spacing = 0.03,
+                   pattern_frequency = 5, pattern_angle = 45) +
+  ggpubr::theme_pubr() + ggpattern::scale_pattern_manual(values=c(`mecA negative`="none",`mecA positive`="stripe"),guide = guide_legend(override.aes = list(fill = "white")))+scale_fill_manual(values=palette2)+theme_classic()+
+  theme(axis.text = element_text(size=12)) +
+  theme(axis.title = element_text(size=14)) + ylab("Number of\nsubjects")+theme(legend.position="none")
+fig5a
+
+
+summary=scc_met_vf%>%filter(Species=="*Staphylococcus aureus*")%>%
+    group_by(`mecA status`)%>%dplyr::summarise(n=n())
+
+summary=scc_met_vf%>%filter(Species=="*Staphylococcus aureus*")%>%
+    group_by(`mecA status`,Study)%>%dplyr::summarise(n=n())
+
+summary=scc_met_vf%>%filter(Species=="*Staphylococcus epidermidis*")%>%
+    group_by(`mecA status`)%>%dplyr::summarise(n=n())
+
+
+
+
+```
+
+
+
+
+reformat SCCmec
+```{r, message=FALSE, warning=FALSE}
+library("sfrpg")
+
+
+s0 <- readRDS("results/SCC/SCC_2080/all_ragtag_vf.fasta.rds")%>%gsub_colwise('S. ','S.')%>%gsub_colwise(' ','\n')
+g0 <- readRDS("results/SCC/SCC_2080/all_ragtag_fasta_prokka_vf.gff.rds")%>%gsub_colwise('S. ','S.')%>%gsub_colwise(' ','\n')
+l0 <- readRDS("results/SCC/SCC_2080/allragtag_vf.paf.rds")%>%gsub_colwise('S. ','S.')%>%gsub_colwise(' ','\n')
+
+
+
+p <- gggenomes(genes=g0, seqs=s0, links=l0) 
+p <- p + 
+  geom_seq() +         # draw contig/chromosome lines
+  geom_gene(aes(fill=product))+
+  geom_bin_label()
+
+
+fig5c <- p %>% add_links(l0)+geom_link()+scale_fill_paletteer_d("ggthemes::hc_default")
+fig5c
+
+
+```
+
+
+
+
+
+```{r}
+
+legscc<-get_legend(fig5b+theme(legend.position = "bottom"))
+top_left<-plot_grid(fig5a+theme(legend.position = "none"),fig5b+theme(legend.position = "none"),nrow=1,rel_widths=c(0.5,0.50),labels=c("A","B"))
+top_left<-plot_grid(top_left,NULL,legscc,nrow=3,rel_heights=c(0.91,0.01,0.08))
+
+top<-plot_grid(top_left,fig5c+theme(legend.position="bottom")+guides(fill = guide_legend(nrow = 2)),nrow=1,rel_widths=c(0.65,0.35),labels=c("","C"))
+
+
+
+```
+
+
+
+
+
+viral clusters
+
+
+Viruses by clustering
+
+```{r}
+
+df=read.csv("results/phage/genome_by_genome_overview.csv",stringsAsFactors = F)
+notviruses=read.csv("results/phage/all_not_viruses.txt",stringsAsFactors = F)
+df=df[!(df$Genome%in%notviruses$x),]
+df$run_accession=sub("_[^_]+$", "",df$Genome)
+
+df_bac=merge(df,iso_met,by="run_accession") #remove reference database viruses
+df_bac$virus=df_bac$Genome
+n_distinct(df_bac$virus)
+
+
+#number of viral cluster - 111
+n_distinct(df_bac$VC.Subcluster)
+
+
+
+
+```
+
+
+
+Spacer analysis
+```{r}
+
+#load spacer host
+spacerhost=read.delim("results/phage/all_spacers.tsv",stringsAsFactors = F,header=F)
+colnames(spacerhost)=c("spacer", "virus", "pident", "length", "mismatch", "gapopen", "qstart", "qend", "sstart", "send", "evalue", "bitscore")
+colnames(spacerhost)[2]="virus"
+spacerhost=spacerhost%>%group_by(spacer,virus)%>%slice(which.min(evalue)) #remove duplicates
+
+#get species of spacer
+spacerhost$run_accession=sub("_[^_]+$", "",spacerhost$spacer) #run accession spacer
+spacerhost$run_accession=sub("_[^_]+$", "",spacerhost$run_accession) #run accession spacer
+spacerhost=merge(spacerhost,iso_met_staph,by="run_accession")
+
+
+spacerhost=merge(spacerhost,df_bac[,c("virus","VC.Subcluster")],by="virus")
+spacerhost=spacerhost[(spacerhost$length>50),]
+
+
+#proportion
+imag=spacerhost%>%dplyr::count(VC.Subcluster,Species)%>%
+  group_by(VC.Subcluster)%>%
+  mutate(prop = prop.table(n))
+imag=imag[imag$prop!=1,]
+imag=imag[!(imag$VC.Subcluster==""),]
+
+fig5f<-ggplot(data=imag, aes(x=VC.Subcluster, y=prop, fill=Species)) +
+  geom_bar(stat="identity")+xlab("Viral cluster")+ylab("Proportion\nof spacers")+scale_fill_manual(values=palette2)+theme(legend.position="bottom")+theme_classic()+guides(fill=guide_legend(nrow=2,byrow=TRUE))+theme_classic(base_size = 12)
+
+fig5f
+
+
+```
+
+
+fig 5c
+
+
+```{r}
+
+vfdb=readRDS("results/phage/diamond_blastp_vfdb.tsv.rds")
+
+
+unique(vfdb$vfdb[duplicated(vfdb$V2.y)])
+
+mmseq=read.delim("results/phage/mmseqs_matrix.tsv",stringsAsFactors = F,row.names=1)
+mmseq_blastp_cat=mmseq[rownames(mmseq)%in%vfdb$V1,]
+
+
+tree_subset=read.tree("results/phage/phage_tree_vf.tree")
+
+
+#prepare mmseq
+mmseq_blastp_cat=mmseq_blastp_cat[,colnames(mmseq_blastp_cat)%in%tree_subset$tip.label]
+mmseq_blastp_cat=mmseq_blastp_cat[rowSums(mmseq_blastp_cat)>100,]
+mmseq_blastp_cat[mmseq_blastp_cat==1]="Present"
+mmseq_blastp_cat[mmseq_blastp_cat==0]="Absent"
+mmseq_blastp_cat[,1]=NULL
+mmseq_blastp_cat=t(mmseq_blastp_cat)
+colnames(mmseq_blastp_cat)<-vfdb$V2.y[match(colnames(mmseq_blastp_cat), vfdb$V1)]
+
+#make heatmap
+mmseq_blastp_cat=as.data.frame(mmseq_blastp_cat[intersect(tree_subset$tip.label,rownames(mmseq_blastp_cat)),])
+colnames(mmseq_blastp_cat)=gsub("\\(","",colnames(mmseq_blastp_cat))
+colnames(mmseq_blastp_cat)=gsub("\\)","",colnames(mmseq_blastp_cat))
+
+tree_subset<-drop.tip(tree_subset,setdiff(tree_subset$tip.label,rownames(mmseq_blastp_cat)))
+#remove na species
+species=df_bac[,c("Genome","Species")]
+species=species[!is.na(species$Species),]
+tree_subset<-drop.tip(tree_subset,setdiff(tree_subset$tip.label,species$Genome))
+
+p<-ggtree(tree_subset)%<+%species+geom_tippoint(aes(color=Species,size=0.3))+scale_color_manual(values=palette2)
+
+rownames(species)=species$Genome
+species$Genome=NULL
+fig5d<-gheatmap(p,species,offset=0.01,width=0.1, font.size=5, colnames_angle=-45, hjust=0,color=NULL)+theme(legend.position="bottom")+coord_cartesian(clip = "off")+ggplot2::ylim(-0.5, NA)+scale_fill_manual(values=palette2,breaks=breaks,na.value=NA,guide = "none")
+
+fig5d<-gheatmap(fig5d, mmseq_blastp_cat, offset=1, width=1.2, font.size=5, colnames_angle=-45, hjust=0,color=NULL)+theme(legend.position="bottom")+coord_cartesian(clip = "off")+ggplot2::ylim(-0.5, NA)+scale_fill_manual(values=palette2,breaks=breaks,na.value=NA,guide = "none")
+fig5d
+
+```
+
+
+
+
+
+
+
+Plasmid analyses - We picked an representative from each plasmid from a subject and species
+```{r}
+
+#mobsuite refmt
+df=read.delim("results/plasmids/all_mobsuite_summ.txt",stringsAsFactors = F)
+df=df[!(df$primary_cluster_id=="primary_cluster_id"),]
+colnames(df)[1]="run_accession"
+df$run_accession=gsub("/mobtyper_results.txt","",df$run_accession)
+df$run_accession=gsub("data/genomes_analysis/plasmids/mobsuite/","",df$run_accession)
+
+#combine
+df=merge(df,iso_met,by="run_accession") #some isolates have no plasmids according to mobsuite (e.g. ERR1904207, SRR14016705) 
+
+n_distinct(na.omit(df$sample_id)) #Number of plasmids # identified 14855 plasmids 
+nrow(df)
+
+#we want to focus on just staph
+df=df%>%filter(Genus=="g__Staphylococcus")
+n_distinct(na.omit(df$sample_id)) #Number of plasmids # identified 14853 staph plasmids 
+
+
+df=as.data.frame(unique(df[,c("run_accession","primary_cluster_id")]))
+
+df=merge(df,iso_met,by="run_accession",all.x=T)
+
+
+#count number of isolates with plasmid: 14298
+df=df%>%group_by(primary_cluster_id)%>%dplyr::mutate(n_count=n_distinct(run_accession))%>%filter(n_count>1)
+
+#number of plasmids per isolate
+numbplas_iso=df%>%group_by(run_accession,Species)%>%dplyr::summarise(n=n())
+numbplas_iso%>%group_by(Species)%>%dplyr::summarise(summm=median(n))
+
+#pick a plasmid from each cluster detected on a species and subject
+df$plasmid=paste(df$Subject,df$primary_cluster_id,df$Species,sep="_")
+
+#number of clusters shared
+tmp1=df%>%group_by(primary_cluster_id,n_count)%>%dplyr::summarise(n_count_species=n_distinct(Species),n_species=list(unique(Species)))
+nrow(tmp1[which(tmp1$n_count_species>1),])
+
+df=as.data.frame(unique(df[,c("plasmid","primary_cluster_id")]))
+df_paired=merge(df,df,by="primary_cluster_id")
+df_paired$val=1
+dist=acast(df_paired,plasmid.x~plasmid.y,value.var = "val",fill=0)
+
+net = network(dist, directed = FALSE)
+x2 = data.frame(Type = network.vertex.names(net))
+x2$Species=gsub(".*_","",x2$Type) 
+x2$primaryid=gsub("_\\*.*","",x2$Type)
+x2$primaryid=gsub(".*_","",x2$primaryid)
+
+net %v% "color" = as.character(x2$Species)
+
+
+palette3=palette2[grepl("*Staph",names(palette2))]
+
+
+fig5i<-ggnet2(net, mode = "fruchtermanreingold", color = "color",palette=palette3, size = 3,
+                                      edge.alpha = 1, edge.size=1, label = FALSE,
+       color.legend = "Species")+ theme(legend.text=element_text(size=12),legend.title=element_text(size=14))
+fig5i
+
+# 
+# 
+n=ggnetwork(net)
+n$primary_cluster_id=gsub("_\\*.*","",n$vertex.names)
+n$primary_cluster_id=gsub(".*_","",n$primary_cluster_id)
+n
+n2=merge(as.data.frame(unique(n[,c("primary_cluster_id","color")])),tmp1,by="primary_cluster_id",all.y=T)
+n$type="blank"
+ 
+ggplot(n, aes(x = x, y = y, xend = xend, yend = yend)) +
+   geom_edges(aes(linetype = type), color = "grey") +
+   geom_nodes(aes(color = color, size = 0.2)) +
+   theme_blank()+scale_color_manual(values=palette3,breaks=breaks,na.value=NA,guide = "none")+theme(legend.position="none")
+
+```
+
+
+
+
+
+
+```{r, message=FALSE, warning=FALSE}
+
+# 
+# 
+# s0 <- read_seqs("results/plasmids/plasmid_fin/ragtag.scaffold_combined.fasta")
+# s0$seq_id=gsub("adqaj_RagTag","AD25\nS.epidermidis",s0$seq_id)
+# s0$seq_id=gsub("abkws_RagTag","AD25\nS. aureus",s0$seq_id)
+# 
+# g0 <- read_feats("results/plasmids/plasmid_fin/all_ragtag_fasta_prokka.gff")
+# g0$seq_id=gsub("adqaj_RagTag","AD25\nS.epidermidis",g0$seq_id)
+# g0$seq_id=gsub("abkws_RagTag","AD25\nS. aureus",g0$seq_id)
+# g0$name[(grepl("GONL",g0$name))]="Other"
+# g0$Gene=gsub("_.*","",g0$name)
+# 
+# l0 <- read_paf("results/plasmids/plasmid_fin/allragtag.paf")
+# l0$seq_id=gsub("adqaj_RagTag","AD25\nS.epidermidis",l0$seq_id)
+# l0$seq_id=gsub("abkws_RagTag","AD25\nS. aureus",l0$seq_id)
+# l0$seq_id2=gsub("adqaj_RagTag","AD25\nS.epidermidis",l0$seq_id2)
+# l0$seq_id2=gsub("abkws_RagTag","AD25\nS. aureus",l0$seq_id2)
+# 
+# 
+# saveRDS(l0,"results/plasmids/plasmid_fin/allragtag.paf.rds")
+# saveRDS(s0,"results/plasmids/plasmid_fin/ragtag.scaffold_combined.fasta.rds")
+# saveRDS(g0,"results/plasmids/plasmid_fin/all_ragtag_fasta_prokka.gff.rds")
+
+g0 <- readRDS("results/plasmids/plasmid_fin/all_ragtag_fasta_prokka.gff.rds")
+s0 <- readRDS("results/plasmids/plasmid_fin/ragtag.scaffold_combined.fasta.rds")
+l0 <- readRDS("results/plasmids/plasmid_fin/allragtag.paf.rds")
+
+
+p <- gggenomes(genes=g0, seqs=s0, links=l0)
+p <- p + 
+  geom_seq() +         
+  geom_gene(aes(fill=Gene))+
+  geom_bin_label()
+
+
+fig5j<- p %>% add_links(l0)+geom_link()+
+  scale_fill_brewer("Genes", palette="Set3")+
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))+
+  theme(legend.position = "bottom")
+
+
+
+
+
+```
+
+
+
+
+
+
+combine
+```{r}
+
+
+legend<-get_legend(fig5f+theme(legend.title=element_text(size=14), legend.text=element_text(size=12))+theme(legend.text = ggtext::element_markdown())) 
+right<-plot_grid(fig5f+theme(legend.position = "none"),fig5i+theme(legend.position = "none"),fig5j+theme(legend.position="bottom"),nrow=3,rel_heights=c(0.2,0.55,0.25),labels=c("E","F","G"))
+bottom<-plot_grid(fig5d+theme(legend.position="none"),right,rel_widths = c(0.58,0.38),labels=c("D",""))
+legends<-plot_grid(legend,nrow=1,rel_widths = c(0.2,0.8))
+fig5<-plot_grid(top,NULL,bottom,NULL,legends,nrow=5,rel_heights=c(0.18,0.01,0.65,0.08,0.08))+theme(plot.background = element_rect(fill = "white")+theme(plot.background = element_blank()))
+
+
+
+ggsave("figures/Figure5.png",fig5,width=13.5,height=14, bg='white')
+ggsave("figures/Figure5.svg",fig5,width=13.5,height=14, bg='white')
+ggsave("figures/Figure5.eps",fig5,width=13.5,height=14,device=cairo_ps, bg='white')
+unlink("results/phage/mmseqs_matrix.tsv")
+
+```
+
+
+
+
+
+
+
+
+
+
+
+

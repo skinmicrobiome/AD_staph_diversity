@@ -1,0 +1,330 @@
+---
+title: "Figure S7"
+output: html_document
+date: '2022-07-21'
+---
+
+
+
+```{r, message=FALSE,warning=FALSE}
+rm(list=ls())
+library(ggpattern)
+library(pheatmap)
+library(reshape2)
+library(ggplot2)
+library(cowplot)
+library(ape)
+library(ggtree)
+library(tidyverse)
+library(ggpattern)
+library(lemon)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+# load trees
+sepi_treefile="results/trees/gubbins/sepidermidis/gubbins.final_tree.tre"
+saur_treefile="results/trees/gubbins/saureus/gubbins.final_tree.tre"
+
+# load panaroo
+sepi_rtab.file="results/panaroo/sepidermidis/gene_presence_absence.Rtab"
+saur_rtab.file="results/panaroo/saureus/gene_presence_absence.Rtab"
+
+
+# load metadata
+metadata_iso=read.csv("metadata/Table3.csv",stringsAsFactors = F)
+# load metadata and remove failed or NF
+metadata_iso=metadata_iso[which(!(metadata_iso$ST%in%c(NA,"NF_aur","failed_aur","NF_epi"))),]
+metadata_iso=metadata_iso[which(metadata_iso$QC=="Passed QC"),] #pass QC
+metadata_iso_NIH=metadata_iso[which(metadata_iso$Study=="To be announced"),]
+
+
+# load palettes
+entries=c("D","E","EGP", "K","KOT","KTV","L", "M","NOU", "P","S","V","Other")
+palette=c("#8479D9","#CED8A7","#DA5C75","#8DE3DA","#79DE91","#99EA4E","#D7D357","#D955CA","#A03DEA","#D7CCD4","#D499CD","#7FAED5","grey")
+names(palette)=entries
+
+
+```
+
+
+### Define functions
+
+```{r}
+
+#function to parse snp_matrix
+plot_snp_matrix<-function(snp,subject1,subject2,met_all){
+  m=data.matrix(snp)
+  m[upper.tri(m,diag = TRUE)] <- NA
+  m=melt(data.matrix(m))
+  m=m[!(is.na(m$value)),]
+  colnames(m)[1]="run_accession"
+  
+  # determine which isolates are from siblings
+  m=merge(m,met_all,by="run_accession")
+  colnames(m)[1]="ref"
+  colnames(m)[2]="run_accession"
+  m=merge(m,met_all,by="run_accession")
+  m$status="none"
+  m$status[which(!(m$Subject.x==m$Subject.y))]="Different subject"
+  m$status[which(m$Subject.x==m$Subject.y)]="Same subject"
+  m$Relationship="Not related"
+  m$Relationship[((m$Subject.x==subject1)&(m$Subject.y==subject2)|(m$Subject.x==subject2)&(m$Subject.y==subject1))]="Siblings"
+return(m)
+}
+
+
+
+ plot_tree_pa_nih <- function(palette,tree, pa, metadata,eggnog,genes,
+                          align=TRUE,
+                          order=TRUE,
+                          plot_titles=c('', ''),
+                          text_size=14,
+                          label_genes=TRUE,
+                          cols=NULL){
+  if (is.null(cols)){
+    cols <- c('#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c',
+                 '#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928')
+  }
+  cols <- rep(cols, ceiling(length(genes)/length(cols)))
+
+  if('ggtree' %in% class(tree)){
+    ggt <- tree
+    ntips <- sum(tree$data$isTip)
+  } else {
+    if (!class(tree)=='phylo') stop('tree must be either a phylo or ggtree object!')
+    if (align){
+      ttree <- tree
+      ttree$tip.label <- rep(NA, length(ttree$tip.label))
+      ggt <- ggtree::ggtree(ttree) +
+        ggtree::geom_tiplab(align=TRUE, col='grey')
+    } else {
+      ggt <- ggtree::ggtree(tree)
+    }
+    ntips <- length(tree$tip.label)
+  }
+  palette_subj=c("#E41A1C","#377EB8","#4DAF4A")
+  names(palette_subj)=c("AD23","HC10","AD20")
+  ggt<-ggt%<+%metadata+geom_tippoint(aes(color=Subject),size=2)+scale_color_manual(values=palette_subj)
+  ggt <- ggt +
+    ggplot2::ggtitle(plot_titles[[1]]) +
+    ggplot2::theme(plot.title = ggplot2::element_text(size=text_size)) +
+    ggplot2::scale_y_continuous(limits = c(0, ntips+1)) +
+    ggplot2::theme(plot.margin = ggplot2::margin(t=0, b=0, r=0, l=0, unit = "pt"),
+                   plot.title = ggplot2::element_text(hjust = 0.5))+
+    theme(plot.title = ggtext::element_markdown())+
+         theme(legend.position="none")
+
+
+  subset_pa <- pa[, colnames(pa) %in% genes, drop=FALSE]
+
+  if ((ncol(subset_pa)>2) & order){
+      d <- stats::as.dist(ncol(subset_pa) - tcrossprod(t(subset_pa)))
+      h <- stats::hclust(d, method = 'average')
+      subset_pa <- subset_pa[,h$order,drop=FALSE]
+  }
+
+  padf <- tibble::tibble(isolate = rep(rownames(subset_pa), ncol(subset_pa)),
+                        gene = rep(colnames(subset_pa), each=nrow(subset_pa)),
+                        presence = c(subset_pa))
+  padf <- padf[padf$presence>0, , drop=FALSE]
+
+  padf <- merge(padf,eggnog, by="gene",all.x=T)
+  padf$COG.Functional.cat.[is.na(padf$COG.Functional.cat.)]="S"
+  padf$COG.Functional.cat.[padf$COG.Functional.cat.==""]="S"
+  
+  
+  #summary for figure caption
+  padf_summ=as.data.frame(unique(padf[,c("gene","COG.Functional.cat.")]))
+  padf_summ=as.data.frame(table(padf_summ$COG.Functional.cat.))
+  print((padf_summ$Freq[padf_summ$Var1=="S"])/(sum(padf_summ$Freq)))
+  #determine top annotations
+  top_annot=padf%>%group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())%>%top_n(10)
+  padf$COG.Functional.cat.[!(padf$COG.Functional.cat.%in%top_annot$COG.Functional.cat.)]="Other"
+
+  # plot links against tree
+  if(!'ggtree' %in% class(tree)){
+    d <- ggtree::fortify(tree)
+  } else {
+    d <- ggt$data
+  }
+  d <- d[d$isTip, , drop=FALSE]
+
+  tip_order <- with(d, label[order(y, decreasing=TRUE)])
+  nodes <- tibble::tibble(nodes = tip_order, pos = ntips:1)
+
+  padf$height <- nodes$pos[match(padf$isolate, nodes$nodes)]
+  padf$gene=factor(padf$gene, levels = unique(padf$gene[order(padf$COG.Functional.cat.)]))
+  #
+  padf$COG=padf$COG.Functional.cat.
+  gg <- ggplot(padf, aes(gene, height, fill=COG)) + geom_tile() +ggplot2::geom_tile()+ #width = 3, height = 2)+
+    scale_fill_manual(values=palette,na.value ="grey")+theme_classic()+
+      guides(fill = guide_legend(nrow = 14))+ylab("")+
+     theme(legend.position = "right")+
+   ggplot2::scale_y_continuous(limits = c(0, ntips+1))# +
+   ggplot2::theme_bw(base_size = text_size) +
+   ggplot2::theme(axis.title.y=ggplot2::element_blank(),
+         axis.text=ggplot2::element_blank(),
+         axis.ticks=ggplot2::element_blank()) +
+   ggplot2::theme(panel.background = ggplot2::element_blank(),
+                  panel.grid.major.y = ggplot2::element_blank(),
+                  panel.grid.minor.y = ggplot2::element_blank(),
+                  panel.border = ggplot2::element_blank(),
+                  legend.position = "none") + ylab("")+
+   ggplot2::ggtitle(plot_titles[[2]]) +
+   ggplot2::theme(plot.title = ggplot2::element_text(size=text_size))+
+     theme(plot.title = ggtext::element_markdown())+
+     theme(legend.position="none")
+   
+  if (!label_genes){
+    gg <- gg +
+      ggplot2::theme(axis.text=ggplot2::element_blank(),
+                     axis.ticks=ggplot2::element_blank(),
+                     panel.grid.major.x = ggplot2::element_blank(),
+                     panel.grid.minor.x = ggplot2::element_blank())
+  }
+
+  pp <- patchwork::wrap_plots(ggt, gg) +
+    patchwork::plot_layout(nrow = 1)
+  return(pp)
+
+ }
+ 
+ 
+ 
+```
+ 
+### SNP matrix
+ 
+```{r}
+
+#saureus
+snp_aur=read.delim("results/strain_sharing/saureus/snp_distancematrix.tsv",stringsAsFactors = F,row.names = 1)
+m_aur=plot_snp_matrix(snp_aur,"AD23","AD20",metadata_iso_NIH)
+m_aur%>%filter(status=="Different subject")%>%slice(which.min(value))
+
+saveRDS(m_aur,"intermediates/snp_sharing_saureus.RDS")
+
+fig3e<-ggplot(m_aur, aes(x=value,fill=status,pattern=Relationship)) +
+  geom_histogram_pattern(pattern_fill = "black",
+                   alpha=0.4,
+                   pattern_density= 0.1, 
+                   pattern_key_scale_factor = 0.5,) +
+ theme_bw() + ggpattern::scale_pattern_manual(values=c(`Not related`="none",`Siblings`="stripe"),guide = guide_legend(override.aes = list(fill = "white")))+scale_fill_brewer(palette="Set2")+ggtitle("SNP boundary for<br>*S. aureus* ST5")+xlab("Number of SNPs")+ylab("Count of\ncomparisons")+theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+
+  guides(pattern = guide_legend(override.aes = list(fill = "white")),
+         fill = guide_legend(override.aes = list(pattern = "none")))+
+  theme(plot.title = ggtext::element_markdown())
+fig3e
+
+
+#sepi
+snp_epi=read.delim("results/strain_sharing/sepidermidis/snp_distancematrix.tsv",stringsAsFactors = F,row.names = 1)
+m_epi=plot_snp_matrix(snp_epi,"AD23","HC10",metadata_iso_NIH)
+saveRDS(m_epi,"intermediates/snp_sharing_sepi.RDS")
+m_epi%>%filter(status=="Different subject")%>%slice(which.min(value))
+
+fig3g<-ggplot(m_epi, aes(x=value,fill=status,pattern=Relationship)) +
+  geom_histogram_pattern(pattern_fill = "black",
+                   alpha=0.4,
+                   pattern_density= 0.1, 
+                   pattern_key_scale_factor = 0.5,) +
+  theme_bw() + ggpattern::scale_pattern_manual(values=c(`Not related`="none",`Siblings`="stripe"),guide = guide_legend(override.aes = list(fill = "white")))+scale_fill_brewer(palette="Set2")+ggtitle("SNP boundary for<br>*S. epidermidis* ST5 ")+xlab("Number of SNPs")+ylab("Count of\ncomparisons")+theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+
+   guides(pattern = guide_legend(override.aes = list(fill = "white")),
+         fill = guide_legend(override.aes = list(pattern = "none")))+
+  theme(plot.title = ggtext::element_markdown())
+fig3g
+
+
+```
+
+### eggNOG of variable genes
+
+
+```{r}
+nperm=100
+
+# sepidermidis
+pa=read.delim(sepi_rtab.file,row.names = 1,stringsAsFactors = F)
+pa=t(pa)
+tree=read.tree(sepi_treefile)
+
+# metadata load and subset pa
+metadata=metadata_iso_NIH[which((metadata_iso_NIH$run_accession%in%rownames(snp_epi))&(metadata_iso_NIH$Subject%in%c("AD23","HC10","AD20"))),]
+pa=pa[intersect(rownames(pa),metadata$run_accession),]
+
+# variable genes
+variable_mat <- pa[,colnames(pa)[apply(pa, 2, sd) > 0]]
+variable_genes <- colnames(variable_mat)
+
+# load eggNOG
+eggnog=read.delim("results/panaroo/sepidermidis/pangenome.emapper.annotations", skip=3)
+eggnog$gene=sub("_[^_]+$", "", eggnog$X.query_name)
+eggnog=eggnog[which(eggnog$gene%in%variable_genes),]
+eggnog$COG.Functional.cat.[is.na(eggnog$COG.Functional.cat.)]="Unknown"
+
+tree=drop.tip(tree,setdiff(tree$tip.label,rownames(pa)))
+tree=root(tree, outgroup = "adpvo")
+fig2e<-plot_tree_pa_nih(palette,tree = ggtree(tree), pa = pa, metadata,eggnog,genes = variable_genes, label_genes = FALSE,plot_title=c("ST5 *S. epidermidis*",""))
+fig2e
+
+
+
+# saureus
+pa=read.delim(saur_rtab.file,row.names = 1,stringsAsFactors = F)
+pa=t(pa)
+tree=read.tree(saur_treefile)
+
+# metadata load and subset pa
+metadata=metadata_iso_NIH[which((metadata_iso_NIH$run_accession%in%rownames(snp_aur))&(metadata_iso_NIH$Subject%in%c("AD23","HC10","AD20"))),]
+pa=pa[metadata$run_accession,]
+
+# find variable genes
+variable_mat <- pa[,colnames(pa)[apply(pa, 2, sd) > 0]]
+variable_genes <- colnames(variable_mat)
+
+eggnog=read.delim("results/panaroo/saureus/pangenome.emapper.annotations", skip=3)
+eggnog$gene=sub("_[^_]+$", "", eggnog$X.query_name)
+eggnog=eggnog[which(eggnog$gene%in%colnames(pa)),]
+eggnog=eggnog[which(eggnog$gene%in%variable_genes),]
+eggnog$COG.Functional.cat.[is.na(eggnog$COG.Functional.cat.)]="Unknown"
+
+tree=drop.tip(tree,setdiff(tree$tip.label,rownames(pa)))
+root(tree, outgroup = "aatys")
+fig2d<-plot_tree_pa_nih(palette,tree = ggtree(tree), pa = pa, metadata,eggnog,genes = variable_genes, label_genes = FALSE, plot_title=c("ST5 *S. aureus*",""))
+fig2d
+
+
+```
+
+
+Combine
+
+```{r}
+
+leg1<-g_legend(fig2d)
+leg2<-g_legend(fig3e)
+
+top2<-plot_grid(NULL,fig3e+theme(legend.position = "none"),NULL,nrow=1)
+top<-cowplot::plot_grid(fig2d+theme(legend.position="none"),top2,nrow=2,rel_heights = c(0.7,0.3))
+bottom2<-plot_grid(NULL,fig3g+theme(legend.position = "none"),NULL,nrow=1)
+bottom<-cowplot::plot_grid(fig2e+theme(legend.position="none"),bottom2,nrow=2,rel_heights = c(0.7,0.3))
+
+row4<-cowplot::plot_grid(top,bottom,labels=c("A","B"),nrow=2)
+
+row4_right<-plot_grid(NULL,leg1,leg2,NULL,nrow=4,align = "v")
+row4<-plot_grid(row4,row4_right,rel_widths = c(0.8,0.2),nrow=1)
+ggsave("figures/FiguresS7.png",width=11,height=13, bg='white')
+ggsave("figures/FiguresS7.svg",width=11,height=13, bg='white')
+
+
+
+```
+
+
+
+

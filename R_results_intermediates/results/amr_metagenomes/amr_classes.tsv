@@ -1,0 +1,791 @@
+MET4659	Macrolide	1
+MET4665	Other	1
+MET1651	Aminoglycoside	1
+MET1651	Phenicol	3
+MET1036	Tetracycline	5
+MET1036	Beta-lactam	7
+MET1036	Other	3
+MET1036	Macrolide	5
+MET1036	Fluoroquinolone	1
+MET1036	Trimethoprim	1
+MET1041	Beta-lactam	1
+MET1041	Macrolide	3
+MET1041	Macrolide, lincosamide and streptogramin b	1
+MET1041	Aminoglycoside	1
+MET1038	Macrolide	2
+MET1033	Macrolide	2
+MET1042	Macrolide, lincosamide and streptogramin b	1
+MET1042	Streptogramin b	1
+MET1042	Macrolide	7
+MET1042	Other	2
+MET1043	Other	1
+MET1035	Macrolide	7
+MET1034	Aminoglycoside	1
+MET1034	Beta-lactam	9
+MET1034	Macrolide	6
+MET1034	Macrolide, lincosamide and streptogramin b	2
+MET1047	Beta-lactam	4
+MET1047	Macrolide, lincosamide and streptogramin b	1
+MET1047	Macrolide	2
+MET1047	Other	1
+MET1046	Macrolide	10
+MET1046	Trimethoprim	2
+MET1046	Fluoroquinolone	1
+MET1046	Beta-lactam	6
+MET1046	Macrolide, lincosamide and streptogramin b	1
+MET1046	Other	3
+MET1046	Aminoglycoside	2
+MET1056	Other	2
+MET1056	Macrolide	4
+MET1048	Macrolide, lincosamide and streptogramin b	2
+MET1048	Other	1
+MET1051	Macrolide	7
+MET1055	Macrolide, lincosamide and streptogramin b	2
+MET1070	Macrolide	5
+MET1061	Beta-lactam	5
+MET1061	Other	1
+MET1061	Macrolide	1
+MET1061	Macrolide, lincosamide and streptogramin b	1
+MET1069	Macrolide	8
+MET0807	Other	1
+MET0807	Macrolide	6
+MET0807	Beta-lactam	1
+MET0812	Beta-lactam	1
+MET0812	Macrolide	4
+MET0812	Other	1
+MET0821	Beta-lactam	1
+MET0821	Macrolide	2
+MET0820	Macrolide, lincosamide and streptogramin b	1
+MET0820	Beta-lactam	3
+MET0820	Other	1
+MET0820	Macrolide	1
+MET0826	Beta-lactam	3
+MET0833	Macrolide	1
+MET0833	Macrolide, lincosamide and streptogramin b	1
+MET0833	Other	1
+MET0833	Beta-lactam	1
+MET0836	Macrolide	1
+MET0836	Beta-lactam	5
+MET0841	Beta-lactam	1
+MET0838	Beta-lactam	4
+MET0838	Other	1
+MET0838	Macrolide, lincosamide and streptogramin b	1
+MET0834	Beta-lactam	3
+MET0834	Macrolide	1
+MET0839	Other	1
+MET0839	Macrolide, lincosamide and streptogramin b	1
+MET0839	Macrolide	1
+MET0839	Beta-lactam	1
+MET0837	Macrolide	3
+MET0837	Aminoglycoside	5
+MET0837	Beta-lactam	16
+MET0837	Macrolide, lincosamide and streptogramin b	1
+MET0837	Trimethoprim	2
+MET0837	Fosfomycin	1
+MET0837	Other	3
+MET0837	Fluoroquinolone and aminoglycoside	2
+MET0837	Fluoroquinolone	1
+MET0840	Macrolide, lincosamide and streptogramin b	1
+MET0840	Beta-lactam	4
+MET0840	Other	1
+MET0840	Macrolide	1
+MET0850	Phenicol	2
+MET0850	Aminoglycoside	1
+MET0850	Macrolide	2
+MET0861	Phenicol	1
+MET0851	Aminoglycoside	4
+MET0855	Aminoglycoside	1
+MET0855	Tetracycline	1
+MET0855	Phenicol	1
+MET0874	Macrolide	4
+MET0875	Macrolide	3
+MET0872	Macrolide	3
+MET0890	Macrolide	4
+MET0883	Macrolide	3
+MET0888	Macrolide	1
+MET1148	Macrolide	5
+MET1148	Aminoglycoside	11
+MET1148	Phenicol	3
+MET1157	Macrolide	3
+MET1157	Aminoglycoside	2
+MET1149	Macrolide	12
+MET1149	Aminoglycoside	15
+MET1149	Phenicol	3
+MET1150	Fluoroquinolone	1
+MET1150	Other	1
+MET1150	Macrolide	1
+MET1164	Macrolide	1
+MET1165	Macrolide	2
+MET1165	Other	1
+MET1179	Streptogramin b	1
+MET1193	Macrolide	3
+MET1193	Other	1
+MET1193	Streptogramin b	1
+MET1282	Other	1
+MET1282	Macrolide	5
+MET1282	Aminoglycoside	1
+MET1273	Other	1
+MET1273	Macrolide, lincosamide and streptogramin b	1
+MET1271	Macrolide	1
+MET1271	Macrolide, lincosamide and streptogramin b	1
+MET1271	Other	1
+MET1286	Macrolide	4
+MET1284	Beta-lactam	23
+MET1284	Macrolide	1
+MET1296	Macrolide	5
+MET1296	Aminoglycoside	1
+MET1296	Other	1
+MET1296	Fluoroquinolone	1
+MET1294	Other	1
+MET1294	Macrolide	1
+MET1294	Macrolide, lincosamide and streptogramin b	1
+MET1290	Beta-lactam	51
+MET1290	Macrolide, lincosamide and streptogramin b	1
+MET1290	Other	1
+MET1290	Macrolide	1
+MET1293	Aminoglycoside	2
+MET1293	Beta-lactam	9
+MET1293	Fluoroquinolone	1
+MET1293	Other	2
+MET1293	Streptogramin b	1
+MET1293	Macrolide	8
+MET1310	Aminoglycoside	1
+MET1308	Macrolide	1
+MET1306	Other	1
+MET1306	Macrolide, lincosamide and streptogramin b	1
+MET1306	Macrolide	1
+MET1307	Beta-lactam	8
+MET1307	Other	2
+MET1307	Fluoroquinolone	1
+MET1307	Macrolide	8
+MET1307	Aminoglycoside	1
+MET1300	Other	2
+MET1300	Beta-lactam	7
+MET1300	Aminoglycoside	1
+MET1300	Fluoroquinolone	1
+MET1300	Macrolide	8
+MET1311	Macrolide	1
+MET1226	Fosfomycin	1
+MET1226	Beta-lactam	1
+MET1226	Other	10
+MET1414	Macrolide	1
+MET1467	Aminoglycoside	1
+MET1480	Aminoglycoside	1
+MET1468	Aminoglycoside	1
+MET1477	Aminoglycoside	1
+MET1477	Macrolide	7
+MET1477	Fluoroquinolone	1
+MET1477	Streptogramin b	1
+MET1474	Streptogramin b	1
+MET1474	Macrolide	5
+MET1478	Macrolide	3
+MET1478	Aminoglycoside	1
+MET1476	Other	1
+MET1476	Aminoglycoside	1
+MET1475	Aminoglycoside	1
+MET1482	Macrolide	1
+MET1492	Aminoglycoside	1
+MET1487	Macrolide	2
+MET1345	Aminoglycoside	3
+MET1345	Other	3
+MET1345	Tetracycline	1
+MET1345	Macrolide	1
+MET1346	Macrolide	9
+MET1357	Aminoglycoside	2
+MET1357	Macrolide	1
+MET1360	Macrolide	7
+MET1367	Macrolide	10
+MET1365	Macrolide	1
+MET1378	Macrolide	5
+MET1378	Beta-lactam	1
+MET1374	Macrolide	1
+MET1371	Aminoglycoside	2
+MET1381	Macrolide	1
+MET1512	Macrolide	1
+MET1561	Aminoglycoside	5
+MET1561	Macrolide	3
+MET1561	Other	1
+MET1561	Streptogramin b	1
+MET1560	Other	2
+MET1560	Aminoglycoside	5
+MET1560	Macrolide	1
+MET1556	Aminoglycoside	2
+MET1554	Aminoglycoside	1
+MET1555	Fluoroquinolone	1
+MET1555	Macrolide	2
+MET1575	Macrolide	1
+MET1575	Aminoglycoside	2
+MET1570	Aminoglycoside	5
+MET1570	Phenicol	3
+MET1573	Macrolide	2
+MET1572	Macrolide	2
+MET4678	Beta-lactam	1
+MET4678	Aminoglycoside	1
+MET1533	Aminoglycoside	1
+MET1533	Tetracycline	1
+MET1533	Phenicol	1
+MET1547	Macrolide	4
+MET1543	Macrolide	5
+MET1546	Macrolide	1
+MET1538	Macrolide	2
+MET1545	Macrolide	1
+MET1549	Macrolide	9
+MET1548	Macrolide	8
+MET1898	Tetracycline	1
+MET1898	Macrolide	1
+MET1896	Tetracycline	3
+MET1897	Other	1
+MET1897	Tetracycline	2
+MET1897	Macrolide	2
+MET1897	Aminoglycoside	1
+MET1903	Tetracycline	1
+MET1903	Aminoglycoside	1
+MET1894	Tetracycline	3
+MET1894	Aminoglycoside	1
+MET1900	Tetracycline	2
+MET1900	Aminoglycoside	1
+MET1900	Other	1
+MET1905	Macrolide	1
+MET1905	Aminoglycoside	1
+MET1905	Tetracycline	2
+MET1905	Other	1
+MET1914	Macrolide	1
+MET1914	Aminoglycoside	1
+MET1914	Tetracycline	2
+MET1915	Aminoglycoside	3
+MET1920	Other	1
+MET1920	Macrolide	1
+MET1920	Aminoglycoside	1
+MET1920	Tetracycline	1
+MET1919	Other	1
+MET1919	Aminoglycoside	1
+MET3523	Tetracycline	3
+MET3525	Tetracycline	3
+MET3522	Tetracycline	3
+MET3524	Tetracycline	3
+MET0914	Macrolide	5
+MET0914	Aminoglycoside	2
+MET0914	Beta-lactam	1
+MET0919	Macrolide	2
+MET0919	Beta-lactam	8
+MET0919	Tetracycline	2
+MET0919	Other	2
+MET0919	Macrolide, lincosamide and streptogramin b	1
+MET0921	Macrolide	1
+MET4579	Beta-lactam	45
+MET4579	Sulphonamide	6
+MET4579	Macrolide	7
+MET4579	Macrolide, lincosamide and streptogramin b	1
+MET4579	Other	1
+MET0924	Macrolide	6
+MET0928	Macrolide	2
+MET1009	Macrolide	2
+MET1010	Macrolide, lincosamide and streptogramin b	1
+MET1007	Macrolide	3
+MET1007	Macrolide, lincosamide and streptogramin b	2
+MET1018	Macrolide	7
+MET1012	Macrolide, lincosamide and streptogramin b	1
+MET1012	Other	1
+MET1016	Macrolide	5
+MET0945	Beta-lactam	3
+MET0955	Macrolide	2
+MET1026	Beta-lactam	1
+MET1024	Beta-lactam	1
+MET1029	Other	1
+MET1031	Tetracycline	1
+MET1031	Beta-lactam	1
+MET1031	Macrolide	1
+MET1031	Aminoglycoside	3
+MET1031	Other	2
+MET1031	Macrolide, lincosamide and streptogramin b	1
+MET1021	Other	1
+MET1256	Sulphonamide	13
+MET1256	Beta-lactam	1
+MET1256	Aminoglycoside	1
+MET1256	Macrolide	1
+MET1256	Tetracycline	4
+MET1256	Other	1
+MET1256	Macrolide, lincosamide and streptogramin b	1
+MET1269	Macrolide, lincosamide and streptogramin b	1
+MET1269	Macrolide	1
+MET1269	Other	1
+ERR5084109	Sulphonamide	1
+ERR5084110	Tetracycline	4
+ERR5084110	Sulphonamide	19
+ERR5084110	Aminoglycoside	3
+ERR5084111	Beta-lactam	8
+ERR5084111	Macrolide, lincosamide and streptogramin b	1
+ERR5084111	Macrolide	1
+ERR5084111	Other	1
+ERR5084129	Tetracycline	4
+ERR5084130	Phenicol	2
+ERR5084134	Beta-lactam	7
+ERR5084134	Macrolide	1
+ERR5084134	Macrolide, lincosamide and streptogramin b	1
+ERR5084134	Other	1
+ERR5084139	Sulphonamide	9
+ERR5084139	Aminoglycoside	2
+ERR5084139	Phenicol	3
+ERR5084140	Streptogramin b	1
+ERR5084140	Phenicol	3
+ERR5084140	Macrolide	1
+ERR5084140	Aminoglycoside	4
+ERR5084140	Other	1
+ERR5084140	Macrolide, lincosamide and streptogramin b	1
+ERR5084166	Other	1
+ERR5084166	Macrolide	1
+ERR5084166	Macrolide, lincosamide and streptogramin b	1
+ERR5084171	Beta-lactam	7
+ERR5084171	Tetracycline	1
+ERR5084171	Other	1
+ERR5084171	Macrolide, lincosamide and streptogramin b	1
+ERR5084171	Macrolide	1
+ERR5084176	Aminoglycoside	1
+ERR5084176	Macrolide, lincosamide and streptogramin b	1
+ERR5084176	Other	1
+ERR5084176	Macrolide	1
+ERR5084177	Macrolide, lincosamide and streptogramin b	1
+ERR5084177	Macrolide	1
+ERR5084177	Other	1
+ERR5084181	Beta-lactam	3
+ERR5084186	Macrolide	1
+ERR5084186	Aminoglycoside	1
+ERR5084187	Other	1
+ERR5084187	Beta-lactam	1
+ERR5084190	Other	1
+ERR5084191	Other	1
+ERR5084191	Macrolide	1
+ERR5084194	Macrolide, lincosamide and streptogramin b	1
+ERR5084194	Aminoglycoside	2
+ERR5084194	Other	1
+ERR5084194	Macrolide	1
+ERR5084195	Macrolide	1
+ERR5084195	Aminoglycoside	1
+ERR5084195	Macrolide, lincosamide and streptogramin b	1
+ERR5084195	Other	1
+ERR5084196	Other	1
+ERR5084196	Macrolide	1
+ERR5084196	Tetracycline	1
+ERR5084196	Macrolide, lincosamide and streptogramin b	1
+ERR5083121	Beta-lactam	8
+ERR5083121	Tetracycline	2
+ERR5083121	Macrolide	1
+ERR5083121	Macrolide, lincosamide and streptogramin b	1
+ERR5083121	Other	1
+ERR5083122	Beta-lactam	7
+ERR5083122	Macrolide	1
+ERR5083122	Tetracycline	1
+ERR5083122	Other	1
+ERR5083122	Macrolide, lincosamide and streptogramin b	1
+ERR5083123	Beta-lactam	7
+ERR5083123	Tetracycline	1
+ERR5083123	Macrolide	1
+ERR5083123	Macrolide, lincosamide and streptogramin b	1
+ERR5083123	Other	1
+ERR5083126	Macrolide	3
+ERR5083126	Macrolide, lincosamide and streptogramin b	1
+ERR5083126	Other	1
+ERR5083127	Macrolide	7
+ERR5083127	Macrolide, lincosamide and streptogramin b	1
+ERR5083134	Tetracycline	7
+ERR5083134	Beta-lactam	8
+ERR5083134	Sulphonamide	1
+ERR5083134	Macrolide	1
+ERR5083134	Fluoroquinolone and aminoglycoside	2
+ERR5083135	Beta-lactam	6
+ERR5083135	Macrolide	1
+ERR5083138	Macrolide	2
+ERR5083139	Beta-lactam	6
+ERR5083139	Macrolide	4
+ERR5083139	Tetracycline	1
+ERR5083139	Other	1
+ERR5083139	Macrolide, lincosamide and streptogramin b	1
+ERR5083143	Beta-lactam	1
+ERR5083143	Macrolide	1
+ERR5083150	Beta-lactam	7
+ERR5083150	Macrolide	7
+ERR5083150	Sulphonamide	7
+ERR5083150	Aminoglycoside	3
+ERR5083150	Macrolide, lincosamide and streptogramin b	1
+ERR5083150	Other	1
+ERR5083150	Tetracycline	2
+ERR5083151	Beta-lactam	7
+ERR5083151	Other	1
+ERR5083151	Macrolide	4
+ERR5083151	Tetracycline	6
+ERR5083151	Macrolide, lincosamide and streptogramin b	1
+ERR5083155	Tetracycline	3
+ERR5083155	Sulphonamide	4
+ERR5083155	Macrolide	5
+ERR5083155	Aminoglycoside	1
+ERR5083156	Phenicol	2
+ERR5083156	Macrolide	6
+ERR5083156	Aminoglycoside	1
+ERR5083156	Beta-lactam	1
+ERR5083159	Sulphonamide	8
+ERR5083159	Fusidic acid	1
+ERR5083159	Phenicol	2
+ERR5083159	Aminoglycoside	1
+ERR5083159	Macrolide	6
+ERR5083159	Other	1
+ERR5083159	Fluoroquinolone and aminoglycoside	2
+ERR5083159	Beta-lactam	1
+ERR5083159	Macrolide, lincosamide and streptogramin b	2
+ERR5083160	Phenicol	2
+ERR5083160	Streptogramin b	1
+ERR5083160	Other	1
+ERR5083160	Macrolide	5
+ERR5083160	Beta-lactam	1
+ERR5083160	Aminoglycoside	2
+ERR5083160	Fusidic acid	1
+ERR5083163	Macrolide	3
+ERR5083163	Macrolide, lincosamide and streptogramin b	1
+ERR5083163	Other	1
+ERR5083164	Macrolide	9
+ERR5083164	Sulphonamide	5
+ERR5083164	Beta-lactam	1
+ERR5083165	Macrolide, lincosamide and streptogramin b	1
+ERR5083165	Macrolide	2
+ERR5083165	Other	1
+ERR5083169	Macrolide, lincosamide and streptogramin b	1
+ERR5083169	Sulphonamide	1
+ERR5083169	Macrolide	1
+ERR5083169	Other	1
+ERR5083169	Streptogramin b	1
+ERR5083172	Macrolide	4
+ERR5083172	Beta-lactam	3
+ERR5083172	Macrolide, lincosamide and streptogramin b	1
+ERR5083172	Other	1
+ERR5083177	Fluoroquinolone and aminoglycoside	2
+ERR5083177	Aminoglycoside	1
+ERR5083177	Other	1
+ERR5083177	Macrolide	1
+ERR5083177	Macrolide, lincosamide and streptogramin b	2
+ERR5083178	Macrolide, lincosamide and streptogramin b	1
+ERR5083178	Macrolide	2
+ERR5083178	Fluoroquinolone and aminoglycoside	2
+ERR5083178	Beta-lactam	1
+ERR5083178	Other	1
+ERR5083183	Beta-lactam	8
+ERR5083183	Other	1
+ERR5083183	Macrolide	2
+ERR5083183	Aminoglycoside	1
+ERR5083183	Tetracycline	2
+ERR5083183	Macrolide, lincosamide and streptogramin b	1
+ERR5083183	Streptogramin b	1
+ERR5083185	Beta-lactam	7
+ERR5083185	Fusidic acid	1
+ERR5083185	Macrolide	2
+ERR5083185	Tetracycline	5
+ERR5083185	Aminoglycoside	2
+ERR5083185	Other	3
+ERR5083185	Fluoroquinolone	1
+ERR5083185	Macrolide, lincosamide and streptogramin b	1
+ERR5083185	Streptogramin b	1
+ERR5083189	Macrolide, lincosamide and streptogramin b	1
+ERR5083189	Macrolide	1
+ERR5083189	Other	1
+ERR5083190	Macrolide	2
+ERR5083190	Fusidic acid	1
+ERR5083190	Aminoglycoside	1
+ERR5083196	Macrolide	1
+ERR5083200	Beta-lactam	1
+ERR5083200	Macrolide	1
+ERR5083200	Macrolide, lincosamide and streptogramin b	1
+ERR5083205	Macrolide	5
+ERR5083206	Tetracycline	2
+ERR5083206	Phenicol	1
+ERR5083206	Macrolide, lincosamide and streptogramin b	1
+ERR5083206	Macrolide	1
+ERR5083206	Other	1
+ERR5083207	Beta-lactam	1
+ERR5083207	Other	2
+ERR5083207	Tetracycline	3
+ERR5083207	Aminoglycoside	1
+ERR5083207	Macrolide	1
+ERR5083207	Fluoroquinolone	1
+ERR5083207	Macrolide, lincosamide and streptogramin b	1
+ERR5083220	Macrolide, lincosamide and streptogramin b	1
+ERR5083220	Tetracycline	2
+ERR5083220	Macrolide	1
+ERR5083220	Other	1
+ERR5083221	Macrolide	1
+ERR5083221	Other	1
+ERR5083221	Macrolide, lincosamide and streptogramin b	1
+ERR5083222	Macrolide	5
+ERR5083226	Aminoglycoside	3
+ERR5083226	Beta-lactam	9
+ERR5083226	Macrolide	3
+ERR5083226	Tetracycline	6
+ERR5083226	Sulphonamide	1
+ERR5083226	Other	1
+ERR5083226	Macrolide, lincosamide and streptogramin b	1
+ERR5083227	Sulphonamide	4
+ERR5083227	Macrolide	6
+ERR5083227	Aminoglycoside	2
+ERR5083227	Tetracycline	5
+ERR5083227	Macrolide, lincosamide and streptogramin b	2
+ERR5083227	Other	1
+ERR5083232	Fluoroquinolone	1
+ERR5083232	Beta-lactam	1
+ERR5083233	Beta-lactam	1
+ERR5083236	Macrolide, lincosamide and streptogramin b	1
+ERR5083236	Other	1
+ERR5083236	Macrolide	1
+ERR5083236	Tetracycline	4
+ERR5083236	Aminoglycoside	4
+ERR5083238	Other	1
+ERR5083238	Macrolide	1
+ERR5083238	Macrolide, lincosamide and streptogramin b	1
+ERR5083241	Other	1
+ERR5083241	Aminoglycoside	1
+ERR5083241	Macrolide, lincosamide and streptogramin b	1
+ERR5083243	Beta-lactam	8
+ERR5083243	Macrolide	1
+ERR5083246	Macrolide	1
+ERR5083246	Fluoroquinolone and aminoglycoside	2
+ERR5083246	Aminoglycoside	1
+ERR5083246	Other	1
+ERR5083246	Macrolide, lincosamide and streptogramin b	2
+ERR5083247	Sulphonamide	6
+ERR5083247	Colistin	1
+ERR5083247	Aminoglycoside	1
+ERR5083250	Beta-lactam	1
+ERR5083250	Macrolide	1
+ERR5083250	Other	1
+ERR5083250	Aminoglycoside	1
+ERR5083250	Macrolide, lincosamide and streptogramin b	1
+ERR5083254	Macrolide, lincosamide and streptogramin b	1
+ERR5083254	Aminoglycoside	1
+ERR5083254	Macrolide	1
+ERR5083254	Other	1
+ERR5083255	Macrolide	1
+ERR5083255	Macrolide, lincosamide and streptogramin b	2
+ERR5083255	Aminoglycoside	1
+ERR5083255	Other	1
+ERR5083256	Macrolide, lincosamide and streptogramin b	1
+ERR5083256	Beta-lactam	1
+ERR5083256	Macrolide	1
+ERR5083256	Other	1
+ERR5083259	Macrolide	1
+ERR5083259	Other	1
+ERR5083259	Macrolide, lincosamide and streptogramin b	1
+ERR5083260	Aminoglycoside	5
+ERR5083260	Macrolide	6
+ERR5083260	Other	1
+ERR5083260	Macrolide, lincosamide and streptogramin b	1
+ERR5083264	Macrolide	7
+ERR5083264	Macrolide, lincosamide and streptogramin b	2
+ERR5083264	Beta-lactam	1
+ERR5083264	Aminoglycoside	2
+ERR5083264	Fusidic acid	1
+ERR5083264	Other	2
+ERR5083264	Streptogramin b	1
+ERR5083264	Fluoroquinolone and aminoglycoside	2
+ERR5083267	Beta-lactam	7
+ERR5083267	Other	1
+ERR5083267	Macrolide	1
+ERR5083267	Macrolide, lincosamide and streptogramin b	1
+ERR5083267	Tetracycline	1
+ERR5083268	Macrolide	1
+SRR1950743	Beta-lactam	14
+SRR1950743	Fluoroquinolone and aminoglycoside	2
+SRR1950743	Tetracycline	2
+SRR1950743	Other	1
+SRR1950743	Aminoglycoside	2
+SRR1950744	Tetracycline	3
+SRR1950744	Fluoroquinolone and aminoglycoside	2
+SRR1950744	Beta-lactam	7
+SRR1950744	Macrolide	6
+SRR1950744	Other	1
+SRR1950713	Macrolide	2
+SRR1950714	Macrolide	2
+SRR1950716	Aminoglycoside	4
+SRR1950745	Lincosamide	1
+SRR1950745	Macrolide	2
+SRR1950746	Macrolide	4
+SRR1950746	Other	1
+SRR1950747	Beta-lactam	11
+SRR1950747	Macrolide	8
+SRR1950748	Beta-lactam	6
+SRR1950748	Aminoglycoside	1
+SRR1950748	Macrolide	1
+SRR1950749	Other	1
+SRR1950749	Beta-lactam	1
+SRR1950750	Tetracycline	2
+SRR1950750	Beta-lactam	4
+SRR1950750	Macrolide	1
+SRR1950750	Other	1
+SRR1950751	Beta-lactam	13
+SRR1950752	Beta-lactam	9
+SRR1950718	Phenicol	1
+SRR1950719	Aminoglycoside	1
+SRR1950756	Tetracycline	1
+SRR1950759	Beta-lactam	28
+SRR1950759	Macrolide	2
+SRR1950759	Tetracycline	1
+SRR1950762	Aminoglycoside	1
+SRR1950765	Other	1
+SRR1950765	Macrolide	1
+SRR1950765	Macrolide, lincosamide and streptogramin b	1
+SRR1950768	Tetracycline	1
+SRR1950768	Beta-lactam	4
+SRR1950770	Aminoglycoside	1
+SRR1950791	Aminoglycoside	2
+SRR1950791	Macrolide	1
+SRR1950773	Macrolide	1
+SRR1950775	Tetracycline	3
+SRR1950776	Tetracycline	3
+SRR1950777	Macrolide	1
+SRR1950788	Beta-lactam	2
+SRR1950789	Aminoglycoside	3
+SRR1950726	Macrolide	5
+SRR1950726	Aminoglycoside	2
+SRR1950726	Phenicol	2
+SRR1950726	Lincosamide	1
+SRR1950726	Beta-lactam	1
+SRR1950728	Aminoglycoside	6
+SRR1950728	Other	1
+SRR1950729	Macrolide	2
+SRR1950729	Streptogramin b	1
+SRR1950729	Tetracycline	1
+SRR1950729	Aminoglycoside	1
+SRR1950729	Other	1
+SRR1950730	Fluoroquinolone and aminoglycoside	2
+SRR1950730	Beta-lactam	8
+SRR1950730	Macrolide	3
+SRR1950730	Aminoglycoside	4
+SRR1950730	Phenicol	3
+SRR1950730	Tetracycline	3
+SRR1950730	Fusidic acid	1
+SRR1950730	Trimethoprim	2
+SRR1950730	MLS	1
+SRR1950730	Other	1
+SRR1950730	Streptogramin b	1
+SRR1950730	Macrolide, lincosamide and streptogramin b	2
+SRR1950732	Macrolide	1
+SRR1950733	Tetracycline	2
+SRR1950733	Macrolide	2
+SRR1950734	Tetracycline	5
+SRR1950734	Macrolide	3
+SRR1950736	Macrolide	2
+SRR1950737	Macrolide	3
+SRR1950737	Beta-lactam	2
+SRR1950737	Streptogramin b	1
+SRR1950738	Macrolide	3
+SRR1950738	Aminoglycoside	1
+SRR1950740	Aminoglycoside	3
+SRR1950741	Aminoglycoside	11
+SRR1950741	Macrolide	8
+SRR1950741	Beta-lactam	3
+SRR1950741	Phenicol	3
+SRR1950741	Macrolide, lincosamide and streptogramin b	2
+SRR1950741	Tetracycline	2
+SRR1950741	MLS	1
+SRR1950741	Other	1
+SRR1950741	Lincosamide	1
+SRR1950742	Macrolide	9
+SRR1950742	Phenicol	3
+SRR1950742	Other	1
+SRR1950742	MLS	1
+SRR1950742	Aminoglycoside	6
+SRR1950742	Beta-lactam	4
+SRR1950742	Lincosamide	1
+SRR1950742	Fluoroquinolone	1
+SRR1950742	Tetracycline	3
+SRR1950742	Macrolide, lincosamide and streptogramin b	2
+ERR4605208	Beta-lactam	2
+ERR4605208	Macrolide, lincosamide and streptogramin b	1
+ERR4605154	Macrolide, lincosamide and streptogramin b	1
+ERR4605209	Beta-lactam	2
+ERR4605209	Macrolide	3
+ERR4605155	Macrolide	4
+ERR4605156	Macrolide	1
+ERR4605210	Other	1
+ERR4605112	Beta-lactam	1
+ERR4605112	Macrolide	1
+ERR4605112	Other	1
+ERR4605166	Macrolide	2
+ERR4605166	Other	1
+ERR4605166	Aminoglycoside	2
+ERR4605124	Tetracycline	3
+ERR4605124	Aminoglycoside	1
+ERR4605124	Macrolide	1
+ERR4605124	Macrolide, lincosamide and streptogramin b	1
+ERR4605124	Other	1
+ERR4605178	Fusidic acid	1
+ERR4605178	Tetracycline	3
+ERR4605178	Macrolide, lincosamide and streptogramin b	1
+ERR4605178	Aminoglycoside	1
+ERR4605178	Macrolide	1
+ERR4605178	Other	1
+ERR4605115	Other	1
+ERR4605132	Macrolide, lincosamide and streptogramin b	1
+ERR4605132	Aminoglycoside	1
+ERR4605186	Aminoglycoside	1
+ERR4605133	Aminoglycoside	9
+ERR4605133	Macrolide, lincosamide and streptogramin b	1
+ERR4605133	Phenicol	2
+ERR4605187	Aminoglycoside	5
+ERR4605187	Phenicol	2
+ERR4605187	Macrolide, lincosamide and streptogramin b	1
+ERR4605160	Beta-lactam	1
+ERR4605140	Macrolide	1
+ERR4605140	Aminoglycoside	2
+ERR4605194	Aminoglycoside	1
+ERR4605172	Aminoglycoside	9
+ERR4605172	Beta-lactam	1
+ERR4605172	Tetracycline	2
+ERR4605172	Other	1
+ERR4605118	Tetracycline	3
+ERR4605118	Aminoglycoside	10
+ERR4605118	Quinolone	2
+ERR4605118	Beta-lactam	1
+ERR4605144	Phenicol	1
+ERR4605147	Trimethoprim	2
+ERR4605147	Aminoglycoside	5
+ERR4605147	Phenicol	2
+ERR4605201	Aminoglycoside	3
+ERR4605201	Phenicol	2
+ERR4605152	Aminoglycoside	1
+ERR4605206	Aminoglycoside	1
+ERR4605122	Macrolide	2
+ERR4605176	Macrolide	1
+ERR4605153	Macrolide	1
+ERR4605153	Macrolide, lincosamide and streptogramin b	1
+ERR4605153	Aminoglycoside	1
+ERR4605207	Macrolide	1
+SRR9680482	Macrolide	1
+SRR9680484	Other	2
+SRR9680484	Fusidic acid	1
+SRR9680484	Fluoroquinolone	1
+SRR9680484	Beta-lactam	2
+SRR9680486	Aminoglycoside	1
+SRR9680487	Aminoglycoside	1
+SRR9680488	Fosfomycin	1
+SRR9680489	Other	1
+SRR9680489	Beta-lactam	1
+SRR9680491	Macrolide	2
+SRR9680491	Aminoglycoside	2
+SRR9680491	Other	6
+SRR9680491	Fosfomycin	1
+SRR9680491	Beta-lactam	1
+SRR9680491	Fluoroquinolone	1
+SRR9680491	Tetracycline	1
+SRR9680492	Other	3
+SRR9680492	Fluoroquinolone	1
+SRR9680492	Macrolide	1
+SRR9680492	Beta-lactam	1
+SRR9680497	Trimethoprim	2
+SRR9680497	Fluoroquinolone	2
+SRR9680497	Other	3
+SRR9680497	Aminoglycoside	1
+SRR9680497	Tetracycline	1
+SRR9680498	Phenicol	1
+SRR9680498	Aminoglycoside	2
+SRR9680500	Phenicol	1
+SRR9680500	Other	4
+SRR9680500	Tetracycline	1
+SRR9680500	Aminoglycoside	1
+SRR9680500	Beta-lactam	2
+SRR9680500	Fluoroquinolone	1

@@ -1,0 +1,197 @@
+---
+title: "Figure S1"
+output: html_document
+date: '2022-12-31'
+---
+
+
+
+```{r, message=FALSE,warning=FALSE}
+# load libraries
+rm(list=ls())
+library(ggplot2)
+library(cowplot)
+library(reshape2)
+library(dplyr)
+library(ggpattern)
+library(funrar)
+library(ggpubr)
+library(RColorBrewer)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+```
+
+
+
+```{r, warning=FALSE, message=FALSE}
+
+gtdb.bac_genus=read.csv("metadata/SMGC_GTDB.csv",stringsAsFactors = F)
+gtdb.bac_genus$Taxa3[which(gtdb.bac_genus$Taxa3=="s__")]="Other"  #ignore novel species
+
+#identify representative visits
+repsites=read.csv("intermediates/fig1_metag_samples.csv",stringsAsFactors = F)
+
+# merge with metadata
+metadata=read.csv("metadata/Table2.csv",stringsAsFactors = F)
+#subset
+metadata$status=gsub(" .*","",metadata$status)
+metadata$visit_rank=paste(metadata$Subject_ID,metadata$visit_rank,sep="_")
+#subset to representative visits
+metadata=metadata[which(metadata$Sample_ID%in%repsites[,1]),]
+
+
+# read in unique counts
+otu=data.matrix(readRDS("results/readmapping/readmapping_SMGC_unique_reads.RDS"))
+otu=otu[,repsites[,1]]
+relabund=t(make_relative(t(otu))) 
+
+# melt 
+y4 <- reshape2::melt(data.matrix(relabund))
+colnames(y4)=c("Identifier","Sample_ID","relabund")
+
+
+y4=merge(metadata,y4,by="Sample_ID",all.x=T)
+
+
+# merge with gtdb species data
+y4=merge(y4,gtdb.bac_genus,by="Identifier",all.x=T)
+
+
+topTaxa3<-y4%>%filter(Taxa3!="Other")%>%group_by(Taxa1,Taxa3)%>%dplyr::summarise(summ=sum(relabund))%>% dplyr::slice_max(order_by = summ,n=3) #get top 4 species within each taxa
+target_Taxa1=c("p__Firmicutes","p__Actinobacteriota","p__Basidiomycota", "p__Proteobacteria","Other","Virus") #subset to top phyla
+topTaxa3=topTaxa3[which(topTaxa3$Taxa1%in%target_Taxa1),]
+y4_fin=merge(y4,topTaxa3,by=c("Taxa1","Taxa3"),all.x=T)
+
+#Define other - exclude argenteus and m. sloffiae to make plot less crowded
+y4_fin$Taxa1[!(y4_fin$Taxa1%in%target_Taxa1)]="Other"
+y4_fin$Taxa3[which((is.na(y4_fin$summ)&(y4_fin$Taxa2=="g__Staphylococcus"))|(y4_fin$Taxa3=="s__Staphylococcus argenteus"))]="Other staphylococci" 
+y4_fin$Taxa3[which((is.na(y4_fin$summ)&(y4_fin$Taxa2=="p__Basidiomycota"))|(y4_fin$Taxa3=="Malassezia_slooffiae"))]="Other"  
+y4_fin$Taxa3[which(is.na(y4_fin$summ)&!(y4_fin$Taxa2=="g__Staphylococcus"))]="Other"   
+
+
+
+y5<-y4_fin%>%dplyr::group_by(Subject_ID,Taxa1,Taxa2,Taxa3,Sample_ID,scorad,scorad_category,visit_rank,status)%>%dplyr::summarise(relabund=sum(relabund)) 
+#order by total staph sum
+order=y5[which(y5$Taxa2=="g__Staphylococcus"),]
+order=order%>%group_by(visit_rank)%>%dplyr::summarise(relabund=sum(relabund))%>%arrange(relabund)
+
+
+
+def=as.data.frame(unique(y5[,c("Taxa1","Taxa3")]))
+def%>%group_by(Taxa1)%>%dplyr::summarise(n=n())
+colors=c("Reds","Greens","BrBG","Blues","Greys","Purples")
+
+
+#get colors
+df=NULL
+df=data.frame()
+for (i in 1:length(target_Taxa1)){
+   tmp=def[which(def$Taxa1==target_Taxa1[i]),]
+    if (target_Taxa1[i]=="p__Basidiomycota"){
+   colors_list=rev(c("#543005", "#8C510A", "#BF812D")) #, "#DFC27D
+    }
+    else if (target_Taxa1[i]=="Other"){
+   colors_list=c("grey") #, "#DFC27D
+    }
+    else{
+     colors_list=tail(brewer.pal(nrow(tmp),colors[i]),nrow(tmp))
+   }
+   colors_def=cbind.data.frame(tmp,colors_list)
+   df=rbind(df, colors_def)
+}
+df$name=paste(df$Taxa1,df$Taxa3,sep="_")
+df$Taxa=gsub("p__.*s__","",df$name)
+df$Taxa=gsub("p__","",df$Taxa)
+df$Taxa=gsub("_Other","",df$Taxa)
+df$Taxa=gsub("Firmicutes staphylococci","Other staphylococci",df$Taxa)
+
+
+
+y5=merge(y5,df,by=c("Taxa1","Taxa3"))
+
+palette=df$colors_list
+names(palette)=df$Taxa
+levels=c("p__Proteobacteria_Other","p__Proteobacteria_s__Acinetobacter johnsonii","p__Proteobacteria_s__Acinetobacter pittii","p__Proteobacteria_s__Acinetobacter ursingii","p__Proteobacteria_s__Moraxella_A aerosaccus" ,"p__Proteobacteria_s__Moraxella_A osloensis","p__Proteobacteria_s__Neisseria sp000227275","p__Proteobacteria_s__QFNR01 sp003248485","p__Actinobacteriota_Other","p__Actinobacteriota_s__Actinomyces viscosus","p__Actinobacteriota_s__Corynebacterium kefirresidentii","p__Actinobacteriota_s__Corynebacterium massiliense","p__Actinobacteriota_s__Cutibacterium acnes" ,"p__Actinobacteriota_s__Cutibacterium namnetense","p__Actinobacteriota_s__Micrococcus luteus","p__Actinobacteriota_s__Rothia mucilaginosa","Other_Other","p__Basidiomycota_Other","p__Basidiomycota_s__Malassezia_globosa" ,"p__Basidiomycota_s__Malassezia_restricta","Virus_Other","Virus_Papillomaviridae","Virus_Poxviridae","Virus_Siphoviridae","p__Firmicutes_s__Staphylococcus capitis","p__Firmicutes_s__Staphylococcus hominis","p__Firmicutes_Other","p__Firmicutes_s__Streptococcus oralis_S","p__Firmicutes_s__Streptococcus thermophilus","p__Firmicutes_s__Other staphylococci","p__Firmicutes_s__Staphylococcus aureus","p__Firmicutes_s__Staphylococcus epidermidis") 
+levels=gsub("p__.*s__","",levels)
+levels=gsub("p__","",levels)
+levels=gsub("_Other","",levels)
+
+
+y5$Taxa=factor(y5$Taxa,levels=levels)
+
+y5<-y5%>%dplyr::group_by(Taxa2,Taxa,scorad,scorad_category,visit_rank,status)%>%dplyr::summarise(relabund=sum(relabund)) 
+
+
+#format
+order$visit_rank=gsub("_.*","",order$visit_rank)
+y5$visit_rank=gsub("_.*","",y5$visit_rank)
+y5$visit_rank2=factor(y5$visit_rank,levels=order$visit_rank)
+
+relabund<-ggplot(y5, aes(x=visit_rank2, y=relabund, fill=Taxa)) +
+        geom_bar(stat="identity",position="stack")+scale_fill_manual(values=palette)+theme_bw()+  ylab("Relative abundance")+xlab("Subject")+
+  theme(legend.position = "bottom")+
+  theme(axis.text.x=element_text(angle=90,hjust=1))+
+   theme(legend.text = element_text(size=11), legend.title = element_text(size=13)) +
+   theme(axis.text = element_text(size=12))+theme(axis.title = element_text(size=14)) +
+   theme(panel.grid.minor.y = element_blank(), panel.grid.minor.x = element_blank())+
+    facet_grid(.~status, scales="free", space='free')+
+    theme( strip.text.x = element_blank() )+
+    guides(fill = guide_legend(nrow = 8))
+relabund
+
+```
+
+
+```{r}
+
+#palettes
+palette_scorad=c("#f7f7f7","#f0f0f0","#d9d9d9","#bdbdbd") 
+names(palette_scorad)<-c("Healthy","Mild","Moderate","Severe")
+
+palette_sign=c("#CAB2D6","#fbb4ae","#b3cde3","#ccebc5")
+names(palette_sign)<-c("OSP","SAP","SEP","HC")
+
+
+
+tile_1 <- ggplot(y5) +
+#  geom_tile(aes(x=visit_rank2, y=1, height=1, fill = signature),alpha=0.8) +
+  geom_tile(aes(x=visit_rank2, y=2, height=1, fill = scorad_category),alpha=0.8) + #scale_y_discrete(limits = c("Disease signature","Disease severity"))+
+  scale_fill_manual(values=c(palette_scorad,palette_sign)) +
+  theme(legend.position = "top")+
+  theme_classic()+
+  theme(text = element_text(size=14),
+        line = element_blank(),
+        title = element_blank(),
+        axis.text=element_blank(),
+        axis.ticks=element_blank())+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+      facet_grid(.~status, scales="free")
+
+
+for_first_legend <-
+  ggplot(y5) +
+  geom_tile(aes(x=visit_rank2, y=2, height=1, fill = scorad_category),alpha=0.8) +
+  scale_fill_manual(values=palette_scorad,name="Disease\nseverity") +
+  theme(legend.position = "top")+
+  guides(fill=guide_legend(ncol=1, byrow=TRUE,title.position = "top"))
+
+
+#get legends
+one<-get_legend(for_first_legend)
+legends<-plot_grid(one)
+
+
+
+fig1a<-plot_grid(tile_1+theme(legend.position = "none"),relabund+theme(legend.position = "bottom"),nrow = 2, rel_heights = c(0.12, 0.88), align = 'v',axis = "b")
+fig1a<-plot_grid(fig1a,legends,nrow=1,rel_widths = c(0.9, 0.1))
+fig1a
+
+
+ggsave("figures/FigureS1.svg",fig1a,width=12,height=5.5)
+ggsave("figures/FigureS1.png",fig1a,width=12,height=5.5)
+
+```
+
+
+
+

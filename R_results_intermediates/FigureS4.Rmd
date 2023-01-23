@@ -1,0 +1,183 @@
+---
+title: "FigureS4"
+output: html_document
+date: '2022-03-27'
+---
+
+
+```{r, warnings=FALSE,message=FALSE}
+rm(list=ls())
+library(reshape2)
+library(pheatmap)
+library(gplots)
+library(RColorBrewer)
+library(ggplot2)
+library(dplyr)
+library(cowplot)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+```
+
+
+```{r}
+
+all=readRDS("intermediates/strain_abundance_mock.RDS")
+
+
+STs=c("ST16","ST32","ST59c","ST89","ST297","ST327","ST48","ST85","ST59b","ST59a","ST73")
+colors=c(brewer.pal(11,"Paired"))
+names(colors)=STs
+
+FigureS4a<-ggplot(all, aes(fill=ST, y=rel_abund, x=community))+
+  geom_bar(alpha=0.9,position="fill", stat="identity")+
+  xlab("Mock Community")+
+  ylab("Relative abundance")+
+  theme_classic()+
+  facet_grid(.~status)+
+  scale_fill_manual(values=colors)+
+  theme(strip.text.x = element_text(size = 14))+
+  theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+
+  theme(legend.position = "bottom")+
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+
+```
+
+
+
+```{r setup}
+
+#saureus
+final_win_aur=readRDS("intermediates/strain_tracking_saureus_validations.RDS")
+final_win_aur$dataset="S. aureus dataset"
+
+
+#sepidermidis
+final_win_epi=readRDS("intermediates/strain_tracking_sepidermidis_validations.RDS")
+final_win_epi$param=NULL
+final_win_epi$dataset="S. epidermidis dataset"
+
+#combined
+final_all=rbind.data.frame(final_win_aur,final_win_epi)
+final_all
+
+FigureS4b<-ggplot(final_all, aes(fill=Study, y=value, x=Parameter)) + 
+    geom_bar(alpha=0.8,position="dodge",stat="identity")+
+  scale_fill_brewer(palette="Set1")+
+  ylab("Proportion")+xlab("")+
+  theme_classic()+
+  facet_grid(.~dataset)+
+  theme(strip.text.x = element_text(size = 14))+
+  theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+
+  theme(legend.position = "bottom")
+
+
+FigureS4b
+
+```
+
+
+
+
+S.aureus
+```{r}
+df=read.delim("results/fastani/aur_fastani.txt",stringsAsFactors = F,header=F)
+colnames(df)=c("query","reference","ANI", "count_bidirectionalmappings", "total_query_fragments")
+df$query=gsub(".*/","",df$query)
+df$query=gsub(".fasta","",df$query)
+df$reference=gsub(".fasta","",df$reference)
+df$reference=gsub(".*/","",df$reference)
+
+df$reference=gsub("data/genomes/AD/","",df$reference)
+df$reference=gsub(".fasta","",df$reference)
+
+met=read.csv("metadata/Table3.csv",stringsAsFactors = F)
+met=met[which(met$run_accession%in%df$query),]
+mlst=met%>%group_by(ST)%>%slice_sample(n=1)
+mlst$ST=gsub("_aur","",mlst$ST)
+mlst=mlst[which(mlst$ST!="NF_aur"),]
+mlst$ST=gsub("^","ST",mlst$ST)
+mlst=mlst[,c("run_accession","ST")]
+colnames(mlst)=c("reference","ST_ref")
+
+comb=merge(df,mlst,by="reference")
+colnames(mlst)=c("query","ST_query")
+comb=merge(comb,mlst,by="query")
+
+comb=comb[,c("ST_ref","ST_query","ANI")]
+mat=acast(comb,ST_ref~ST_query)
+hm_1<-pheatmap(mat,main="S.aureus",fontsize_row=12, fontsize_col=12)
+row_order<-hm_1$tree_row$order
+
+FigureS4c<-pheatmap(mat[,row_order],main="S.aureus",cluster_cols  = F,fontsize_row=12, fontsize_col=12)
+FigureS4c
+
+```
+
+
+
+
+S.epidermidis
+```{r}
+df=read.delim("results/fastani/sepi_fastani.txt",stringsAsFactors = F,header=F)
+
+colnames(df)=c("query","reference","ANI", "count_bidirectionalmappings", "total_query_fragments")
+df$query=gsub(".*/","",df$query)
+df$query=gsub(".fasta","",df$query)
+df$reference=gsub(".fasta","",df$reference)
+df$reference=gsub(".*/","",df$reference)
+
+df$reference=gsub("data/genomes/AD/","",df$reference)
+df$reference=gsub(".fasta","",df$reference)
+
+met=read.csv("metadata/Table3.csv", stringsAsFactors = F) 
+met=met[which(met$run_accession%in%df$query),]
+met=met[which(met$ST!="NF_epi"),]
+
+mlst=met%>%group_by(ST)%>%slice_sample(n=1)
+mlst$ST=gsub("_epi","",mlst$ST)
+mlst$ST=gsub("^","ST",mlst$ST)
+mlst=mlst[,c("run_accession","ST")]
+colnames(mlst)=c("reference","ST_ref")
+
+comb=merge(df,mlst,by="reference")
+colnames(mlst)=c("query","ST_query")
+comb=merge(comb,mlst,by="query")
+
+comb=comb[,c("ST_ref","ST_query","ANI")]
+mat=acast(comb,ST_ref~ST_query)
+hm_1<-pheatmap(mat,main="S.epidermidis",fontsize_row=12, fontsize_col=12)
+row_order<-hm_1$tree_row$order
+
+FigureS4d<-pheatmap(mat[,row_order],main="S.epidermidis",cluster_cols  = F,fontsize_row=12, fontsize_col=12)
+FigureS4d
+
+```
+
+
+```{r}
+
+top<-plot_grid(FigureS4a,FigureS4b,labels=c("A","B"),rel_widths = c(0.6,0.4))
+bottom<-cowplot::plot_grid(FigureS4c$gtable, FigureS4d$gtable,
+                   ncol= 2, labels=c("C","D"), rel_widths = c(0.4,0.6))
+
+FigureS4<-plot_grid(top,bottom,nrow=2,rel_heights =c(0.4,0.6))
+FigureS4
+
+FigureS42<-FigureS4+draw_text("ANI", x = 0.373, y = 0.59, size = 14, hjust = 0.5, vjust = 0.5)
+FigureS42<-FigureS42+draw_text("ANI", x = 0.974, y = 0.59, size = 14, hjust = 0.5, vjust = 0.5)
+
+ggsave("figures/FigureS4.png",FigureS42,width=16,height=10, bg='white')
+ggsave("figures/FigureS4.svg",FigureS42,width=16,height=10, bg='white')
+
+
+```
+

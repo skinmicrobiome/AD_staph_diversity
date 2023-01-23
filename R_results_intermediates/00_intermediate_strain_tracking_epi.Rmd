@@ -1,0 +1,193 @@
+---
+title: "Strain validation S. epidermidis"
+author: "Sara"
+date: "12/28/2021"
+output: html_document
+---
+
+
+  
+  
+```{r,warning=FALSE,message=FALSE}
+rm(list=ls())
+library(reshape2)
+library(dplyr)
+library(cowplot)
+library(ggplot2)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+```
+
+
+grouping of STs to secondary clusters based on 998% identity
+```{r}
+
+#combine with cdb output with ST
+mlst=read.csv("metadata/Table3.csv",stringsAsFactors = F)
+cdb=read.csv("results/strains/presence_absence/sepidermidis/Cdb.csv",stringsAsFactors = F)
+cdb$run_accession=gsub(".fasta","",cdb$genome)
+conv=merge(mlst,cdb,by="run_accession")
+conv=conv[,c("run_accession","ST","secondary_cluster")]
+colnames(conv)[1]="name"
+
+saveRDS(conv,"intermediates/conv_STmin_epi.RDS")
+
+
+```
+
+
+
+
+
+
+
+isolates
+```{r}
+
+mlst_care=read.csv("metadata/Table3.csv",stringsAsFactors = F)
+mlst_care=mlst_care[which((mlst_care$Country=="United States")&(mlst_care$Study=="To be announced")),]
+mlst_care=mlst_care[which(mlst_care$Species=="Staphylococcus epidermidis"),]
+
+mlst_care$ST=gsub("\\?","",mlst_care$ST)
+
+
+
+#merge with conv to get secondary cluster info
+mlst_care=merge(conv,mlst_care,by="ST",all.y=T)
+mlst_care=mlst_care[,c("run_accession","Subject","ST","secondary_cluster","visit_rank","Site","Study")]
+mlst_care$secondary_cluster[is.na(mlst_care$secondary_cluster)]="other"
+mlst_care$val=1
+mlst_care$ST=gsub("\\*","",mlst_care$ST)
+
+
+mlst_care=mlst_care[which(grepl("Ac",mlst_care$Site)),]
+
+#number of isolates
+summary=mlst_care%>%group_by(visit_rank,Subject,Study)%>%dplyr::summarise(n=n())
+summary(summary$n)
+
+mlst_care$ID="isolate"
+mlst_care$Sample_ID=mlst_care$run_accession
+#nonredundant subject names
+mlst_care$Subject=paste(mlst_care$Subject,mlst_care$Study,sep="__")
+mlst_care$visit=paste(mlst_care$Subject,mlst_care$visit_rank,sep="__")
+
+
+
+```
+
+
+
+
+metagenomes
+```{r}
+#PRJEB42399 - get metadata for metagenomes
+metag=read.csv("metadata/Table2.csv", stringsAsFactors = F)
+metag=metag[which(!(metag$Sample_ID%in%c("MET1100","MET1099"))),] #these are plate sweeps so remove
+
+#read in genbank
+genbank=read.csv("results/strains/presence_absence/sepidermidis/all_summary/0.998_61_10000_1e5__genbank_all.csv"
+,stringsAsFactors = F)
+genbank=genbank[!(is.na(genbank$name)),]
+genbank$name=gsub(".fasta","",genbank$name)
+genbank$Sample_ID=gsub(".*/","",genbank$query_filename)
+genbank$Sample_ID=gsub(".fastq.gz","",genbank$Sample_ID)
+genbank$Sample_ID=gsub("Met","MET",genbank$Sample_ID)
+
+comb_coocur=merge(genbank,conv,by="name",all.x=T)
+
+
+comb_occur_vf_aur_care=merge(comb_coocur,metag,by="Sample_ID")
+comb_occur_vf_aur_care=comb_occur_vf_aur_care[comb_occur_vf_aur_care$f_orig_query>0.0008,]
+comb_occur_vf_aur_care=as.data.frame(unique(comb_occur_vf_aur_care[,c("Sample_ID","Subject_ID","ST","secondary_cluster","Site","Study","Country","status","visit_rank")]))
+comb_occur_vf_aur_care$val=1
+saveRDS(comb_occur_vf_aur_care,"intermediates/strain_tracking_global_epidermidis.RDS")
+
+#subset to validation metag
+comb_occur_vf_aur_care=comb_occur_vf_aur_care[which(comb_occur_vf_aur_care$Study=="To be announced"),]
+comb_occur_vf_aur_care=comb_occur_vf_aur_care[(comb_occur_vf_aur_care$Site=="Ac"),]
+comb_occur_vf_aur_care$ID="metagenome"
+
+#nonredundant subject names
+comb_occur_vf_aur_care$Subject=paste(comb_occur_vf_aur_care$Subject_ID,comb_occur_vf_aur_care$Study,sep="__")
+comb_occur_vf_aur_care$visit=paste(comb_occur_vf_aur_care$Subject,comb_occur_vf_aur_care$visit_rank,sep="__")
+```
+
+
+
+
+  
+
+determine confusion matrix
+```{r}
+
+#subset to subjects for which we had both metagenomic and isolate predictions
+unique_visits=intersect(comb_occur_vf_aur_care$visit,mlst_care$visit)
+
+
+comb_df=rbind.data.frame(comb_occur_vf_aur_care[,c("Sample_ID","Subject","secondary_cluster","ID","Study","visit"),],mlst_care[,c("Sample_ID","Subject","secondary_cluster","ID","Study","visit"),])
+comb_df=comb_df[which(comb_df$visit%in%unique_visits),]
+
+
+#functions intersection of predictions to determine true positive (TP), false negative (FN), false positive (FP)
+intersect_dup <- function(iso,metag){
+  int=intersect(iso,metag)
+  isolates_in_metag=iso[which(iso%in%metag)] 
+  TP_metag_in_isolates= metag[which( metag%in%iso)] #true positive
+  FN_iso_not_in_metag=iso[which(!(iso%in%metag))]  #false negative
+  FP_metag_not_in_iso=metag[!(metag%in%iso)]  #false positive
+  return(list(isolates_in_metag, TP_metag_in_isolates,FN_iso_not_in_metag,FP_metag_not_in_iso))
+}
+
+#now populate columns using function
+mat_df=comb_df %>% group_by(Subject,ID) %>%
+  summarise(clusters = list(secondary_cluster), num = n()) %>% 
+  group_by(Subject) %>% 
+  dplyr::summarise(isolates_in_metag = list(Reduce(intersect_dup,clusters)[[1]]),    numb_isolates_in_metag=lengths(isolates_in_metag),
+   TP_metag_in_isolates = list(Reduce(intersect_dup,clusters)[[2]]), numb_TP_metag_in_isolates=lengths(TP_metag_in_isolates),
+   FN_iso_not_in_metag = list(Reduce(intersect_dup,clusters)[[3]]), numb_FN_iso_not_in_metag=lengths(FN_iso_not_in_metag),
+   FP_metag_not_in_iso = list(Reduce(intersect_dup,clusters)[[4]]),  numb_FP_metag_not_in_iso=lengths(FP_metag_not_in_iso)
+) %>%mutate(total_metag=numb_TP_metag_in_isolates+numb_FP_metag_not_in_iso, total_iso=numb_FN_iso_not_in_metag+numb_isolates_in_metag)
+                            
+mat_df=mat_df[which(mat_df$total_iso>5),]
+
+
+#sometimes we have fewer than 5 isolates - exclude those - that is when the diversity of sepi has been saturated
+mat_df$Subject=gsub("__.*","",mat_df$Subject)
+mat_df=mat_df%>%group_by(Subject)%>%
+  select(Subject,numb_TP_metag_in_isolates,numb_FP_metag_not_in_iso,total_metag,numb_isolates_in_metag,numb_FN_iso_not_in_metag,total_iso)%>%
+    summarize_all(sum) %>%
+    as.data.frame()
+
+
+mat_df$Study="To be announced"
+#summarize
+comb=mat_df%>%group_by(Study)%>%dplyr::summarise(numb_TP_metag_in_isolates=sum(numb_TP_metag_in_isolates),total_metag=sum(total_metag),numb_isolates_in_metag=sum(numb_isolates_in_metag),total_iso=sum(total_iso))%>%
+  dplyr::mutate(`Prop of metag\nin cultured`=numb_TP_metag_in_isolates/total_metag, `Prop of cultured\nin metag`=numb_isolates_in_metag/total_iso)%>%
+  select(Study,`Prop of metag\nin cultured`,`Prop of cultured\nin metag`)
+
+
+
+#plot
+comb$Study=gsub("To be announced","NIH study",comb$Study)
+comb$Study=gsub("PRJEB42399","Singapore study",comb$Study)
+comb=reshape2::melt(comb)
+colnames(comb)[2]="Parameter"
+saveRDS(comb,"intermediates/strain_tracking_sepidermidis_validations.RDS")
+
+
+comb
+ggplot(comb, aes(fill=Study, y=value, x=Parameter)) + 
+    geom_bar(alpha=0.8,position="dodge", stat="identity")+scale_fill_brewer(palette="Set1")+ylab("Proportion")+xlab("")+theme_bw()
+
+
+
+```
+
+
+
+
+
+
+
+

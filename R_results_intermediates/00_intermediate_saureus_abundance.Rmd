@@ -1,0 +1,125 @@
+---
+title: "BIB S. aureus"
+author: "Sara"
+date: "1/16/2022"
+output: html_document
+---
+
+```{r,message=FALSE, warning=FALSE}
+rm(list=ls())
+library(dplyr)
+library(funrar)
+library(reshape2)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+```
+
+
+
+load mlst profiles + metag metadata
+
+```{r}
+
+#load mlst
+mlst=read.csv("metadata/Table3.csv",stringsAsFactors = F)    
+mlst=mlst[which((mlst$Country=="United States")&(mlst$Study=="To be announced")),]
+
+
+#metadata - subset to disease sites + NIH 
+metadata=read.csv("metadata/Table2.csv",stringsAsFactors = F)  
+metadata=metadata[which(metadata$Study=="To be announced"),]
+metadata=metadata[which(!(metadata$Sample_ID%in%c("MET1100","MET1099"))),] #exclude plate sweeps
+
+
+
+```
+
+
+relative abundance
+
+```{r}
+
+#read in unique counts
+otu=data.matrix(readRDS("results/readmapping/readmapping_SMGC_unique_reads.RDS"))
+
+#convert to relative abundance
+relabund=t(make_relative(t(otu)))
+
+
+#melt
+relabund=reshape2::melt(data.matrix(relabund))
+colnames(relabund)=c("Identifier","Sample_ID","relab")
+relabund=relabund[which(relabund$Identifier=="SMGC_354"),]  #saureus
+
+
+relabund=merge(relabund,metadata,by="Sample_ID")
+relabund_Ac=relabund[which(grepl("Ac",relabund$Site)),]
+
+
+```
+
+
+
+
+
+S. aureus BIB
+
+```{r}
+
+# format deffile 
+deffile=read.delim("results/strains/abundance/saureus/seq_deffile.txt", stringsAsFactors = F, sep="\t")
+colnames(deffile)[1]="filename"
+deffile$id=gsub("#Sequence","",rownames(deffile))
+deffile$id=gsub("File","",deffile$id)
+deffile=deffile[!(grepl("Format",deffile$id)),]
+deffile$filename=gsub(".*/","",deffile$filename)
+deffile$filename=gsub(".fasta","",deffile$filename)
+
+# load mlst of isolates
+mlst=read.csv("metadata/Table3.csv",stringsAsFactors = F)
+mlst=mlst[,c("run_accession","ST")]
+colnames(mlst)[1]="filename"
+extra=data.frame(filename="abfqr",ST="188_aur")
+mlst=rbind.data.frame(extra,mlst)
+
+#get mlst for deffile isolates
+deffile=merge(deffile,mlst,by="filename")
+
+```
+
+
+abundance BIB
+
+```{r}
+
+#get strain abundance from BIB
+abundance=read.delim("results/strains/abundance/saureus/abundance_all_vf.tsv", stringsAsFactors = F, header=F)
+abundance$Sample_ID=gsub(".*/","",abundance$V1)
+abundance$Sample_ID=gsub("_abundance.tsv","",abundance$Sample_ID)
+abundance=abundance[,c("Sample_ID","V2","V3")]
+abundance$Sample_ID=gsub("Met","MET",abundance$Sample_ID)
+
+#merge BIB with relative abundance Ac
+abundance_Ac=merge(abundance,relabund_Ac,by="Sample_ID", all.y=T)
+abundance_Ac$relab_norm=abundance_Ac$relab*abundance_Ac$V2
+abundance_Ac$id=abundance_Ac$V3
+abundance_Ac=merge(abundance_Ac,deffile,by="id",all.x=T) # get ST info
+saveRDS(abundance_Ac,"intermediates/strain_abundance_saureus_Ac_BIB.RDS")
+
+
+#merge BIB with all relative abundance
+abundance=merge(abundance,relabund,by="Sample_ID", all.y=T)
+abundance=abundance[!(is.na(abundance$V2)),]
+abundance$relab_norm=abundance$relab*abundance$V2
+abundance$id=abundance$V3
+abundance=merge(abundance,deffile,by="id",all.x=T) # get ST info
+abundance$ST<-factor(abundance$ST,levels=unique(abundance$ST))
+saveRDS(abundance,"intermediates/strain_abundance_saureus_BIB.RDS")
+
+
+```
+
+
+
+

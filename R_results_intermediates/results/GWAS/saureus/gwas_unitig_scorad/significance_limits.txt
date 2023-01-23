@@ -1,0 +1,2 @@
+Patterns:	202479
+Threshold:	2.47E-07

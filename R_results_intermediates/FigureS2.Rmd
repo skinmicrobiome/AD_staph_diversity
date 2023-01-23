@@ -1,0 +1,96 @@
+---
+title: "FigureS2"
+output: html_document
+date: '2022-07-25'
+---
+
+Figure S2
+
+```{r,message=FALSE, warning=FALSE}
+rm(list=ls())
+library(funrar)
+library(dplyr)
+library(reshape2)
+library(ggpubr)
+library(tidyr)
+library(stats)
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+```
+
+
+```{r,message=FALSE, warning=FALSE}
+# load GTDB and subset to staph and reformat
+gtdb.bac_genus=read.csv("metadata/SMGC_GTDB.csv",stringsAsFactors = F)
+gtdb.bac_genus$Genus=gsub("g__","",gtdb.bac_genus$Taxa2)
+
+# read in unique counts
+otu=data.matrix(readRDS("results/readmapping/readmapping_SMGC_unique_reads.RDS"))
+relabund=t(make_relative(t(otu))) 
+
+# melt 
+y4 <- reshape2::melt(data.matrix(relabund))
+colnames(y4)=c("Identifier","Sample_ID","relabund")
+
+
+# merge with metadata
+metadata=read.csv("metadata/Table2.csv", stringsAsFactors = F)
+#timepoint column
+metadata$Timepoint=sub("-[^-]+$", "", metadata$visit_rank)
+#NIH study
+metadata=metadata[which(metadata$Study=="To be announced"),]
+#AD patients
+metadata=metadata[grepl("AD",metadata$status),]
+#Disease sites
+metadata=metadata[which((metadata$Site%in%c("Ac","Pc"))&(metadata$affected_or_unaffected=="A")),]
+metadata=metadata[which(metadata$Timepoint%in%c("baseline","flare")),]
+
+# merge with metadata
+y4=merge(metadata,y4,by="Sample_ID")
+
+
+# merge with gtdb species data
+y4=merge(y4,gtdb.bac_genus,by="Identifier",all.x=T)
+y4=y4[which(y4$Genus%in%c("Corynebacterium","Streptococcus","Cutibacterium","Staphylococcus")),]
+y5=y4%>%group_by(Genus,Site,Sample_ID, Subject_ID,visit_rank, Timepoint, Study)%>%dplyr::summarise(relabund=sum(relabund)) #aggregate within genus
+
+
+# if multiple visits taken mean for each patient
+y5_mean=y5%>%group_by(Genus,Subject_ID,Timepoint)%>%dplyr::summarise(relabund=mean(relabund))
+
+# long to wide
+comb_y5=y5_mean%>%spread(Timepoint, relabund)
+
+comb_y5$Genus=factor(comb_y5$Genus,levels=c("Corynebacterium","Streptococcus","Cutibacterium","Staphylococcus"))
+
+
+figureS2<-ggpaired(comb_y5, cond1 = "baseline", cond2 = "flare",
+    fill = "Genus")+facet_grid(.~Genus)+xlab("Timepoint")+ylab("Mean relative abundance")+stat_compare_means(method = "wilcox.test")+scale_fill_manual(values=c( "#F7F7F7","#CCCCCC","#969696","#636363","#252525"))+theme(axis.text = element_text(size=12)) +theme(axis.title = element_text(size=14)) 
+figureS2
+
+
+ggsave("figures/FigureS2.png",figureS2,width=10,height=5)
+ggsave("figures/FigureS2.svg",figureS2,width=10,height=5)
+
+
+
+```
+
+
+```{r,message=FALSE, warning=FALSE}
+
+#Relative abundance at baseline vs flare
+y5 %>%
+  group_by(Genus,Timepoint) %>%
+  get_summary_stats(relabund, type = "quantile")
+
+
+
+#Wilcox.test check
+y5_mean %>% group_by(Genus) %>% 
+       do(w = stats::wilcox.test(relabund~Timepoint, data=., paired=FALSE, na.action=na.omit)) %>% dplyr::summarise(Genus,Wilcox = w$p.value)
+
+
+```
+
+
+

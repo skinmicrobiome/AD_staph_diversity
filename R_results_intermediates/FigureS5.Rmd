@@ -1,0 +1,104 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r, warning=FALSE,message=FALSE}
+# load libraries
+#rm(list=ls())
+library(ggplot2)
+library(cowplot)
+library(reshape2)
+library(dplyr)
+library(ggpattern)
+library(funrar)
+library(RColorBrewer)
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+```
+
+
+
+```{r}
+# load abundances Ac
+# S. aureus
+abundance_aur=readRDS("intermediates/strain_abundance_saureus_BIB.RDS") 
+abundance_aur$species="S. aureus"
+# S. epidermidis
+abundance_epi=readRDS("intermediates/strain_abundance_sepidermidis_BIB.RDS")  
+abundance_epi$species="S. epidermidis"
+comb=rbind.data.frame(abundance_epi,abundance_aur)
+comb$ST=as.character(comb$ST)
+
+#Timepoint
+comb$Timepoint=sub("-[^-]+$", "", comb$visit_rank)
+
+#normalize
+comb=comb%>%group_by(Sample_ID)%>%
+  dplyr::mutate(total_sum=sum(relab_norm))%>%
+  dplyr::mutate(frac=relab_norm/total_sum)
+
+
+# disease sites - Ac --- take mean
+comb_vf=comb[which((grepl("Ac",comb$Site))),]
+#exclude low abundance samples - strain calling is not reliable
+comb_vf=comb_vf[which(comb_vf$total_sum>0.01),]
+comb_vf=comb_vf[which(comb_vf$Timepoint%in%c("flare","post-flare")),]
+
+
+# find most abundant STs
+topST=comb_vf%>%group_by(ST)%>%dplyr::summarise(summ=sum(frac))%>%slice_max(summ,n=12)
+
+
+# exclude those not top ST
+comb_vf$ST[!(comb_vf$ST%in%topST$ST)&(grepl("epi",comb_vf$ST))]="Other_epi"
+comb_vf$ST[!(comb_vf$ST%in%topST$ST)&(grepl("aur",comb_vf$ST))]="Other_aur"
+
+
+comb_vf$ST[grepl("_aur",comb_vf$ST)]=paste("S. aureus ST",comb_vf$ST[grepl("_aur",comb_vf$ST)],sep="")
+comb_vf$ST[grepl("_epi",comb_vf$ST)]=paste("S.epidermidis ST",comb_vf$ST[grepl("_epi",comb_vf$ST)],sep="")
+comb_vf$ST=gsub("_epi","",comb_vf$ST)
+comb_vf$ST=gsub("_aur","",comb_vf$ST)
+comb_vf$ST=gsub("STOther","Other",comb_vf$ST)
+comb_vf$ST=gsub("STNF","Other",comb_vf$ST)
+
+
+#aggregate and take mean by symmetry
+comb_vf=comb_vf%>%group_by(ST,Subject_ID,visit_rank,species,Timepoint)%>%dplyr::summarise(frac=sum(frac))
+
+
+
+levels=c(sort(unique(comb_vf$ST[grepl("aur",comb_vf$ST)])),sort(unique(comb_vf$ST[grepl("epi",comb_vf$ST)])))
+colors_aureus=brewer.pal(n_distinct(comb_vf$ST[grepl("aur",comb_vf$ST)]),"Reds")
+colors_epi=brewer.pal(n_distinct(comb_vf$ST[grepl("epi",comb_vf$ST)]),"Blues")
+colors=c(colors_aureus,colors_epi)
+names(colors)=levels
+comb_vf$ST=factor(comb_vf$ST,levels=levels)
+
+
+ggplot(comb_vf, aes(x = Timepoint, y = frac, fill =ST,order=species))+
+  geom_bar(stat="identity",position="fill")+facet_wrap(.~Subject_ID,ncol=6)+theme_bw()+
+     theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text = element_text(size=12)) + scale_fill_manual(values=colors)+
+   theme(axis.title = element_text(size=14))+xlab("Timepoint")+ylab("Relative abundance")+
+   theme(strip.text = element_text(size = 12))#+
+
+ggsave("figures/FigureS5.png",width=11,height=7)
+ggsave("figures/FigureS5.svg",width=11,height=7)
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+ 

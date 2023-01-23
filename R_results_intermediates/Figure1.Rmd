@@ -1,0 +1,421 @@
+---
+title: "Figure 1"
+output: html_notebook
+---
+
+Load libraries
+```{r, eval=TRUE}
+rm(list=ls())
+library(ggplot2)
+library(cowplot)
+library(reshape2)
+library(dplyr)
+library(ggpattern)
+library(funrar)
+library(ggpubr)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+```
+
+
+
+
+
+relative abundance of staph species in subjects
+
+```{r}
+
+# read in unique counts
+otu=data.matrix(readRDS("results/readmapping/readmapping_SMGC_unique_reads.RDS"))
+
+#subset to representative visits
+repvisits=read.csv("intermediates/fig1_metag_samples.csv",stringsAsFactors = F)
+otu=otu[,repvisits[,1]]
+
+#relative abundance
+relabund=t(make_relative(t(otu))) 
+
+#metadata
+metadata=read.csv("metadata/Table2.csv", stringsAsFactors = F)
+metadata$status=gsub(" .*","",metadata$status)
+metadata$visit_rank=paste(metadata$Subject_ID,metadata$visit_rank,sep="_")
+
+# load GTDB and subset to staph
+gtdb.bac_genus=read.csv("metadata/SMGC_GTDB.csv",stringsAsFactors = F)
+gtdb.bac_genus=gtdb.bac_genus[,c("Identifier","Taxa2","Taxa3")]
+colnames(gtdb.bac_genus)=c("Identifier","Genus","Species")
+gtdb.bac_genus$Genus=gsub("g__","",gtdb.bac_genus$Genus)
+gtdb.bac_genus$Species=gsub("s__","",gtdb.bac_genus$Species)
+gtdb.bac_staph=gtdb.bac_genus[which(grepl("Staphylococcus", gtdb.bac_genus$Genus)),] 
+
+
+# melt and merge 
+y4 <- reshape2::melt(data.matrix(relabund))
+colnames(y4)=c("Identifier","Sample_ID","relabund")
+y4=merge(metadata,y4,by="Sample_ID")
+y4=merge(y4,gtdb.bac_staph,by="Identifier",all.x=T)
+
+#define other
+y4 = y4 %>% mutate(Species = replace(Species, (Genus!="Staphylococcus")|(is.na(Species)), "Other species"))
+
+# find the total sum of staph for each patient
+tmp=y4%>%dplyr::filter(!(Species=="Other species"))%>%group_by(Subject_ID,visit_rank)%>%dplyr::summarise(staph_sum=sum(relabund))
+y4=merge(y4,tmp,by=c("Subject_ID","visit_rank"))
+
+
+topSpecies=y4%>% group_by(Species)%>%dplyr::summarise(mean=mean(relabund))%>% dplyr::slice_max(order_by = mean,n=5) #find predominant staph
+y4$Species[which((y4$Genus=="Staphylococcus")&!(y4$Species %in%topSpecies$Species))]="Other staphylococci" #define Other staph
+
+
+y5<-y4%>%dplyr::group_by(Subject_ID,Species,Sample_ID,scorad,scorad_category,status,visit_rank,staph_sum)%>%dplyr::summarise(relabund=sum(relabund)) #re-aggregate 
+
+
+# find predominant staph for each person
+ident_subj=y5%>%
+  filter(!Species=="Other species")%>%
+  group_by(Subject_ID, visit_rank)%>%
+  slice(which.max(relabund))
+ident_subj$signature="OSP"
+ident_subj$signature[grepl("epidermidis",ident_subj$Species)]="SEP"
+ident_subj$signature[grepl("aureus",ident_subj$Species)]="SAP"
+ident_subj$signature[grepl("argenteus",ident_subj$Species)]="SAP"  #group argenteus with aureus
+ident_subj$signature[which(grepl("^HC",ident_subj$Subject_ID))]="HC"
+ident_subj=ident_subj[,c("Subject_ID","visit_rank","signature")]
+table(ident_subj$signature)
+
+saveRDS(ident_subj,"intermediates/SAP_vs_SEP.rds")
+y7=merge(y5,ident_subj,by=c("Subject_ID","visit_rank")) # merge
+
+
+#make relative abundance plot
+palette_species=c("#E31A1C","#FDBF6F","#1F78B4","#B15928","#B2DF8A","#756bb1","grey") 
+names(palette_species)=c("Staphylococcus aureus", "Staphylococcus argenteus","Staphylococcus epidermidis","Staphylococcus hominis","Staphylococcus capitis","Other staphylococci","Other species")
+
+
+y7$visit_rank=gsub("_.*","",y7$visit_rank)
+relabund<-ggplot(y7, aes(x=reorder(visit_rank,staph_sum),y=relabund,fill=Species))+geom_bar(alpha=0.8,stat="identity",position="stack")+ theme_classic()+ scale_fill_manual(values=palette_species)+
+  ylab("Relative abundance")+xlab("Subject")+
+  theme(legend.position = "bottom")+
+  theme(axis.text.x=element_text(angle=90,hjust=1))+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text = element_text(size=12)) +
+   theme(axis.title = element_text(size=14)) +
+   theme(panel.grid.minor.y = element_blank(), panel.grid.minor.x = element_blank())+
+    facet_grid(.~status, scales="free", space='free')+
+    theme(strip.text.x = element_blank())+
+    guides(fill = guide_legend(nrow = 2))
+relabund
+
+
+```
+
+
+
+
+Make tiles
+```{r}
+#palettes
+palette_scorad=c("#f7f7f7","#f0f0f0","#d9d9d9","#bdbdbd") 
+names(palette_scorad)<-c("Healthy","Mild","Moderate","Severe")
+
+palette_sign=c("#CAB2D6","#fbb4ae","#b3cde3","#ccebc5")
+names(palette_sign)<-c("OSP","SAP","SEP","HC")
+
+
+tile_1 <- ggplot(y7) +
+  geom_tile(aes(x=reorder(visit_rank,staph_sum), y=1, height=1, fill = signature),alpha=0.8) +
+  geom_tile(aes(x=reorder(visit_rank,staph_sum), y=2, height=1, fill = scorad_category),alpha=0.8) + scale_y_discrete(limits = c("Disease signature","Disease severity"))+
+  scale_fill_manual(values=c(palette_scorad,palette_sign)) +
+  theme(legend.position = "top")+
+  theme_classic()+
+  theme(text = element_text(size=14),
+        line = element_blank(),
+        title = element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+      facet_grid(.~status, scales="free")
+
+```
+
+
+
+
+get legends
+```{r}
+for_first_legend <-
+  ggplot(y7) +
+  geom_tile(aes(x=reorder(visit_rank,staph_sum), y=1, height=1, fill = signature),alpha=0.8) +
+  geom_tile(aes(x=reorder(visit_rank,staph_sum), y=2, height=1, fill = scorad_category),alpha=0.8) +
+  scale_fill_manual(values=palette_scorad,name="Disease\nseverity") +
+  theme(legend.position = "top")+
+  guides(fill=guide_legend(ncol=1, byrow=TRUE,title.position = "top"))
+
+
+for_second_legend <-
+  ggplot(y7) +
+  geom_tile(aes(x=reorder(visit_rank,staph_sum), y=1, height=1, fill = signature),alpha=0.8) +
+  geom_tile(aes(x=reorder(visit_rank,staph_sum), y=2, height=1, fill = scorad_category),alpha=0.8) +
+  scale_fill_manual(values=palette_sign,name="Disease\nsignature") +
+  theme(legend.position = "top")+
+  guides(fill=guide_legend(ncol=1, byrow=TRUE,title.position = "top"))
+
+
+#get legends
+one<-get_legend(for_first_legend)
+two<-get_legend(for_second_legend)
+legends<-plot_grid(one,two,nrow=2)
+
+```
+
+
+```{r}
+
+
+fig1a<-plot_grid(tile_1+theme(legend.position = "none"),relabund+theme(legend.position = "bottom"),nrow = 2, rel_heights = c(0.2, 0.8), align = 'v',axis = "b")
+fig1a<-plot_grid(fig1a,legends,nrow=1,rel_widths = c(0.93, 0.07))
+fig1a
+
+```
+
+
+
+
+SCORAD figure - note, missing scorad for one patient
+
+```{r, eval=TRUE}
+
+scorad=as.data.frame(unique(y7[,c("Subject_ID","scorad","signature","visit_rank")]))
+scorad=scorad[which(scorad$signature%in%c("SAP","SEP")),]
+scorad=scorad[which(!(scorad$scorad=="none")),]
+scorad$scorad=as.numeric(as.vector(scorad$scorad))
+
+
+
+palette=c("#fbb4ae","#b3cde3")
+names(palette)=c("SAP","SEP")
+
+one=scorad[which(scorad$signature=="SAP"),]
+two=scorad[which(scorad$signature=="SEP"),]
+t.test(one$scorad,two$scorad,alternative="two.sided",var.equal = FALSE)
+
+fig1b<-ggplot(scorad,aes(x=signature,y=scorad, fill=signature))+geom_boxplot(alpha=0.8)+geom_jitter(color="gray")+theme_classic() + 
+   scale_fill_manual(values=palette)+
+   ylab("SCORAD for visit") + xlab("Disease\nsignature")+
+   theme(legend.position = "none")+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text = element_text(size=12)) +
+   theme(axis.title = element_text(size=14)) +
+   theme(panel.grid.minor.y = element_blank(), panel.grid.minor.x = element_blank())+
+   stat_compare_means(method = "t.test")
+
+```
+generate accumulation curves accumulation curve
+
+```{r, eval=TRUE}
+
+# Define functions for accumulation curve functions
+df.rarefy = function(metadata, y){
+  rownames(metadata) = metadata$genome
+  raref.all = data.frame(N.genomes=seq(0,nrow(metadata),y), N.species=0)
+  for (r in 2:nrow(raref.all)){
+    genomes = sample(metadata$genome, raref.all[r,1])
+    species = metadata[genomes,"ST"]
+    raref.all[r,2] = length(unique(species))
+  }
+  return(raref.all)
+}
+
+
+repeat_site_HV = function (metadata){
+  numb_HV=unique(metadata$Subject)
+  numb_site=unique(metadata$Site)
+  q=0
+  for (z in numb_HV){
+  metadata_tmp1=metadata[metadata$Subject==z,]
+  for (r in numb_site){
+  metadata_tmp=metadata_tmp1[metadata_tmp1$Site==r,]
+  if (nrow(metadata_tmp)>3){
+  iso.plot = df.rarefy(metadata_tmp, 1)
+  iso.plot$Set = r
+  iso.plot$Set2 = z
+  if (q==0){
+    all.plot=iso.plot
+  }
+  q<-q+1
+  all.plot = rbind(iso.plot, all.plot)
+  }
+  }
+  }
+ return(all.plot)
+}
+
+
+
+
+# isolates for S. epidermidis
+mlst_nih_epi=read.csv("metadata/Table3.csv",stringsAsFactors = F)%>%
+  filter(Study=="To be announced")%>%
+  filter(Species=="Staphylococcus epidermidis")%>%
+  select(run_accession,ST,Site,Subject)
+mlst_nih_epi$genome=mlst_nih_epi$run_accession
+
+# isolates for S. aureus
+mlst_nih_aur=read.csv("metadata/Table3.csv",stringsAsFactors = F)%>%
+  filter(Study=="To be announced")%>%
+  filter(Species=="Staphylococcus aureus")%>%
+  select(run_accession,ST,Site,Subject)
+mlst_nih_aur$genome=mlst_nih_aur$run_accession
+
+
+#run functions for nih epi
+accum.plot_epi = repeat_site_HV(mlst_nih_epi)
+accum.plot_epi = accum.plot_epi[accum.plot_epi$Set%in%c("Ac"),]
+accum.plot_epi$Species="Staphylococcus epidermidis"
+
+
+#run functions for nih aur
+accum.plot_aur = repeat_site_HV(mlst_nih_aur)
+accum.plot_aur = accum.plot_aur[accum.plot_aur$Set%in%c("Ac"),]
+accum.plot_aur$Species="Staphylococcus aureus"
+
+#combine
+accum.plot=rbind.data.frame(accum.plot_epi,accum.plot_aur)
+
+#combine
+accum.plot$group=paste(accum.plot$Species,accum.plot$Set2)
+accum.plot=accum.plot[which(accum.plot$Set=="Ac"),]
+
+
+palette=c("#E31A1C","#1F78B4")
+names(palette)=c("Staphylococcus aureus","Staphylococcus epidermidis")
+
+fig1c<- ggplot(accum.plot, aes(x=N.genomes, y=N.species, group=group,color=Species)) + 
+  ggrastr::geom_point_rast(size=0.8, alpha=0.8) +
+  geom_smooth() + facet_wrap(.~Species,nrow=2, scales = "free")+
+  theme_classic() +
+  xlab("Number of genomes") + 
+  ylab("Number of STs cultured") +
+  theme(legend.title = element_blank()) +
+  theme(legend.text = element_text(size = 10)) +
+  theme(strip.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size=14)) + 
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.x = element_text(size=12))+
+  xlim(0,20)+
+  ylim(0,8) +
+  theme(legend.position="bottom")+scale_color_manual(values=palette)
+fig1c  
+
+```
+
+
+relative abundance of strains
+```{r, eval=TRUE}
+
+# load abundances 
+# S. aureus
+abundance=readRDS("intermediates/strain_abundance_saureus_Ac_BIB.RDS")  
+abundance$species="S. aureus"
+
+# S. epidermidis
+abundance_epi=readRDS("intermediates/strain_abundance_sepidermidis_Ac_BIB.RDS")  #abundance_Ac
+abundance_epi$species="S. epidermidis"
+
+
+# combine 
+comb=rbind.data.frame(abundance_epi,abundance)
+comb$Site=paste(comb$Site,comb$symmetry,sep="-")
+
+
+# subset to subjects we want to include
+comb=comb[which(comb$Subject_ID%in%c("AD17","AD20")),]
+
+
+# disease sites - Ac --- take mean
+comb=comb[which((grepl("Ac",comb$Site))),]
+comb_mean=comb%>%group_by(Subject_ID,visit_rank,ST,species)%>%dplyr::summarise(relab_norm_mean=mean(relab_norm))
+
+
+# find most abundant STs
+topST=comb_mean%>%group_by(ST)%>%dplyr::summarise(summ=sum(relab_norm_mean))%>%slice_max(summ,n=9)
+
+# exclude those not top ST
+comb_mean$ST[!(comb_mean$ST%in%topST$ST)&(grepl("epi",comb_mean$ST))]="Other_epi"
+comb_mean$ST[!(comb_mean$ST%in%topST$ST)&(grepl("aur",comb_mean$ST))]="Other_aur"
+
+
+# aggregate up other aureus/epi
+comb_vf=comb_mean%>%group_by(ST,Subject_ID,visit_rank,species)%>%dplyr::summarise(relab_norm=sum(relab_norm_mean))
+
+
+#palette
+ST_val=c("5_aur","30_aur","Other_aur","5_epi","7_epi","16_epi","35_epi","59_epi","290_epi","984_epi","Other_epi")
+ST_colors=c("#FCAE91","#FB6A4A","#CB181D","#DEEBF7","#C6DBEF","#9ECAE1","#6BAED6","#4292C6","#2171B5","#08519C","#08306B")
+comb_vf$ST=factor(comb_vf$ST,levels=ST_val)
+
+lAD17=comb_vf[which(comb_vf$Subject_ID=="AD17"),]
+lAD17$visit_rank=gsub("-.*","",lAD17$visit_rank)
+lAD17_plot2<-ggplot(lAD17, aes(x = visit_rank, y = relab_norm, fill = ST, group=ST, order=species)) + geom_area(stat = "identity",position="stack")+scale_fill_manual(values=ST_colors,breaks = ST_val)+theme(legend.direction = "horizontal",
+           legend.box = "horizontal",
+           legend.position = "bottom") +
+     guides(size=guide_legend(direction='horizontal'))+
+    guides(size=guide_legend(direction='horizontal'))+theme_bw()+ggtitle("AD17/SEP")+
+     theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text = element_text(size=12)) +
+   theme(axis.title = element_text(size=14))+xlab("Timepoint")+ylab("Relative abundance")
+lAD17_plot2
+
+
+
+lAD20=comb_vf[((comb_vf$Subject_ID=="AD20")&(comb_vf$visit_rank%in%c("baseline-1","flare-1","post-flare-1"))),]
+lAD20$visit_rank=gsub("-.*","",lAD20$visit_rank)
+lAD20_plot2<-ggplot(lAD20, aes(x = visit_rank, y = relab_norm, fill = ST, group=ST, order=species)) + geom_area(stat = "identity",position="stack")+scale_fill_manual(values=ST_colors,breaks = ST_val)+theme(legend.direction = "horizontal",
+           legend.box = "horizontal",
+           legend.position = "bottom") +
+     guides(size=guide_legend(direction='horizontal'))+
+    guides(size=guide_legend(direction='horizontal'))+theme_bw()+ggtitle("AD20/SAP")+
+     theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text = element_text(size=12)) +
+   theme(axis.title = element_text(size=14))+xlab("Timepoint")+ylab("Relative abundance")
+lAD20_plot2
+
+
+#legend
+leg <- get_legend(lAD17_plot2+guides(fill=guide_legend(nrow=2,byrow=TRUE)))
+
+
+df_final2<-plot_grid(lAD20_plot2+theme(legend.position = "none"),lAD17_plot2+theme(legend.position = "none"),nrow=1)
+
+fig1d2<-plot_grid(df_final2,leg, nrow=2,rel_heights = c(0.8,0.2))
+
+```
+
+
+
+
+
+Make figure
+```{r, eval=TRUE}
+top<-plot_grid(fig1a,labels=c("b"))
+right<-plot_grid(fig1b,fig1c,fig1d2,nrow=1,labels=c("c","d","e"),rel_widths = c(0.15,0.325,0.525))
+plot_grid(top, right, nrow=2,rel_heights = c(0.5,0.5), labels=c("","")) 
+
+ggsave("figures/figure1.png",width=15,height=8, bg='white')
+ggsave("figures/figure1.svg",width=15,height=8, bg='white')
+
+
+
+```
+
+
+
+
+
+
+
+
+ 

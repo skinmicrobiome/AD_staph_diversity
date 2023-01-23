@@ -1,0 +1,660 @@
+---
+title: "amr"
+author: "Sara"
+date: "10/24/2021"
+output: html_document
+---
+
+
+
+
+```{r}
+# load libraries
+rm(list=ls())
+library(reshape2)
+library(ggplot2)
+library(plyr)
+library(RColorBrewer)
+library(data.table)
+library(ggpubr)
+library(rcartocolor)
+library(randomcoloR)
+library(dplyr)
+library(cowplot)
+library(ggpattern)
+library(readxl)
+library(Maaslin2)
+library(phyloseq)
+library(gridExtra)
+library(grid)
+library(paletteer)
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+unlink("results/KEGG/all_kegg.tsv")
+unzip("results/KEGG/all_kegg.tsv.zip",exdir = "results/KEGG/")
+
+
+```
+
+
+
+
+
+```{r}
+# load input files
+
+# load metadata
+metadata.all = read.csv("metadata/Table2.csv", stringsAsFactors = F) %>%
+  filter(Country=="United States")%>%
+  filter(grepl("AD",status))
+rownames(metadata.all) = metadata.all$run_accession
+metadata.all$Timepoint=sub("-[^-]+$", "", metadata.all$visit_rank)
+
+
+# get readcount
+readcount=read.delim("results/readcounts/all_readcounts_metag.txt",stringsAsFactors = F, header=F)
+colnames(readcount)=c("Sample_ID","Read count")
+readcount=as.data.frame(unique(readcount))
+
+metadata.all=merge(metadata.all,readcount,by="Sample_ID")
+
+
+# calculate proportion of AMR reads per metagenome
+amr.counts = read.delim("results/amr_metagenomes/amr_counts.tsv", check.names=FALSE, header=FALSE, sep="\t", stringsAsFactors = FALSE)
+colnames(amr.counts) = c("Sample", "Gene", "Counts", "Gene_length")
+amr.counts.agg = amr.counts%>%group_by(Sample)%>%dplyr::summarise(Counts=sum(Counts))
+colnames(amr.counts.agg)[1]=c("Sample_ID")
+amr.counts.agg = merge(amr.counts.agg, metadata.all, by="Sample_ID")
+
+#31349
+
+
+amr.counts.agg$AMR_prop = amr.counts.agg$Counts/amr.counts.agg$`Read count`*100
+amr.counts.agg=amr.counts.agg[which(amr.counts.agg$Site%in%c("Ac","Pc","Vf")),]
+
+
+## sites
+amr.box=ggplot(amr.counts.agg, aes(x=Timepoint, y=AMR_prop, fill=Site)) +
+  geom_point(position=position_jitterdodge(jitter.width=0.5, dodge.width=0.5), size=0.4, 
+             colour="darkgrey") +
+  geom_boxplot(outlier.shape=NA) +
+  coord_flip() +
+  theme_bw() +
+  ylab("% Reads mapped to AMR genes") +
+  guides(fill = guide_legend(title.position = "top")) +
+  theme(legend.position="top") +
+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_blank()) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(panel.grid.minor.y = element_blank()) + 
+  paletteer::scale_fill_paletteer_d("ggthemes::Purple_Pink_Gray")+ylim(0,2.5)
+ # scale_fill_manual(values=c("#332288FF","#CC6677FF","#117733FF"))+
+amr.box
+
+```
+
+
+
+```{r}
+
+#amr classes
+amr.stats = read.delim("results/amr_metagenomes/amr_classes.tsv", check.names=FALSE, header=FALSE, sep="\t", stringsAsFactors = FALSE)
+colnames(amr.stats) = c("Sample", "Class", "Counts")
+
+# find most prevalent AMR classes by time point
+classes.counts = aggregate(Counts ~ Class, data=amr.stats, FUN=sum)
+classes.keep = classes.counts[order(classes.counts$Counts, decreasing=TRUE)[1:10],"Class"]
+amr.stats$Class = ifelse(amr.stats$Class %in% classes.keep, amr.stats$Class, "Other")
+
+amr.stats_timepoint=amr.stats
+amr.stats_timepoint$Timepoint = metadata.all[match(amr.stats_timepoint$Sample, metadata.all$Sample_ID), "Timepoint"]
+amr.stats_timepoint = aggregate(Counts ~ Class+Timepoint, data=amr.stats_timepoint, FUN=sum)
+
+amr.stats_timepoint$Class=gsub("and","<br>and",amr.stats_timepoint$Class)
+# plot classes per timepoint
+stack.cont = ggplot(amr.stats_timepoint, aes(x=Timepoint, y=Counts, fill=Class)) +
+  geom_bar(stat="identity", position="fill",alpha=0.8) +
+ # scale_y_continuous(labels=scales::percent_format()) +
+  coord_flip() +
+  theme_bw() +
+  ylab("Fraction of AMR genes") +
+  theme(legend.position="top") +
+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.y = element_blank()) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(panel.grid.minor.y = element_blank())+
+  paletteer::scale_fill_paletteer_d("ggthemes::calc")+
+  guides(fill=guide_legend(nrow=3, byrow=TRUE))+
+  theme(legend.text = ggtext::element_markdown())
+stack.cont
+
+
+
+
+```
+
+
+
+
+
+
+
+
+Resistance by country for S. aureus
+```{r}
+
+# load amr
+amr=read.delim("results/amr/all_amr.txt",stringsAsFactors = F)
+amr$aacoi.txt=gsub(".txt","",amr$aacoi.txt)
+amr=amr[amr$Contig.id!="Contig id",]
+amr$run_accession=sub("_[^_]+$", "",amr$Contig.id)
+amr$run_accession[grepl("NODE",amr$Contig.id)]=amr$aacoi.txt[grepl("NODE",amr$Contig.id)]
+
+
+
+#load S. aureus genomes
+met_aur=read.csv("metadata/Table3.csv", stringsAsFactors = F)%>%filter(Species=="Staphylococcus aureus")%>%filter(QC=="Passed QC")%>%select(run_accession,Country,Subject,ST,status) #filter(grepl("AD",status))%>%
+
+# merge
+amr_aur=merge(met_aur,amr,by="run_accession",all.x=T)
+amr_aur=as.data.frame(unique(amr_aur[which(amr_aur$Class%in%c("AMINOGLYCOSIDE","BETA-LACTAM","FUSIDIC ACID","TETRACYCLINE","MACROLIDE","MUPIROCIN","QUATERNARY AMMONIUM","TRIMETHOPRIM")),]))
+
+
+#add clonal complex
+CC=read.delim("results/amr/profiles_csv.txt", stringsAsFactors = F) ##https://rest.pubmlst.org/db/pubmlst_saureus_seqdef/schemes/1/profiles_csv
+CC$ST=gsub("$","_aur",CC$ST)
+amr_aur=merge(amr_aur,CC[,c("ST","clonal_complex")],by="ST",all.x=T)
+
+#get count of isolates per country, subject
+summ=amr_aur%>%dplyr::group_by(Country,Subject)%>%dplyr::summarise(total=n_distinct(run_accession))
+
+# find resistance profile by Country and Class, Subject, CC
+summ_antib=amr_aur%>%group_by(Class,Country,Subject,clonal_complex)%>%dplyr::summarise(count=n_distinct(run_accession))
+
+#merge resistance profile by number of country and subject and divide by total isolates for country and subject
+comb=merge(summ,summ_antib,by=c("Country","Subject"))
+comb$prop=comb$count/comb$total
+
+
+#find number of subjects per country
+summ_sub=comb%>%dplyr::group_by(Country)%>%dplyr::summarise(total_subj=n_distinct(Subject))
+#now divide by total number of sujects for country
+comb=merge(comb,summ_sub,by=c("Country"))
+comb$prop_norm=comb$prop/comb$total_subj
+
+
+#find top clonal complexes and subset
+comb$clonal_complex[(comb$clonal_complex=="")|(is.na(comb$clonal_complex))]="Other"
+comb$clonal_complex=gsub("unassigned","Novel",comb$clonal_complex)
+topSTs=comb%>%group_by(clonal_complex)%>%
+  dplyr::summarise(summ=sum(prop))
+topSTs=topSTs[topSTs$summ>15,]
+comb$clonal_complex[!(comb$clonal_complex%in%topSTs$clonal_complex)]="Other"
+comb$`*S. aureus*<br>Clonal complex`=comb$clonal_complex
+comb$Class=gsub(" ","<br>",comb$Class)
+
+comb_vf=comb%>%group_by(Class,Country,`*S. aureus*<br>Clonal complex`)%>%dplyr::summarise(prop_norm=sum(prop_norm))
+fig3b<-ggplot(comb_vf,aes(x=Country,y=prop_norm,fill=`*S. aureus*<br>Clonal complex`))+geom_bar(stat="identity",alpha=0.8 )+facet_wrap(~Class,ncol = 2)+scale_fill_carto_d(type = "qualitative", palette = "Prism", direction = 1)+theme_bw()+ylab("Proportion of subjects")+theme_bw()+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+theme(axis.text.x= element_text(angle=50,hjust=1))+
+  guides(fill=guide_legend(nrow=3, byrow=TRUE))+theme(plot.title = ggtext::element_markdown())+theme(legend.title = ggtext::element_markdown())+theme(legend.text = ggtext::element_markdown())+theme(strip.text = ggtext::element_markdown())
+fig3b
+
+
+#find number of fusc
+#Of the FusR isolates, the majority (n=28 subjects) of the 42 subjects with fusicidic resistance were found to be colonized by CC1 and carrying fusC gene (Fig 3b).
+#subj carrying an isolate
+comb%>%group_by(clonal_complex,Class)%>%dplyr::summarise(summ_pos=n_distinct(Subject))%>%filter(Class=="FUSIDIC<br>ACID")
+#total subject
+comb%>%group_by(Class)%>%dplyr::summarise(summ_pos=n_distinct(Subject))%>%filter(Class=="FUSIDIC<br>ACID")
+
+class_antibiotics=unique(comb$Class)
+
+```
+
+
+
+
+Repeat for S. epidermidis
+```{r}
+
+#load genomes
+met=read.csv("metadata/Table3.csv", stringsAsFactors = F)%>%filter(Species=="Staphylococcus epidermidis")%>%filter(QC=="Passed QC")%>%select(run_accession,Country,Subject,ST,status) #filter(grepl("AD",status))%>%
+
+# merge
+amr_epi=merge(met,amr,by="run_accession",all.x=T)
+amr_epi=as.data.frame(unique(amr_epi[which(amr_epi$Class%in%c("AMINOGLYCOSIDE","BETA-LACTAM","FUSIDIC ACID","TETRACYCLINE","MACROLIDE","MUPIROCIN","QUATERNARY AMMONIUM","TRIMETHOPRIM")),]))
+
+#get count of isolates per country, subject
+summ=amr_epi%>%dplyr::group_by(Country,Subject)%>%dplyr::summarise(total=n_distinct(run_accession))
+
+# find resistance profile by Country and Class, Subject, ST
+summ_antib=amr_epi%>%group_by(Class,Country,Subject,ST)%>%dplyr::summarise(count=n_distinct(run_accession))
+
+#merge resistance profile by number of country and subject and divide by total isolates for country and subject
+comb=merge(summ,summ_antib,by=c("Country","Subject"))
+comb$prop=comb$count/comb$total
+
+
+#find number of subjects per country
+summ_sub=comb%>%dplyr::group_by(Country)%>%dplyr::summarise(total_subj=n_distinct(Subject))
+#now divide by total number of sujects for country
+comb=merge(comb,summ_sub,by=c("Country"))
+comb$prop_norm=comb$prop/comb$total_subj
+
+
+
+
+#find top clonal complexes and subset
+comb$ST[(is.na(comb$ST))]="Other"
+comb$ST=gsub("NF","Novel",comb$ST)
+topSTs=comb%>%group_by(ST)%>%
+  dplyr::summarise(summ=sum(prop_norm))
+topSTs=topSTs[topSTs$summ>0.17,]
+comb$ST[!(comb$ST%in%topSTs$ST)]="Other"
+comb$ST=gsub("_epi","",comb$ST)
+comb$`*S. epidermidis*<br>ST`=gsub("^","ST",comb$ST)
+comb$`*S. epidermidis*<br>ST`=gsub("STOther","Other",comb$`*S. epidermidis*<br>ST`)
+comb$Class=gsub(" ","<br>",comb$Class)
+
+
+comb_vf=comb%>%group_by(Class,Country,`*S. epidermidis*<br>ST`)%>%dplyr::summarise(prop_norm=sum(prop_norm))
+palette=c("#FB9A99", "#FF7F0FFF", "#3CB7CCFF", "#FFD94AFF", "#32A251FF", "#A6CEE3", "#666666FF")
+names(palette)=c("ST5" ,"ST59","ST73","ST218","ST35","ST467","Other")
+fig3c<-ggplot(comb_vf,aes(x=Country,y=prop_norm,fill=`*S. epidermidis*<br>ST`))+geom_bar(stat="identity",alpha=0.8)+facet_wrap(~Class,ncol = 2)+theme_bw()+ylab("Proportion of subjects")+theme_bw()+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+scale_fill_manual(values=palette)+theme(axis.text.x= element_text(angle=50,hjust=1))+
+  guides(fill=guide_legend(nrow=4, byrow=TRUE))+theme(plot.title = ggtext::element_markdown())+theme(legend.title = ggtext::element_markdown())+theme(strip.text = ggtext::element_markdown())
+fig3c
+
+#subject carrying iso by ST
+comb%>%group_by(`*S. epidermidis*<br>ST`,Class)%>%dplyr::summarise(summ_pos=n_distinct(Subject))
+#total subject per ST
+comb%>%group_by(`*S. epidermidis*<br>ST`)%>%dplyr::summarise(summ_pos=n_distinct(Subject))
+
+```
+
+
+```{r}
+
+
+# MaAsLin2 heatmap function for overall view of associations
+maaslin2_heatmap <-
+    function(
+        output_results,
+        title = NA,
+        title_man = NA,
+        cell_value = 'qval',
+        data_label = 'data',
+        metadata_label = 'metadata',
+        border_color = 'grey93',
+        color = colorRampPalette(c("darkblue", "grey90", "darkred")),
+        col_rotate = 90,
+        first_n = 50,annot=NA,ann_col=NA) {
+
+        # read MaAsLin output
+        df <- read.table(
+            output_results,
+            header = TRUE,
+            sep = "\t",
+            fill = TRUE,
+            comment.char = "" ,
+            check.names = FALSE
+        )
+
+        title_additional <- ""
+        
+        title_additional <- ""
+        if (!is.na(first_n) & first_n > 0 & first_n < dim(df)[1]) {
+            if (cell_value == 'coef') {
+                df <- df[order(-abs(df[[cell_value]])) , ]
+            } else{
+                df <- df[order(df[[cell_value]]), ]
+            }
+            # get the top n features with significant associations
+            df_sub <- df[1:first_n,]
+            for (first_n_index in seq(first_n, dim(df)[1]))
+            {
+                if (length(unique(df_sub$feature)) == first_n)
+                {
+                    break
+                }
+                df_sub <- df[1:first_n_index,]
+            }
+            # get all rows that have the top N features
+            df <- df[which(df$feature %in% df_sub$feature),]
+            title_additional <- paste("Top", first_n, sep=" ")
+        }
+        
+        if (dim(df)[1] < 2) {
+            print('There are no associations to plot!')
+            return(NULL)
+        }
+        
+        metadata <- df$metadata
+        data <- df$feature
+        dfvalue <- df$value
+        value <- NA
+        
+        # values to use for coloring the heatmap
+        # and set the colorbar boundaries
+        if (cell_value == "pval") {
+            value <- -log(df$pval) * sign(df$coef)
+            value <- pmax(-20, pmin(20, value))
+            if (is.null(title))
+                title <- "(-log(pval)*sign(coeff))"
+        } else if (cell_value == "qval") {
+            value <- -log(df$qval) * sign(df$coef)
+            value <- pmax(-20, pmin(20, value))
+            if (is.null(title))
+                title <- "(-log(qval)*sign(coeff))"
+        } else if (cell_value == "coef") {
+            value <- df$coef
+            if (is.null(title))
+                title <- "(coeff)"
+        }
+   
+        if (title_additional!="") {
+            title <- paste(title_additional, "features with significant associations", title, sep=" ")
+        } else {
+            title <- paste("Significant associations", title, sep=" ")
+        }
+
+        # identify variables with more than one level present
+        verbose_metadata <- c()
+        metadata_multi_level <- c()
+        for (i in unique(metadata)) {
+            levels <- unique(df$value[df$metadata == i])
+            if (length(levels) > 1) {
+                metadata_multi_level <- c(metadata_multi_level, i)
+                for (j in levels) {
+                    verbose_metadata <- c(verbose_metadata, paste(i, j,sep=""))
+                }
+            } else {
+               verbose_metadata <- c(verbose_metadata, i)
+            }
+        }
+
+        n <- length(unique(data))
+        m <- length(unique(verbose_metadata))
+
+        if (n < 2) {
+            print(
+                paste(
+                    "There is not enough features in the associations",
+                    "to create a heatmap plot.",
+                    "Please review the associations in text output file.")
+            )
+            return(NULL)
+        }
+        
+        if (m < 2) {
+            print(
+                paste(
+                    "There is not enough metadata in the associations",
+                    "to create a heatmap plot.",
+                    "Please review the associations in text output file.")
+            )
+            return(NULL)
+        }
+        
+        a = matrix(0, nrow = n, ncol = m)
+        a <- as.data.frame(a)
+        
+        rownames(a) <- unique(data)
+        colnames(a) <- unique(verbose_metadata)
+
+        for (i in seq_len(dim(df)[1])) {
+            current_metadata <- metadata[i]
+            if (current_metadata %in% metadata_multi_level) {
+                current_metadata <- paste(metadata[i], dfvalue[i],sep="")
+            }
+            if (abs(a[as.character(data[i]), 
+                    as.character(current_metadata)]) > abs(value[i]))
+                next
+            a[as.character(data[i]), as.character(current_metadata)] <- value[i]
+        }
+      
+        # get the range for the colorbar
+        max_value <- ceiling(max(a))
+        min_value <- ceiling(min(a))
+        range_value <- max(c(abs(max_value),abs(min_value)))
+        breaks <- seq(-1*range_value, range_value, by = 1)
+        annot=annot[annot$pathway_class2%in%rownames(a),]
+        rownames(a)=mlr3misc::map_values(rownames(a), annot$pathway_class2, annot$pathway_name)
+        rownames(annot)=annot$pathway_name
+        annot_order=rownames(annot)[order(annot$pathway_class)]
+        annot$pathway_class2=NULL
+        annot$pathway_name=NULL
+        annot$val=NULL
+        a=a[annot_order,sample(colnames(a),first_n)]
+        
+
+        p <- NULL
+        tryCatch({
+            p <-
+                pheatmap::pheatmap(
+                    a,
+                  #  cellwidth = 8,
+                  #  cellheight = 8,
+                    # changed to 3
+                    main = title_man,
+                   # fontsize = 6,
+                    kmeans_k = NA,
+                    border = TRUE,
+                    show_rownames = TRUE,
+                    show_colnames = TRUE,
+                    scale = "none",
+                    cluster_rows = FALSE,
+                    cluster_cols = TRUE,
+                    clustering_distance_rows = "euclidean",
+                    clustering_distance_cols = "euclidean",
+                    legend = TRUE,
+                    annotation_legend = FALSE,
+                    border_color = border_color,
+                    color = color(range_value*2),
+                    breaks = breaks,
+                    treeheight_row = 0,
+                    treeheight_col = 0,
+                    annotation_colors = ann_col,
+                    annotation_row=annot,
+                    display_numbers = matrix(ifelse(
+                        a > 0.0, "+", ifelse(a < 0.0, "-", "")), nrow(a)),
+                    silent = TRUE
+                )
+        }, error = function(err) {
+            logging::logerror("Unable to plot heatmap")
+            logging::logerror(err)
+        })
+        return(p)
+    }
+
+
+
+```
+
+
+
+
+
+
+##KEGG analyses PCoA
+```{r, eval=TRUE}
+KEGG=read.delim("results/KEGG/all_kegg.tsv",sep="\t",stringsAsFactors=FALSE,header=FALSE)
+KEGG$V1=gsub(".summary.kegg_pathways.tsv","",KEGG$V1)
+colnames(KEGG)=c("run_accession","module_accession","completeness","pathway_name","pathway_class","matching_ko","missing_ko")
+KEGG=KEGG[!(KEGG$module_accession=="module_accession"),]
+KEGG$completeness=as.numeric(as.vector(KEGG$completeness))
+KEGG$pathway_class=gsub("Pathway modules;","",KEGG$pathway_class)
+KEGG$pathway_class=gsub(";.*","",KEGG$pathway_class)
+KEGG_dict=as.data.frame(unique(KEGG[,c("pathway_name","pathway_class")]))
+KEGG_dict$pathway_class2=paste0("KEGG",rownames(KEGG_dict),paste="") #simplify names of pathways
+KEGG=merge(KEGG,KEGG_dict,by="pathway_name")
+
+#load isolates
+gtdb.taxa = read.csv("metadata/Table3.csv", stringsAsFactors = F) 
+gtdb.taxa=gtdb.taxa[which(gtdb.taxa$Genus=="g__Staphylococcus"),]%>%
+  subset(select = -c(completeness))%>%
+  filter(QC=="Passed QC")
+gtdb.taxa$Species=gsub(" ","<br>",gtdb.taxa$Species)
+gtdb.taxa$Species=gsub("^","*",gtdb.taxa$Species)
+gtdb.taxa$Species=gsub("$","*",gtdb.taxa$Species)
+
+
+#setdiff(gtdb.taxa$run_accession,KEGG$run_accession)
+#merge and format
+KEGG_resist=merge(KEGG,gtdb.taxa,by="run_accession")
+```
+
+Run PCoA
+```{r}
+total_mat_run=acast(KEGG_resist,run_accession~pathway_name,value.var = "completeness",fill=0,fun.aggregate = mean)
+
+OTU = otu_table(data.matrix(total_mat_run[intersect(rownames(total_mat_run),gtdb.taxa$run_accession),]), taxa_are_rows = F)
+samples=gtdb.taxa[,c("run_accession","Species","ST")]
+rownames(samples)=samples$run_accession
+samples=samples[which(samples$run_accession%in%intersect(rownames(total_mat_run),gtdb.taxa$run_accession)),] ##remove this
+samples = sample_data(samples)
+phylo <- phyloseq(OTU, samples)
+
+
+dist_pcoa <- ordinate(
+  physeq = phylo, 
+  method = "PCoA", 
+  distance = "bray"
+)
+
+breaks=sort(c("Staphylococcus<br>epidermidis","Staphylococcus<br>aureus","Staphylococcus<br>capitis","Staphylococcus<br>argenteus"   ,"Staphylococcus<br>warneri","Staphylococcus<br>hominis","Staphylococcus<br>caprae","Staphylococcus<br>pettenkoferi","Staphylococcus<br>succinus","Staphylococcus<br>lugdunensis"))
+palette2=c("#A6CEE3","#1F78B4","#B2DF8A","#33A02C","#FB9A99","#E31A1C","#FDBF6F","#FF7F00","#CAB2D6","#944DE6")
+names(palette2)=breaks
+
+figa<-plot_ordination(physeq = phylo,ordination = dist_pcoa,color = "Species")+theme_bw(base_size = 12)+theme(axis.text = element_text(size=12)) +
+  theme(axis.title = element_text(size=14))+theme(legend.position="right")+guides(color=guide_legend(nrow=3))+scale_color_paletteer_d("rcartocolor::Vivid")+theme(plot.title = ggtext::element_markdown())+theme(legend.text = ggtext::element_markdown())
+fig3b
+
+figa
+
+```
+
+
+# ST variation
+```{r}
+
+set.seed(2)
+
+#subset to pathways that are at least 70% complete in some species
+KEGG_resist_max=KEGG_resist%>%group_by(pathway_name)%>%dplyr::summarise(max_path=max(completeness))
+KEGG_resist_max=KEGG_resist_max[which(KEGG_resist_max$max_path>70),]
+
+#subset
+KEGG_resist=KEGG_resist[which(KEGG_resist$pathway_name%in%KEGG_resist_max$pathway_name),]
+KEGG_resist=KEGG_resist[!(grepl("Crassu",KEGG_resist$pathway_name)),]
+#cast
+total_mat_run=acast(KEGG_resist,run_accession~pathway_class2,value.var = "completeness",fill=0,fun.aggregate = mean)
+
+#new dict to preserve proper formatting
+KEGG_dict$pathway_class2=paste("KEGG",rownames(KEGG_dict),sep="")
+total_mat_run_fmt=total_mat_run
+colnames(total_mat_run_fmt)=mapvalues(colnames(total_mat_run_fmt), from = KEGG_dict$pathway_name, to = KEGG_dict$pathway_class2)
+
+#make palette and convert pathway class to factor
+palette=distinctColorPalette(k=7)
+names(palette)=c(" Amino acid metabolism"," Carbohydrate metabolism"," Metabolism of cofactors and vitamins"," Nucleotide metabolism","Signature modules"," Energy metabolism"," Lipid metabolism")
+ann_col=list(pathway_class=palette)
+KEGG_dict$pathway_class=factor(KEGG_dict$pathway_class,levels=names(palette))
+
+
+#find top STs in S. aureus
+met_aur=read.csv("metadata/Table3.csv", stringsAsFactors = F)%>%filter(!(ST%in%c("NF_aur","Failed","NF_epi",NA)))%>%filter(Species=="Staphylococcus aureus")%>%filter(QC=="Passed QC")%>%select(run_accession,Country,Subject,ST,status) #filter(grepl("AD",status))%>%
+met_aur$ST=gsub("_aur","",met_aur$ST)
+rownames(met_aur)=met_aur$run_accession
+
+common_ST=met_aur%>%group_by(ST)%>%dplyr::summarise(n_tot=n_distinct(Subject))
+common_ST=common_ST[common_ST$n_tot>1,] #data from two subjects or more
+
+#sample 20 from these top STs
+met_aur=met_aur[met_aur$ST%in%sample(common_ST$ST,20),]
+# 
+# unlink("results/maaslin_aur_KEGG/")
+# fit_data = Maaslin2(
+#     input_data = total_mat_run_fmt[intersect(rownames(total_mat_run_fmt),met_aur$run_accession),],
+#     input_metadata = met_aur,
+#     plot_heatmap = FALSE,
+#     heatmap_first_n = 20,
+#     output = "results/maaslin_aur_KEGG",
+#     fixed_effects = c('ST'),
+#    random_effects=c('Subject'))
+sig=read.delim("results/maaslin_aur_KEGG/significant_results.tsv",stringsAsFactors = F)
+aur<-maaslin2_heatmap("results/maaslin_aur_KEGG/significant_results.tsv",first_n=15,title_man="*S. aureus* KEGG pathways",annot=KEGG_dict,ann_col=ann_col)
+
+
+#repeat for S. epidermidis
+met_epi=read.csv("metadata/Table3.csv", stringsAsFactors = F)%>%filter(!(ST%in%c("NF_aur","Failed","NF_epi",NA)))%>%filter(Species=="Staphylococcus epidermidis")%>%filter(QC=="Passed QC")%>%select(run_accession,Country,Subject,ST,status)
+met_epi$ST=gsub("_epi","",met_epi$ST)
+rownames(met_epi)=met_epi$run_accession
+
+common_ST=met_epi%>%group_by(ST)%>%dplyr::summarise(n_tot=n_distinct(Subject))
+common_ST=common_ST[common_ST$n_tot>1,]
+
+met_epi=met_epi[met_epi$ST%in%sample(common_ST$ST,20),]
+
+
+# unlink("results/maaslin_epi_KEGG/")
+# fit_data = Maaslin2(
+#     input_data = total_mat_run_fmt[intersect(rownames(total_mat_run_fmt),met_epi$run_accession),],
+#     input_metadata = met_epi,
+#     plot_heatmap = FALSE,
+#  #   heatmap_first_n = 20,
+#     output = "results/maaslin_epi_KEGG/",
+#     fixed_effects = c('ST'),
+#     random_effects=c('Subject'))
+epi<-maaslin2_heatmap("results/maaslin_epi_KEGG/significant_results.tsv",first_n=15,title_man="*S. epidermidis* KEGG pathways",annot=KEGG_dict,ann_col=ann_col)
+
+
+#distribution of pathways
+KEGG_dict$val=1
+dist<-ggplot(KEGG_dict,aes(x=pathway_class,y=val,fill=pathway_class))+geom_bar(stat="identity")+scale_fill_manual(values = palette)+  theme(legend.position = "bottom", legend.box = "horizontal")
+leg2<-get_legend(dist)
+
+
+functions_aur<-grid.arrange(grobs = list(aur[[4]]))
+functions_epi<-grid.arrange(grobs = list(epi[[4]]))
+functions<-plot_grid(functions_aur,leg2,functions_epi,rel_heights=c(0.47,0.06,0.47),ncol=1)+theme(plot.background = element_rect(fill = "white")+theme(plot.background = element_blank()))
+
+```
+
+
+
+
+```{r}
+
+
+
+# arrange and save plot
+fig3a<-plot_grid(NULL,figa+theme(legend.position="bottom"),NULL, amr.box+theme(legend.position = "bottom"), NULL, stack.cont+theme(legend.position = "bottom"), align = "h",nrow=1,labels=c("A","","C","","D"),rel_widths = c(0.02,0.35,0.02,0.28,0.02,0.31))
+fig3a
+
+tmp<-plot_grid(NULL,functions,fig3b+theme(legend.position="bottom"),fig3c+theme(legend.position="bottom"),labels=c("B","","E","F"),rel_widths=c(0.01,0.56,0.24,0.21),nrow=1)
+fig3<-plot_grid(fig3a,NULL,tmp,ncol=1,rel_heights = c(0.24,0.01,0.75))
+
+
+ggsave("figures/figure4.svg",fig3,width=17,height=12,bg='white')
+ggsave("figures/figure4.png",fig3,width=17,height=12,bg='white')
+ggsave("figures/figure4.eps",fig3,width=17,height=12, device=cairo_ps,bg='white')
+
+unlink("results/KEGG/all_kegg.tsv")
+
+
+```
+
+
+
+
+
+
+
+
+

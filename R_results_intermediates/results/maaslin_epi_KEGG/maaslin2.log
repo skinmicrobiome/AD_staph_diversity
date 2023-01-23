@@ -1,0 +1,645 @@
+2022-10-02 22:46:59 INFO::Writing function arguments to log file
+2022-10-02 22:46:59 DEBUG::Function arguments
+2022-10-02 22:46:59 DEBUG::Output folder: results/maaslin_epi_KEGG/
+2022-10-02 22:46:59 DEBUG::Min Abundance: 0.000000
+2022-10-02 22:46:59 DEBUG::Min Prevalence: 0.100000
+2022-10-02 22:46:59 DEBUG::Normalization: TSS
+2022-10-02 22:46:59 DEBUG::Transform: LOG
+2022-10-02 22:46:59 DEBUG::Analysis method: LM
+2022-10-02 22:46:59 DEBUG::Max significance: 0.250000
+2022-10-02 22:46:59 DEBUG::Random effects: Subject
+2022-10-02 22:46:59 DEBUG::Fixed effects: ST
+2022-10-02 22:46:59 DEBUG::Correction method: BH
+2022-10-02 22:46:59 DEBUG::Standardize: TRUE
+2022-10-02 22:46:59 DEBUG::Cores: 1
+2022-10-02 22:46:59 INFO::Verifying options selected are valid
+2022-10-02 22:46:59 INFO::Determining format of input files
+2022-10-02 22:46:59 INFO::Input format is data samples as rows and metadata samples as rows
+2022-10-02 22:46:59 DEBUG::The following samples were found to have metadata but no features. They will be removed. aatyu,aatzm,aatzn,abkvm,acvcs,acvct,acvcy,acvda,acvdb,acvde,acvdf,acvdi,acvdw,acvgk,acvgm,adpug,adpvk,adpvt,adpvw,adpvy,adpwg,adpwi,adpwk,adpwr,adpwv,adpwz,adpxa,adpxl,adpxo,adqac,adqaq,adqcj,adqck,adqcn,adqct,adqcu,adqdf,adqdh,adqdi,adqdj,adqdk,adqdl,adqdm,adqdn,adqdo,adqdp,adqdq,adqdr,adqds,adqdt,adqdu,adqdv,adqdw,adqdy,adqeb,adqed,adqee,adqeg,adqeh,adqej,adqek,adqel,adqen,adqeo,adqep,adqeq,adqes,adqet,adqeu,adqev,adqex,adqey,adqez,adqfa,adqfb,adqfc,adqfd,adqfe,adqff,adqfg,adqfh,adqfi,adqfq,adqfv,adqfw,adtrk,adtrl,adtrm,adtrn,adtro,adtrp,adtrq,adtrs,adtrt,adtru,adtrv,adtrw,adtrx,adtry,adtsb,adtsd,adtsg,adtsh,adtsi,adtsk,adtsl,adtsn,adtss,adtsu,adtsv,adtsw,adtsx,adtsy,adtsz,adttw,adtuf,GCA_0101389151,GCA_0101389251,GCA_0101434451,GCA_0101442251,GCA_0101478551,GCA_0101487251,GCA_0101487351,GCA_0101511651,GCA_0101518451,GCA_0101604151,GCA_0101607851,GCA_0101611151,GCA_0101611651,GCA_0101611951,GCA_0101612051,GCA_0101612151,GCA_0101613251,GCA_0101613651,GCA_0101614151,GCA_0101614451,GCA_0101614951,GCA_0101615351,GCA_0101616151,GCA_0101667651,GCA_0101680051,GCA_0101681251,GCA_0101688751,GCA_0101691351,GCA_0101691451,GCA_0101692351,GCA_0101699551,GCA_0101701451,GCA_0101704351,GCA_0101705051,GCA_0101710251,GCA_0101725551,GCA_0101725851
+2022-10-02 22:46:59 DEBUG::A total of 1101 samples were found in both the data and metadata
+2022-10-02 22:46:59 DEBUG::Reordering data/metadata to use same sample ordering
+2022-10-02 22:46:59 INFO::Formula for random effects: expr ~ (1 | Subject)
+2022-10-02 22:46:59 INFO::Formula for fixed effects: expr ~  ST
+2022-10-02 22:46:59 INFO::Filter data based on min abundance and min prevalence
+2022-10-02 22:46:59 INFO::Total samples in data: 1101
+2022-10-02 22:46:59 INFO::Min samples required with min abundance for a feature not to be filtered: 110.100000
+2022-10-02 22:46:59 INFO::Total filtered features: 13
+2022-10-02 22:46:59 INFO::Filtered feature names from abundance and prevalence filtering:
+2022-10-02 22:46:59 INFO::Total filtered features with variance filtering: 22
+2022-10-02 22:46:59 INFO::Filtered feature names from variance filtering:
+2022-10-02 22:46:59 INFO::Running selected normalization method: TSS
+2022-10-02 22:46:59 INFO::Applying z-score to standardize continuous metadata
+2022-10-02 22:46:59 INFO::Running selected transform method: LOG
+2022-10-02 22:46:59 INFO::Running selected analysis method: LM
+2022-10-02 22:46:59 INFO::Fitting model to feature number 1, KEGG10
+2022-10-02 22:46:59 INFO::Fitting model to feature number 2, KEGG103
+2022-10-02 22:46:59 INFO::Fitting model to feature number 3, KEGG109
+2022-10-02 22:46:59 INFO::Fitting model to feature number 4, KEGG11
+2022-10-02 22:46:59 INFO::Fitting model to feature number 5, KEGG12
+2022-10-02 22:47:00 INFO::Fitting model to feature number 6, KEGG124
+2022-10-02 22:47:00 INFO::Fitting model to feature number 7, KEGG134
+2022-10-02 22:47:00 INFO::Fitting model to feature number 8, KEGG139
+2022-10-02 22:47:00 INFO::Fitting model to feature number 9, KEGG14
+2022-10-02 22:47:00 INFO::Fitting model to feature number 10, KEGG16
+2022-10-02 22:47:00 INFO::Fitting model to feature number 11, KEGG18
+2022-10-02 22:47:00 INFO::Fitting model to feature number 12, KEGG19
+2022-10-02 22:47:00 INFO::Fitting model to feature number 13, KEGG2
+2022-10-02 22:47:00 INFO::Fitting model to feature number 14, KEGG21
+2022-10-02 22:47:00 INFO::Fitting model to feature number 15, KEGG22
+2022-10-02 22:47:00 INFO::Fitting model to feature number 16, KEGG23
+2022-10-02 22:47:00 INFO::Fitting model to feature number 17, KEGG24
+2022-10-02 22:47:01 INFO::Fitting model to feature number 18, KEGG25
+2022-10-02 22:47:01 INFO::Fitting model to feature number 19, KEGG26
+2022-10-02 22:47:01 INFO::Fitting model to feature number 20, KEGG27
+2022-10-02 22:47:01 INFO::Fitting model to feature number 21, KEGG28
+2022-10-02 22:47:01 INFO::Fitting model to feature number 22, KEGG3
+2022-10-02 22:47:01 INFO::Fitting model to feature number 23, KEGG30
+2022-10-02 22:47:01 INFO::Fitting model to feature number 24, KEGG31
+2022-10-02 22:47:01 INFO::Fitting model to feature number 25, KEGG32
+2022-10-02 22:47:01 INFO::Fitting model to feature number 26, KEGG33
+2022-10-02 22:47:01 INFO::Fitting model to feature number 27, KEGG34
+2022-10-02 22:47:02 INFO::Fitting model to feature number 28, KEGG35
+2022-10-02 22:47:02 INFO::Fitting model to feature number 29, KEGG36
+2022-10-02 22:47:02 INFO::Fitting model to feature number 30, KEGG37
+2022-10-02 22:47:02 INFO::Fitting model to feature number 31, KEGG39
+2022-10-02 22:47:02 INFO::Fitting model to feature number 32, KEGG4
+2022-10-02 22:47:02 INFO::Fitting model to feature number 33, KEGG40
+2022-10-02 22:47:02 INFO::Fitting model to feature number 34, KEGG41
+2022-10-02 22:47:02 INFO::Fitting model to feature number 35, KEGG42
+2022-10-02 22:47:02 INFO::Fitting model to feature number 36, KEGG43
+2022-10-02 22:47:02 INFO::Fitting model to feature number 37, KEGG44
+2022-10-02 22:47:02 INFO::Fitting model to feature number 38, KEGG45
+2022-10-02 22:47:02 INFO::Fitting model to feature number 39, KEGG46
+2022-10-02 22:47:03 INFO::Fitting model to feature number 40, KEGG48
+2022-10-02 22:47:03 INFO::Fitting model to feature number 41, KEGG49
+2022-10-02 22:47:03 INFO::Fitting model to feature number 42, KEGG50
+2022-10-02 22:47:03 INFO::Fitting model to feature number 43, KEGG51
+2022-10-02 22:47:03 INFO::Fitting model to feature number 44, KEGG52
+2022-10-02 22:47:03 INFO::Fitting model to feature number 45, KEGG53
+2022-10-02 22:47:03 INFO::Fitting model to feature number 46, KEGG54
+2022-10-02 22:47:03 INFO::Fitting model to feature number 47, KEGG56
+2022-10-02 22:47:03 INFO::Fitting model to feature number 48, KEGG57
+2022-10-02 22:47:03 INFO::Fitting model to feature number 49, KEGG58
+2022-10-02 22:47:04 INFO::Fitting model to feature number 50, KEGG59
+2022-10-02 22:47:04 INFO::Fitting model to feature number 51, KEGG60
+2022-10-02 22:47:04 INFO::Fitting model to feature number 52, KEGG61
+2022-10-02 22:47:04 INFO::Fitting model to feature number 53, KEGG62
+2022-10-02 22:47:04 INFO::Fitting model to feature number 54, KEGG64
+2022-10-02 22:47:04 INFO::Fitting model to feature number 55, KEGG65
+2022-10-02 22:47:04 INFO::Fitting model to feature number 56, KEGG66
+2022-10-02 22:47:04 INFO::Fitting model to feature number 57, KEGG68
+2022-10-02 22:47:04 INFO::Fitting model to feature number 58, KEGG69
+2022-10-02 22:47:05 INFO::Fitting model to feature number 59, KEGG7
+2022-10-02 22:47:05 INFO::Fitting model to feature number 60, KEGG71
+2022-10-02 22:47:05 INFO::Fitting model to feature number 61, KEGG73
+2022-10-02 22:47:05 INFO::Fitting model to feature number 62, KEGG75
+2022-10-02 22:47:05 INFO::Fitting model to feature number 63, KEGG8
+2022-10-02 22:47:05 INFO::Fitting model to feature number 64, KEGG80
+2022-10-02 22:47:05 INFO::Fitting model to feature number 65, KEGG81
+2022-10-02 22:47:05 INFO::Fitting model to feature number 66, KEGG9
+2022-10-02 22:47:05 INFO::Fitting model to feature number 67, KEGG95
+2022-10-02 22:47:05 INFO::Counting total values for each feature
+2022-10-02 22:47:05 INFO::Writing residuals to file results/maaslin_epi_KEGG//residuals.rds
+2022-10-02 22:47:05 INFO::Writing fitted values to file results/maaslin_epi_KEGG//fitted.rds
+2022-10-02 22:47:05 INFO::Writing extracted random effects to file results/maaslin_epi_KEGG//ranef.rds
+2022-10-02 22:47:05 INFO::Writing all results to file (ordered by increasing q-values): results/maaslin_epi_KEGG//all_results.tsv
+2022-10-02 22:47:06 INFO::Writing the significant results (those which are less than or equal to the threshold of 0.250000 ) to file (ordered by increasing q-values): results/maaslin_epi_KEGG//significant_results.tsv
+2022-10-02 22:47:06 INFO::Writing association plots (one for each significant association) to output folder: results/maaslin_epi_KEGG/
+2022-10-02 22:47:06 INFO::Plotting associations from most to least significant, grouped by metadata
+2022-10-02 22:47:06 INFO::Plotting data for metadata number 1, ST
+2022-10-02 22:47:06 INFO::Creating boxplot for categorical data, ST vs KEGG26
+2022-10-02 22:47:06 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:06 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:06 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:06 DEBUG::
+2022-10-02 22:47:06 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:06 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:06 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:06 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:06 DEBUG::
+2022-10-02 22:47:06 INFO::Creating boxplot for categorical data, ST vs KEGG51
+2022-10-02 22:47:06 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:06 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:06 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:06 DEBUG::
+2022-10-02 22:47:06 INFO::Creating boxplot for categorical data, ST vs KEGG43
+2022-10-02 22:47:07 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:07 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:07 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:07 DEBUG::
+2022-10-02 22:47:07 INFO::Creating boxplot for categorical data, ST vs KEGG64
+2022-10-02 22:47:07 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:07 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:07 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:07 DEBUG::
+2022-10-02 22:47:07 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:07 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:07 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:07 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:07 DEBUG::
+2022-10-02 22:47:07 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:08 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:08 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:08 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:08 DEBUG::
+2022-10-02 22:47:08 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:08 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:08 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:08 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:08 DEBUG::
+2022-10-02 22:47:08 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:08 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:08 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:08 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:08 DEBUG::
+2022-10-02 22:47:08 INFO::Creating boxplot for categorical data, ST vs KEGG19
+2022-10-02 22:47:08 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:08 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:08 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:08 DEBUG::
+2022-10-02 22:47:08 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:09 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:09 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:09 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:09 DEBUG::
+2022-10-02 22:47:09 INFO::Creating boxplot for categorical data, ST vs KEGG4
+2022-10-02 22:47:09 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:09 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:09 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:09 DEBUG::
+2022-10-02 22:47:09 INFO::Creating boxplot for categorical data, ST vs KEGG41
+2022-10-02 22:47:09 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:09 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:09 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:09 DEBUG::
+2022-10-02 22:47:09 INFO::Creating boxplot for categorical data, ST vs KEGG21
+2022-10-02 22:47:10 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:10 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:10 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:10 DEBUG::
+2022-10-02 22:47:10 INFO::Creating boxplot for categorical data, ST vs KEGG2
+2022-10-02 22:47:10 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:10 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:10 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:10 DEBUG::
+2022-10-02 22:47:10 INFO::Creating boxplot for categorical data, ST vs KEGG61
+2022-10-02 22:47:10 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:10 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:10 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:10 DEBUG::
+2022-10-02 22:47:10 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:10 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:10 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:10 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:10 DEBUG::
+2022-10-02 22:47:10 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:11 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:11 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:11 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:11 DEBUG::
+2022-10-02 22:47:11 INFO::Creating boxplot for categorical data, ST vs KEGG11
+2022-10-02 22:47:11 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:11 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:11 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:11 DEBUG::
+2022-10-02 22:47:11 INFO::Creating boxplot for categorical data, ST vs KEGG3
+2022-10-02 22:47:11 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:11 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:11 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:11 DEBUG::
+2022-10-02 22:47:11 INFO::Creating boxplot for categorical data, ST vs KEGG64
+2022-10-02 22:47:12 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:12 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:12 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:12 DEBUG::
+2022-10-02 22:47:12 INFO::Creating boxplot for categorical data, ST vs KEGG39
+2022-10-02 22:47:12 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:12 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:12 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:12 DEBUG::
+2022-10-02 22:47:12 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:12 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:12 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:12 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:12 DEBUG::
+2022-10-02 22:47:12 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:12 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:12 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:12 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:12 DEBUG::
+2022-10-02 22:47:12 INFO::Creating boxplot for categorical data, ST vs KEGG75
+2022-10-02 22:47:13 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:13 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:13 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:13 DEBUG::
+2022-10-02 22:47:13 INFO::Creating boxplot for categorical data, ST vs KEGG66
+2022-10-02 22:47:13 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:13 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:13 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:13 DEBUG::
+2022-10-02 22:47:13 INFO::Creating boxplot for categorical data, ST vs KEGG34
+2022-10-02 22:47:13 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:13 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:13 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:13 DEBUG::
+2022-10-02 22:47:13 INFO::Creating boxplot for categorical data, ST vs KEGG44
+2022-10-02 22:47:14 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:14 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:14 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:14 DEBUG::
+2022-10-02 22:47:14 INFO::Creating boxplot for categorical data, ST vs KEGG40
+2022-10-02 22:47:14 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:14 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:14 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:14 DEBUG::
+2022-10-02 22:47:14 INFO::Creating boxplot for categorical data, ST vs KEGG54
+2022-10-02 22:47:14 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:14 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:14 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:14 DEBUG::
+2022-10-02 22:47:14 INFO::Creating boxplot for categorical data, ST vs KEGG4
+2022-10-02 22:47:15 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:15 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:15 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:15 DEBUG::
+2022-10-02 22:47:15 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:15 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:15 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:15 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:15 DEBUG::
+2022-10-02 22:47:15 INFO::Creating boxplot for categorical data, ST vs KEGG4
+2022-10-02 22:47:15 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:15 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:15 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:15 DEBUG::
+2022-10-02 22:47:15 INFO::Creating boxplot for categorical data, ST vs KEGG45
+2022-10-02 22:47:16 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:16 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:16 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:16 DEBUG::
+2022-10-02 22:47:16 INFO::Creating boxplot for categorical data, ST vs KEGG41
+2022-10-02 22:47:16 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:16 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:16 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:16 DEBUG::
+2022-10-02 22:47:16 INFO::Creating boxplot for categorical data, ST vs KEGG81
+2022-10-02 22:47:16 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:16 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:16 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:16 DEBUG::
+2022-10-02 22:47:16 INFO::Creating boxplot for categorical data, ST vs KEGG21
+2022-10-02 22:47:17 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:17 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:17 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:17 DEBUG::
+2022-10-02 22:47:17 INFO::Creating boxplot for categorical data, ST vs KEGG41
+2022-10-02 22:47:17 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:17 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:17 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:17 DEBUG::
+2022-10-02 22:47:17 INFO::Creating boxplot for categorical data, ST vs KEGG19
+2022-10-02 22:47:17 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:17 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:17 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:17 DEBUG::
+2022-10-02 22:47:17 INFO::Creating boxplot for categorical data, ST vs KEGG7
+2022-10-02 22:47:17 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:17 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:17 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:17 DEBUG::
+2022-10-02 22:47:17 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:18 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:18 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:18 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:18 DEBUG::
+2022-10-02 22:47:18 INFO::Creating boxplot for categorical data, ST vs KEGG2
+2022-10-02 22:47:18 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:18 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:18 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:18 DEBUG::
+2022-10-02 22:47:18 INFO::Creating boxplot for categorical data, ST vs KEGG21
+2022-10-02 22:47:18 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:18 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:18 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:18 DEBUG::
+2022-10-02 22:47:18 INFO::Creating boxplot for categorical data, ST vs KEGG53
+2022-10-02 22:47:19 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:19 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:19 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:19 DEBUG::
+2022-10-02 22:47:19 INFO::Creating boxplot for categorical data, ST vs KEGG62
+2022-10-02 22:47:19 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:19 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:19 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:19 DEBUG::
+2022-10-02 22:47:19 INFO::Creating boxplot for categorical data, ST vs KEGG19
+2022-10-02 22:47:19 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:19 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:19 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:19 DEBUG::
+2022-10-02 22:47:19 INFO::Creating boxplot for categorical data, ST vs KEGG11
+2022-10-02 22:47:20 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:20 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:20 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:20 DEBUG::
+2022-10-02 22:47:20 INFO::Creating boxplot for categorical data, ST vs KEGG61
+2022-10-02 22:47:20 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:20 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:20 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:20 DEBUG::
+2022-10-02 22:47:20 INFO::Creating boxplot for categorical data, ST vs KEGG16
+2022-10-02 22:47:20 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:20 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:20 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:20 DEBUG::
+2022-10-02 22:47:20 INFO::Creating boxplot for categorical data, ST vs KEGG34
+2022-10-02 22:47:20 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:20 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:20 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:20 DEBUG::
+2022-10-02 22:47:20 INFO::Creating boxplot for categorical data, ST vs KEGG11
+2022-10-02 22:47:21 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:21 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:21 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:21 DEBUG::
+2022-10-02 22:47:21 INFO::Creating boxplot for categorical data, ST vs KEGG2
+2022-10-02 22:47:21 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:21 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:21 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:21 DEBUG::
+2022-10-02 22:47:21 INFO::Creating boxplot for categorical data, ST vs KEGG73
+2022-10-02 22:47:21 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:21 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:21 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:21 DEBUG::
+2022-10-02 22:47:21 INFO::Creating boxplot for categorical data, ST vs KEGG61
+2022-10-02 22:47:21 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:21 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:21 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:21 DEBUG::
+2022-10-02 22:47:21 INFO::Creating boxplot for categorical data, ST vs KEGG40
+2022-10-02 22:47:22 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:22 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:22 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:22 DEBUG::
+2022-10-02 22:47:22 INFO::Creating boxplot for categorical data, ST vs KEGG46
+2022-10-02 22:47:22 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:22 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:22 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:22 DEBUG::
+2022-10-02 22:47:22 INFO::Creating boxplot for categorical data, ST vs KEGG3
+2022-10-02 22:47:22 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:22 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:22 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:22 DEBUG::
+2022-10-02 22:47:22 INFO::Creating boxplot for categorical data, ST vs KEGG75
+2022-10-02 22:47:23 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:23 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:23 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:23 DEBUG::
+2022-10-02 22:47:23 INFO::Creating boxplot for categorical data, ST vs KEGG56
+2022-10-02 22:47:23 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:23 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:23 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:23 DEBUG::
+2022-10-02 22:47:23 INFO::Creating boxplot for categorical data, ST vs KEGG40
+2022-10-02 22:47:23 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:23 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:23 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:23 DEBUG::
+2022-10-02 22:47:23 INFO::Creating boxplot for categorical data, ST vs KEGG39
+2022-10-02 22:47:23 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:23 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:23 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:23 DEBUG::
+2022-10-02 22:47:23 INFO::Creating boxplot for categorical data, ST vs KEGG3
+2022-10-02 22:47:24 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:24 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:24 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:24 DEBUG::
+2022-10-02 22:47:24 INFO::Creating boxplot for categorical data, ST vs KEGG45
+2022-10-02 22:47:24 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:24 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:24 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:24 DEBUG::
+2022-10-02 22:47:24 INFO::Creating boxplot for categorical data, ST vs KEGG80
+2022-10-02 22:47:24 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:24 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:24 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:24 DEBUG::
+2022-10-02 22:47:24 INFO::Creating boxplot for categorical data, ST vs KEGG69
+2022-10-02 22:47:25 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:25 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:25 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:25 DEBUG::
+2022-10-02 22:47:25 INFO::Creating boxplot for categorical data, ST vs KEGG68
+2022-10-02 22:47:25 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:25 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:25 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:25 DEBUG::
+2022-10-02 22:47:25 INFO::Creating boxplot for categorical data, ST vs KEGG75
+2022-10-02 22:47:25 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:25 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:25 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:25 DEBUG::
+2022-10-02 22:47:25 INFO::Creating boxplot for categorical data, ST vs KEGG42
+2022-10-02 22:47:25 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:25 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:25 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:25 DEBUG::
+2022-10-02 22:47:25 INFO::Creating boxplot for categorical data, ST vs KEGG9
+2022-10-02 22:47:26 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:26 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:26 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:26 DEBUG::
+2022-10-02 22:47:26 INFO::Creating boxplot for categorical data, ST vs KEGG95
+2022-10-02 22:47:26 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:26 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:26 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:26 DEBUG::
+2022-10-02 22:47:26 INFO::Creating boxplot for categorical data, ST vs KEGG4
+2022-10-02 22:47:26 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:26 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:26 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:26 DEBUG::
+2022-10-02 22:47:26 INFO::Creating boxplot for categorical data, ST vs KEGG39
+2022-10-02 22:47:26 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:26 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:26 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:26 DEBUG::
+2022-10-02 22:47:26 INFO::Creating boxplot for categorical data, ST vs KEGG44
+2022-10-02 22:47:27 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:27 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:27 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:27 DEBUG::
+2022-10-02 22:47:27 INFO::Creating boxplot for categorical data, ST vs KEGG49
+2022-10-02 22:47:27 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:27 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:27 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:27 DEBUG::
+2022-10-02 22:47:27 INFO::Creating boxplot for categorical data, ST vs KEGG124
+2022-10-02 22:47:27 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:27 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:27 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:27 DEBUG::
+2022-10-02 22:47:27 INFO::Creating boxplot for categorical data, ST vs KEGG60
+2022-10-02 22:47:27 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:27 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:27 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:27 DEBUG::
+2022-10-02 22:47:27 INFO::Creating boxplot for categorical data, ST vs KEGG44
+2022-10-02 22:47:28 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:28 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:28 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:28 DEBUG::
+2022-10-02 22:47:28 INFO::Creating boxplot for categorical data, ST vs KEGG16
+2022-10-02 22:47:28 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:28 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:28 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:28 DEBUG::
+2022-10-02 22:47:28 INFO::Creating boxplot for categorical data, ST vs KEGG2
+2022-10-02 22:47:28 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:28 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:28 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:28 DEBUG::
+2022-10-02 22:47:28 INFO::Creating boxplot for categorical data, ST vs KEGG53
+2022-10-02 22:47:29 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:29 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:29 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:29 DEBUG::
+2022-10-02 22:47:29 INFO::Creating boxplot for categorical data, ST vs KEGG62
+2022-10-02 22:47:29 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:29 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:29 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:29 DEBUG::
+2022-10-02 22:47:29 INFO::Creating boxplot for categorical data, ST vs KEGG57
+2022-10-02 22:47:29 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:29 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:29 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:29 DEBUG::
+2022-10-02 22:47:29 INFO::Creating boxplot for categorical data, ST vs KEGG45
+2022-10-02 22:47:29 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:29 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:29 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:29 DEBUG::
+2022-10-02 22:47:29 INFO::Creating boxplot for categorical data, ST vs KEGG34
+2022-10-02 22:47:30 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:30 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:30 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:30 DEBUG::
+2022-10-02 22:47:30 INFO::Creating boxplot for categorical data, ST vs KEGG21
+2022-10-02 22:47:30 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:30 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:30 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:30 DEBUG::
+2022-10-02 22:47:30 INFO::Creating boxplot for categorical data, ST vs KEGG7
+2022-10-02 22:47:30 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:30 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:30 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:30 DEBUG::
+2022-10-02 22:47:30 INFO::Creating boxplot for categorical data, ST vs KEGG4
+2022-10-02 22:47:30 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:30 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:30 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:30 DEBUG::
+2022-10-02 22:47:30 INFO::Creating boxplot for categorical data, ST vs KEGG19
+2022-10-02 22:47:31 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:31 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:31 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:31 DEBUG::
+2022-10-02 22:47:31 INFO::Creating boxplot for categorical data, ST vs KEGG41
+2022-10-02 22:47:31 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:31 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:31 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:31 DEBUG::
+2022-10-02 22:47:31 INFO::Creating boxplot for categorical data, ST vs KEGG14
+2022-10-02 22:47:31 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:31 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:31 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:31 DEBUG::
+2022-10-02 22:47:31 INFO::Creating boxplot for categorical data, ST vs KEGG22
+2022-10-02 22:47:32 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:32 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:32 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:32 DEBUG::
+2022-10-02 22:47:32 INFO::Creating boxplot for categorical data, ST vs KEGG35
+2022-10-02 22:47:32 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:32 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:32 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:32 DEBUG::
+2022-10-02 22:47:32 INFO::Creating boxplot for categorical data, ST vs KEGG36
+2022-10-02 22:47:32 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:32 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:32 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:32 DEBUG::
+2022-10-02 22:47:32 INFO::Creating boxplot for categorical data, ST vs KEGG41
+2022-10-02 22:47:32 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:32 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:32 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:32 DEBUG::
+2022-10-02 22:47:32 INFO::Creating boxplot for categorical data, ST vs KEGG11
+2022-10-02 22:47:33 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:33 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:33 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:33 DEBUG::
+2022-10-02 22:47:33 INFO::Creating boxplot for categorical data, ST vs KEGG21
+2022-10-02 22:47:33 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:33 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:33 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:33 DEBUG::
+2022-10-02 22:47:33 INFO::Creating boxplot for categorical data, ST vs KEGG30
+2022-10-02 22:47:33 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:33 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:33 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:33 DEBUG::
+2022-10-02 22:47:33 INFO::Creating boxplot for categorical data, ST vs KEGG64
+2022-10-02 22:47:33 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:33 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:33 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:33 DEBUG::
+2022-10-02 22:47:33 INFO::Creating boxplot for categorical data, ST vs KEGG81
+2022-10-02 22:47:34 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:34 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:34 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:34 DEBUG::
+2022-10-02 22:47:34 INFO::Creating boxplot for categorical data, ST vs KEGG61
+2022-10-02 22:47:34 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:34 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:34 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:34 DEBUG::
+2022-10-02 22:47:34 INFO::Creating boxplot for categorical data, ST vs KEGG58
+2022-10-02 22:47:34 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:34 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:34 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:34 DEBUG::
+2022-10-02 22:47:34 INFO::Creating boxplot for categorical data, ST vs KEGG9
+2022-10-02 22:47:35 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:35 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:35 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:35 DEBUG::
+2022-10-02 22:47:35 INFO::Creating boxplot for categorical data, ST vs KEGG31
+2022-10-02 22:47:35 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:35 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:35 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:35 DEBUG::
+2022-10-02 22:47:35 INFO::Creating boxplot for categorical data, ST vs KEGG19
+2022-10-02 22:47:35 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:35 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:35 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:35 DEBUG::
+2022-10-02 22:47:35 INFO::Creating boxplot for categorical data, ST vs KEGG16
+2022-10-02 22:47:35 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:35 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:35 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:35 DEBUG::
+2022-10-02 22:47:35 INFO::Creating boxplot for categorical data, ST vs KEGG40
+2022-10-02 22:47:36 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:36 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:36 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:36 DEBUG::
+2022-10-02 22:47:36 INFO::Creating boxplot for categorical data, ST vs KEGG2
+2022-10-02 22:47:36 DEBUG::Warning in RColorBrewer::brewer.pal(n, pal) :
+ 2022-10-02 22:47:36 DEBUG::n too large, allowed maximum for palette Spectral is 11
+ 2022-10-02 22:47:36 DEBUG::Returning the palette you asked for with that many colors
+ 2022-10-02 22:47:36 DEBUG::
+2022-10-02 22:47:36 INFO::Creating boxplot for categorical data, ST vs KEGG81

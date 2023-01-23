@@ -1,0 +1,141 @@
+---
+title: "Figure S8"
+output: html_document
+date: '2023-01-01'
+---
+
+```{r}
+set.seed(500)
+rm(list=ls())
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(paletteer)
+library(cowplot)
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+#load genomes
+met=read.csv("metadata/Table3.csv", stringsAsFactors=FALSE)%>%
+  filter((Species=="Staphylococcus epidermidis")|(Species=="Staphylococcus aureus"))%>%
+  filter(!(ST%in%c("NF_aur",NA,"NF_epi","Failed")))%>%
+  filter(QC=="Passed QC")%>%
+  select(run_accession, Country, ST, Subject,Species)
+
+```
+
+
+AMR
+```{r}
+#load amr
+amr=read.delim("results/amr/all_amr.txt",stringsAsFactors = F)
+amr$aacoi.txt=gsub(".txt","",amr$aacoi.txt)
+amr=amr[amr$Contig.id!="Contig id",]
+amr$run_accession=sub("_[^_]+$", "",amr$Contig.id)
+amr$run_accession[grepl("NODE",amr$Contig.id)]=amr$aacoi.txt[grepl("NODE",amr$Contig.id)]
+amr=as.data.frame(unique(amr[which(amr$Class%in%c("AMINOGLYCOSIDE","BETA-LACTAM","FUSIDIC ACID","TETRACYCLINE","MACROLIDE","MUPIROCIN","QUATERNARY AMMONIUM","TRIMETHOPRIM")),]))
+
+
+#merge with metadata
+amr=merge(amr,met,by="run_accession")
+amr=as.data.frame(unique(amr[,c("run_accession","Gene.symbol","Species","ST","Subject","Country","Class")]))
+
+
+#get stats - we determined that while 100% of the S. epidermidis isolates were trimethoprim-resistant (Figure 4F), a smaller proportion of the S. aureus isolates were resistant
+amr%>%group_by(Species)%>%dplyr::mutate(count_total=n_distinct(run_accession))%>%group_by(Species,count_total,Class)%>%dplyr::summarise(count_res=n_distinct(run_accession))
+
+amr_gene=amr%>%group_by(Class, Gene.symbol, .drop = FALSE)%>%dplyr::count(Gene.symbol, name="gene_count", sort = TRUE) %>% ungroup()%>%group_by(Class)%>% slice_max(n=2, gene_count) #find top two genes for each class of resistance
+amr_dict=as.data.frame(unique(amr[,c("Class","Gene.symbol")])) #dict of antibiotic class and gene
+
+levels=c(unique(amr_gene$Gene.symbol),"mecA") # we are also interested in mecA
+amr=amr[which(amr$Gene.symbol%in%levels),] # subset
+amr$Gene.symbol=factor(amr$Gene.symbol,levels=levels)
+
+```
+
+
+
+epidermidis ST amr
+```{r}
+#load genomes
+amr_epi=amr[which(amr$Species=="Staphylococcus epidermidis"),]
+amr_epi$ST=gsub("_epi","",amr_epi$ST)
+
+#which STs do we want to show
+top_ST=amr_epi%>%group_by(ST)%>%dplyr::summarise(count=n_distinct(Subject))%>%top_n(4,count)%>%sample_n(6) #STs where there is data from at least --- subjects and sample 5 randomly
+amr_epi=amr_epi[which(amr_epi$ST%in%top_ST$ST),]
+
+
+#number of isolates by ST
+amr_ST_count=amr_epi%>%group_by(ST)%>%dplyr::summarise(count_ST=n_distinct(run_accession))
+#number of isolates by resistance gene and ST
+amr_ST_count_gene=amr_epi%>%group_by(ST,Gene.symbol,.drop = FALSE)%>%dplyr::summarise(count_ST_gene=n_distinct(run_accession))
+#merge by ST
+amr_comb=merge(amr_ST_count,amr_ST_count_gene,by="ST")
+#prop of isolates within an ST that have resistance via gene
+amr_comb$prop=amr_comb$count_ST_gene/amr_comb$count_ST
+
+
+amr_comb$`*S. epidermidis* ST`=gsub("^","ST",amr_comb$ST)
+amr_comb=merge(amr_comb,amr_dict,by="Gene.symbol")
+figs8a<-ggplot(amr_comb,aes(x=`*S. epidermidis* ST`,y=prop,fill=`*S. epidermidis* ST`))+geom_bar(stat="identity",alpha=0.8 )+facet_wrap(~Class+Gene.symbol)+theme_classic()+ylab("Proportion of isolates")+theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+
+  scale_fill_paletteer_d("rcartocolor::Vivid")+theme(axis.text.x = element_text(angle = 45, hjust = 1))+theme(plot.title = ggtext::element_markdown())+theme(axis.title.x = ggtext::element_markdown())+theme(legend.title = ggtext::element_markdown())
+figs8a
+
+```
+
+```{r}
+#load genomes
+amr_aur=amr[which(amr$Species=="Staphylococcus aureus"),]
+amr_aur$ST=gsub("_aur","",amr_aur$ST)
+
+#which STs do we want to show
+top_ST=amr_aur%>%group_by(ST)%>%dplyr::summarise(count=n_distinct(Subject))%>%top_n(6,count)%>%sample_n(6) #STs where there is data from at least --- subjects an then sample
+amr_aur=amr_aur[which(amr_aur$ST%in%top_ST$ST),]
+
+
+#number of isolates by ST
+amr_ST_count=amr_aur%>%group_by(ST)%>%dplyr::summarise(count_ST=n_distinct(run_accession))
+#number of isolates by resistance gene and ST
+amr_ST_count_gene=amr_aur%>%group_by(ST,Gene.symbol,.drop = FALSE)%>%dplyr::summarise(count_ST_gene=n_distinct(run_accession))
+#merge by ST
+amr_comb=merge(amr_ST_count,amr_ST_count_gene,by="ST")
+#prop of isolates within an ST that have resistance via gene
+amr_comb$prop=amr_comb$count_ST_gene/amr_comb$count_ST
+
+
+amr_comb$`*S. aureus* ST`=gsub("^","ST",amr_comb$ST)
+
+amr_comb=merge(amr_comb,amr_dict,by="Gene.symbol")
+figs8b<-ggplot(amr_comb,aes(x=`*S. aureus* ST`,y=prop,fill=`*S. aureus* ST`))+geom_bar(stat="identity",alpha=0.8 )+facet_wrap(~Class+Gene.symbol)+ylab("Proportion of isolates")+theme_classic(base_size=12)+  theme(axis.text.x = element_text(size=12)) +
+  theme(axis.title.x = element_text(size=14)) +
+  theme(axis.text.y = element_text(size=12)) +
+  theme(axis.title.y = element_text(size=14))+
+  scale_fill_paletteer_d("ggthemes::excel_Aspect")+theme(axis.text.x = element_text(angle = 45, hjust = 1))+theme(plot.title = ggtext::element_markdown())+theme(axis.title.x = ggtext::element_markdown())+theme(legend.title = ggtext::element_markdown())
+figs8b
+
+```
+
+
+
+
+
+```{r}
+
+
+plot_grid(figs8b+theme(legend.position="bottom"),figs8a+theme(legend.position="bottom"),labels=c("A","B"),nrow=2)
+ggsave("figures/FigureS8.png",width=9.5,height=12.8)
+ggsave("figures/FigureS8.svg",width=9.5,height=12.8)
+
+```
+
+
+
+
+
+
+
+
+

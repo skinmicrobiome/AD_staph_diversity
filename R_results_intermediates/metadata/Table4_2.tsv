@@ -1,0 +1,308 @@
+gene	hits	maxp	avg_af	avg_maf	avg_beta	COG	eggNOG_annot
+dnaA	11	7.96257350206	0.373736363636	0.373736363636	19.5363636364	L	it binds specifically double-stranded DNA at a 9 bp consensus (dnaA box) 5'-TTATC CA A CA A-3'. DnaA binds to ATP and to acidic phospholipids
+dnaN	16	7.96257350206	0.436375	0.436375	18.841875	L	Confers DNA tethering and processivity to DNA polymerases and other proteins. Acts as a clamp, forming a ring around DNA (a reaction catalyzed by the clamp-loading complex) which diffuses in an ATP-independent manner freely and bidirectionally along dsDNA. Initially characterized for its ability to contact the catalytic subunit of DNA polymerase III (Pol III), a complex, multichain enzyme responsible for most of the replicative synthesis in bacteria
+recF	6	7.96257350206	0.354983333333	0.354983333333	18.65	L	it is required for DNA replication and normal SOS inducibility. RecF binds preferentially to single-stranded, linear DNA. It also seems to bind ATP
+gyrB	14	7.96257350206	0.500764285714	0.499235714286	18.8714285714	L	A type II topoisomerase that negatively supercoils closed circular double-stranded (ds) DNA in an ATP-dependent manner to modulate DNA topology and maintain chromosomes in an underwound state. Negative supercoiling favors strand separation, and DNA replication, transcription, recombination and repair, all of which involve strand separation. Also able to catalyze the interconversion of other topological isomers of dsDNA rings, including catenanes and knotted rings. Type II topoisomerases break and join 2 DNA strands simultaneously in an ATP-dependent manner
+gyrA	21	7.96257350206	0.435457142857	0.435457142857	18.3428571429	L	A type II topoisomerase that negatively supercoils closed circular double-stranded (ds) DNA in an ATP-dependent manner to modulate DNA topology and maintain chromosomes in an underwound state. Negative supercoiling favors strand separation, and DNA replication, transcription, recombination and repair, all of which involve strand separation. Also able to catalyze the interconversion of other topological isomers of dsDNA rings, including catenanes and knotted rings. Type II topoisomerases break and join 2 DNA strands simultaneously in an ATP-dependent manner
+serS	18	7.96257350206	0.183666666667	0.183666666667	19.0611111111	J	Catalyzes the attachment of serine to tRNA(Ser). Is also able to aminoacylate tRNA(Sec) with serine, to form the misacylated tRNA L-seryl-tRNA(Sec), which will be further converted into selenocysteinyl-tRNA(Sec)
+smcL	30	7.96257350206	0.2086	0.2086	19.3133333333	S	Endonuclease/Exonuclease/phosphatase family
+ygaZ	11	7.96257350206	0.1761	0.1761	19.0454545455	E	Azaleucine resistance
+ref_00011	5	7.96257350206	0.41338	0.41338	18.1	S	Branched-chain amino acid transport protein (AzlD)
+metXA	18	7.96257350206	0.297155555556	0.297155555556	17.6833333333	E	Belongs to the AB hydrolase superfamily. MetX family
+ref_00013	8	7.96257350206	0.38875	0.38875	18.4625	S	Predicted membrane protein (DUF2232)
+gdpP	15	7.34582345812	0.40288	0.40288	17.7933333333	T	signaling protein consisting of a modified GGDEF domain and a DHH domain
+dnaC	12	7.96257350206	0.262358333333	0.262358333333	19.5333333333	L	Participates in initiation and elongation during chromosome replication
+purA	20	7.96257350206	0.11676	0.11676	19.31	F	Plays an important role in the de novo pathway of purine nucleotide biosynthesis. Catalyzes the first committed step in the biosynthesis of AMP from IMP
+walR	17	7.96257350206	0.132017647059	0.132017647059	19.3764705882	K	Transcriptional regulatory protein WalR
+walK	20	7.96257350206	0.312035	0.312035	18.095	T	WalK functions as a sensor protein kinase which is autophosphorylated at a histidine residue and transfers its phosphate group to WalR
+ref_00022	3	7.34582345812	0.647633333333	0.352366666667	18.5666666667	S	YycH protein
+ref_00022	20	7.96257350206	0.408405	0.408405	17.95	S	YycH protein
+yycI	23	7.96257350206	0.101095652174	0.101095652174	18.6913043478	S	YycH protein
+yycJ	35	7.96257350206	0.0509828571429	0.0509828571429	18.4971428571	S	Metal-dependent hydrolases of the beta-lactamase superfamily I
+rlmH	31	7.96257350206	0.180467741935	0.180467741935	18.3806451613	J	Specifically methylates the pseudouridine at position 1915 (m3Psi1915) in 23S rRNA
+ref_00038	1	7.2076083105	0.067	0.067	13.4	L	Recombinase zinc beta ribbon domain
+ref_00049	2	6.74957999769	0.9405	0.0595	17.5	L	Transposase
+ref_00050	1	6.52870828894	0.943	0.057	17.3	V	Protein of unknown function (DUF1643)
+ref_00074	2	7.96257350206	0.09555	0.09555	15.16	L	COG3316 Transposase and inactivated derivatives
+garB	1	5.8894102897	0.172	0.172	9.92	C	Pyridine nucleotide-disulphide oxidoreductase, dimerisation domain
+isaB_1	1	7.1214782045	0.0526	0.0526	18.3		
+copB	19	7.96257350206	0.4353	0.4353	13.8589473684	P	P-type ATPase
+gloB	2	7.84466396253	0.4282	0.4282	13.975	P	Rhodanese Homology Domain
+ref_00140	7	6.72815839346	0.143628571429	0.143628571429	17.9142857143	NA	NA
+ref_00141	17	7.96257350206	0.3505	0.3505	18.0647058824	S	Protein of unknown function (DUF1433)
+ref_00142	26	7.96257350206	0.258557692308	0.258557692308	17.6384615385		
+dus	22	8.08830984125	0.501645454545	0.498354545455	17.3090909091	J	Catalyzes the synthesis of 5,6-dihydrouridine (D), a modified base found in the D-loop of most tRNAs, via the reduction of the C5-C6 double bond in target uridines
+mqo2_1	24	7.96257350206	0.495458333333	0.495458333333	17.9275	C	malate quinone oxidoreductase
+golD	5	7.96257350206	0.5905	0.4095	18.26	IQ	KR domain
+ref_00148	11	7.96257350206	0.194954545455	0.194954545455	17.9545454545	S	Isoprenylcysteine carboxyl methyltransferase (ICMT) family
+uhpT	6	7.96257350206	0.183483333333	0.183483333333	17.8333333333	G	Major Facilitator Superfamily
+bioF	2	6.37778597703	0.5002	0.4998	18.1	E	COG0156 7-keto-8-aminopelargonate synthetase and related enzymes
+lip2_1	6	7.282329497	0.3588	0.3588	18.05	D	acetyltransferases and hydrolases with the alpha beta hydrolase fold
+ref_00168	10	7.96257350206	0.21335	0.21335	17.97	M	Csa1 family
+ref_00169	5	6.57839607313	0.37436	0.37436	17.46	M	Csa1 family
+ref_00170	11	6.57839607313	0.204372727273	0.204372727273	17.5	S	Cobalamin synthesis protein
+ref_00171	2	6.57839607313	0.47135	0.47135	17.7	P	COG0370 Fe2 transport system protein B
+ref_00172	1	6.20065945055	0.067	0.067	16.9	P	Pyridine nucleotide-disulphide oxidoreductase
+znuA_1	17	6.37778597703	0.359541176471	0.359541176471	17.3352941176	P	Belongs to the bacterial solute-binding protein 9 family
+apbE	12	6.34678748622	0.493333333333	0.493333333333	17.2833333333	H	Flavin transferase that catalyzes the transfer of the FMN moiety of FAD and its covalent binding to the hydroxyl group of a threonine residue in a target flavoprotein
+lnrL	3	6.57839607313	0.652233333333	0.347766666667	17.5666666667	V	ABC transporter, ATP-binding protein
+ref_00179	10	6.57839607313	0.3134	0.3134	17.59	V	ABC-type multidrug transport system, permease component
+cntK	30	6.57839607313	0.38163	0.38163	17.6733333333	E	Diaminopimelate epimerase
+cntL	15	6.57839607313	0.41802	0.41802	17.5266666667	S	alcohol dehydrogenase
+cntM	25	7.07417242538	0.24428	0.24428	17.42	S	Staphylopine dehydrogenase
+cntA	4	6.37778597703	0.3076	0.3076	17.75	E	COG0747 ABC-type dipeptide transport system, periplasmic component
+cntC	3	6.57839607313	0.0636333333333	0.0636333333333	16.9	P	COG1173 ABC-type dipeptide oligopeptide nickel transport systems, permease components
+cntF	7	7.96257350206	0.332214285714	0.332214285714	18.6714285714	EP	ABC transporter, ATP-binding protein
+cntE_1	14	7.07417242538	0.4252	0.4252	17.7714285714	EGP	Major facilitator Superfamily
+ref_00190	3	7.96257350206	0.331833333333	0.331833333333	18.9	S	ABC-2 family transporter protein
+pflB	13	7.96257350206	0.396415384615	0.396415384615	18.8153846154	C	formate C-acetyltransferase activity
+dapE_1	22	15.0767559814	0.275959090909	0.275959090909	20.45	E	succinyl-diaminopimelate desuccinylase
+brnQ_1	32	15.0767559814	0.344228125	0.344228125	19.540625	E	Component of the transport system for branched-chain amino acids
+lcdH_1	2	6.17134010346	0.49985	0.49985	17.3	I	Catalyzes the NAD( )-dependent oxidation of L-carnitine to 3-dehydrocarnitine
+lcdH_2	5	6.37778597703	0.38272	0.38272	17.32	S	Thioesterase-like superfamily
+opuCA_1	3	6.37778597703	0.338266666667	0.338266666667	18.1	P	Glycine betaine
+opuCB_1	3	6.37778597703	0.662133333333	0.337866666667	18.1	P	ABC transporter permease
+opuCC	6	6.37778597703	0.352416666667	0.352416666667	16.85	M	Amino acid ABC transporter amino acid-binding protein
+ref_00203	4	6.37778597703	0.28245	0.28245	17.925	S	Tributyrin esterase
+ref_00207	5	7.79048498546	0.23736	0.23736	19		
+hel	5	7.34582345812	0.37234	0.37234	18.6	S	5'-nucleotidase, lipoprotein e(P4)
+bioB	6	7.96257350206	0.166733333333	0.166733333333	19.15	H	Catalyzes the conversion of dethiobiotin (DTB) to biotin by the insertion of a sulfur atom into dethiobiotin via a radical- based mechanism
+dhaL	2	7.96257350206	0.50005	0.49995	20.4	S	Dihydroxyacetone kinase
+tycC	4	7.96257350206	0.497625	0.497625	19.475	Q	Condensation domain
+ref_00224	2	7.96257350206	0.0574	0.0574	20.2	S	MepB protein
+yflS	3	7.96257350206	0.363666666667	0.363666666667	19.8666666667	P	Sodium:sulfate symporter transmembrane region
+lip_2	1	6.52870828894	0.943	0.057	17.3	D	acetyltransferases and hydrolases with the alpha beta hydrolase fold
+ref_00255	13	7.79048498546	0.592569230769	0.407430769231	18.6076923077	L	Transposase
+nupC	58	7.79048498546	0.552956896552	0.447043103448	18.7344827586	F	Nucleoside
+ctsR	10	7.79048498546	0.49991	0.49991	19.64	K	Transcriptional regulator CtsR
+mcsA	2	7.46092390121	0.5	0.5	19.1	S	UvrB/uvrC motif
+mcsA	24	7.79048498546	0.532779166667	0.467220833333	19.2375	S	UvrB/uvrC motif
+mcsB	2	7.79048498546	0.49745	0.49745	19.4	E	Catalyzes the specific phosphorylation of arginine residues in proteins
+mcsB	47	7.79048498546	0.508746808511	0.491253191489	19.2574468085	E	Catalyzes the specific phosphorylation of arginine residues in proteins
+clpC	92	8.95860731484	0.539784782609	0.460215217391	19.2739130435	O	ATP-dependent Clp protease, ATP-binding subunit ClpC
+radA	60	8.95860731484	0.614355	0.385645	19.0683333333	O	DNA-dependent ATPase involved in processing of recombination intermediates, plays a role in repairing DNA breaks. Stimulates the branch migration of RecA-mediated strand transfer reactions, allowing the 3' invading strand to extend heteroduplex DNA faster. Binds ssDNA in the presence of ADP but not other nucleotides, has ATPase activity that is stimulated by ssDNA and various branched DNA structures, but inhibited by SSB. Does not have RecA's homology-searching function
+yacL	62	7.79048498546	0.589366129032	0.410633870968	19.3919354839	S	PIN domain
+gltX	58	7.79048498546	0.498924137931	0.498924137931	19.4396551724	J	Catalyzes the attachment of glutamate to tRNA(Glu) in a two-step reaction glutamate is first activated by ATP to form Glu-AMP and then transferred to the acceptor end of tRNA(Glu)
+cysE	27	7.79048498546	0.514137037037	0.485862962963	19.7444444444	E	Serine acetyltransferase
+cysS	38	7.79048498546	0.503878947368	0.496121052632	16.7192105263	J	Belongs to the class-I aminoacyl-tRNA synthetase family
+cysS	2	6.10237290871	0.09305	0.09305	15.35	J	Belongs to the class-I aminoacyl-tRNA synthetase family
+mrnC	7	7.46092390121	0.565814285714	0.434185714286	14.6285714286	J	Involved in correct processing of both the 5' and 3' ends of 23S rRNA precursor. Processes 30S rRNA precursor transcript even in absence of ribonuclease 3 (Rnc)
+ref_00267	17	7.79048498546	0.473876470588	0.473876470588	17.5082352941	J	Belongs to the class IV-like SAM-binding methyltransferase superfamily. RNA methyltransferase TrmH family
+yacP	6	7.79048498546	0.634566666667	0.365433333333	20	S	RNA-binding protein containing a PIN domain
+yacP	1	7.79048498546	0.0957	0.0957	20	S	RNA-binding protein containing a PIN domain
+ref_00269	37	7.79048498546	0.499972972973	0.499972972973	18.7248648649	K	Belongs to the sigma-70 factor family
+secE	10	7.79048498546	0.57648	0.42352	19.73	U	Essential subunit of the Sec protein translocation channel SecYEG. Clamps together the 2 halves of SecY. May contact the channel plug during translocation
+nusG	20	7.79048498546	0.520925	0.479075	18.605	K	Participates in transcription elongation, termination and antitermination
+rplK	13	7.79048498546	0.5759	0.4241	17.7153846154	J	Forms part of the ribosomal stalk which helps the ribosome interact with GTP-bound translation factors
+rplA	16	7.79048498546	0.55794375	0.44205625	18.48125	J	Binds directly to 23S rRNA. The L1 stalk is quite mobile in the ribosome, and is involved in E site tRNA release
+rplJ	4	7.79048498546	0.499875	0.499875	18.4	J	Forms part of the ribosomal stalk, playing a central role in the interaction of the ribosome with GTP-bound translation factors
+rplL	3	7.79048498546	0.3396	0.3396	19.0666666667	J	Forms part of the ribosomal stalk which helps the ribosome interact with GTP-bound translation factors. Is thus essential for accurate translation
+rlmG	17	7.79048498546	0.427982352941	0.427982352941	19.6411764706	J	Methyltransferase small domain
+rpoB	83	7.79048498546	0.492010843373	0.492010843373	19.021686747	K	DNA-dependent RNA polymerase catalyzes the transcription of DNA into RNA using the four ribonucleoside triphosphates as substrates
+rpoC	78	7.96257350206	0.550424358974	0.449575641026	18.1329487179	K	DNA-dependent RNA polymerase catalyzes the transcription of DNA into RNA using the four ribonucleoside triphosphates as substrates
+rplGB	21	7.79048498546	0.632966666667	0.367033333333	19.5571428571	J	ribosomal protein
+rpsL	6	7.79048498546	0.49505	0.49505	18.65	J	Interacts with and stabilizes bases of the 16S rRNA that are involved in tRNA selection in the A site and with the mRNA backbone. Located at the interface of the 30S and 50S subunits, it traverses the body of the 30S subunit contacting proteins on the other side and probably holding the rRNA structure together. The combined cluster of proteins S8, S12 and S17 appears to hold together the shoulder and platform of the 30S subunit
+rpsG	8	7.79048498546	0.4006	0.4006	19.8875	J	One of the primary rRNA binding proteins, it binds directly to 16S rRNA where it nucleates assembly of the head domain of the 30S subunit. Is located at the subunit interface close to the decoding center, probably blocks exit of the E-site tRNA
+fusA	4	7.79048498546	0.5131	0.4869	18.175	J	Catalyzes the GTP-dependent ribosomal translocation step during translation elongation. During this step, the ribosome changes from the pre-translocational (PRE) to the post- translocational (POST) state as the newly formed A-site-bound peptidyl-tRNA and P-site-bound deacylated tRNA move to the P and E sites, respectively. Catalyzes the coordinated movement of the two tRNA molecules, the mRNA and conformational changes in the ribosome
+tuf	14	7.96257350206	0.440557142857	0.440557142857	17.8928571429	J	This protein promotes the GTP-dependent binding of aminoacyl-tRNA to the A-site of ribosomes during protein biosynthesis
+ref_00284	30	7.96257350206	0.206023333333	0.206023333333	18.1233333333	E	Peptidase dimerisation domain
+ref_00285	14	7.96257350206	0.237835714286	0.237835714286	18.1071428571	S	Acetyltransferase (GNAT) domain
+arcB_1	32	6.80410034759	0.416896875	0.416896875	17.6875	E	Ornithine cyclodeaminase
+ref_00287	10	6.85387196432	0.32544	0.32544	17.79	NA	NA
+ref_00288	8	6.34678748622	0.165075	0.165075	17.0375	M	epimerase dehydratase family
+ilvE	30	7.96257350206	0.292786666667	0.292786666667	18.5833333333	E	Aminotransferase
+tarI1	11	7.96257350206	0.292336363636	0.292336363636	18.0636363636	I	Catalyzes the transfer of the cytidylyl group of CTP to D-ribitol 5-phosphate
+tarL	3	7.96257350206	0.370033333333	0.370033333333	19.9666666667	M	the polymerization of the main chain of the major teichoic acid by sequential transfer of ribitol phosphate units from CDP-ribitol to the second glycerol phophate attached to the disaccharide linkage unit
+fbe	9	7.96257350206	0.339166666667	0.339166666667	18.3	M	protein which possibly mediates interactions of S.aureus with components of the extracellular matrix of higher eukaryotes
+gtfA_1	15	7.96257350206	0.45708	0.45708	18.2933333333	M	Glycosyl transferases group 1
+bshB2	5	6.80687540165	0.2354	0.2354	17.38	S	GlcNAc-PI de-N-acetylase
+yojF	20	7.96257350206	0.449315	0.449315	18.2	S	Protein of unknown function (DUF1806)
+nagB_1	39	7.96257350206	0.274276923077	0.274276923077	18.2512820513	G	Catalyzes the reversible isomerization-deamination of glucosamine 6-phosphate (GlcN6P) to form fructose 6-phosphate (Fru6P) and ammonium ion
+ref_00309	19	7.96257350206	0.420547368421	0.420547368421	18.2789473684	G	Catalyzes the condensation of ribulose 5-phosphate with formaldehyde to form 3-hexulose 6-phosphate
+hxlB	5	7.96257350206	0.38172	0.38172	19.18	M	SIS domain
+ref_00311	9	7.96257350206	0.331133333333	0.331133333333	19.4111111111	S	haloacid dehalogenase-like hydrolase
+menE_1	9	7.96257350206	0.346722222222	0.346722222222	19.7333333333	IQ	acyl-CoA synthetases (AMP-forming) AMP-acid ligases II
+yhfS	2	6.85387196432	0.055	0.055	17.6	I	Belongs to the thiolase family
+ref_00315	5	7.34582345812	0.23066	0.23066	17.8		
+ref_00317	32	7.96257350206	0.44181875	0.44181875	18.971875	S	Family of unknown function
+pdxK	40	7.96257350206	0.43537	0.43537	18.925	H	Phosphomethylpyrimidine kinase
+yxeI	9	7.96257350206	0.550833333333	0.449166666667	18.3222222222	M	Linear amide C-N hydrolases, choloylglycine hydrolase family
+ung	2	6.52870828894	0.5001	0.4999	17.3	L	Excises uracil residues from the DNA which can arise as a result of misincorporation of dUMP residues by DNA polymerase or due to deamination of cytosine
+ung	2	6.348721986	0.5	0.5	16.7	L	Excises uracil residues from the DNA which can arise as a result of misincorporation of dUMP residues by DNA polymerase or due to deamination of cytosine
+ref_00321	5	6.70333480974	0.41824	0.41824	17.64	S	Family of unknown function (DUF5327)
+ref_00322	2	6.69897000434	0.07415	0.07415	17.55	S	membrane
+yhdG_1	10	7.1214782045	0.31919	0.31919	17.79	E	amino acid
+ref_00324	7	7.34582345812	0.306928571429	0.306928571429	18.2571428571	S	Threonine/Serine exporter, ThrE
+ref_00325	4	7.34582345812	0.2715	0.2715	18.675	S	Putative threonine/serine exporter
+ref_00326	2	7.96257350206	0.50005	0.49995	20.4	C	May function as heme-dependent peroxidase
+lipL	3	7.96257350206	0.338066666667	0.338066666667	19.9333333333	H	Catalyzes the amidotransfer (transamidation) of the octanoyl moiety from octanoyl-GcvH to the lipoyl domain of the E2 subunit of lipoate-dependent enzymes
+galK	6	23.0109953843	0.40355	0.40355	18.8666666667	I	Mevalonate kinase
+ref_00330	2	6.59859945922	0.0598	0.0598	17.25	I	decarboxylase
+ref_00331	15	7.96257350206	0.586993333333	0.413006666667	18.06	I	phosphomevalonate kinase
+ref_00332	12	6.85387196432	0.35725	0.35725	17.6333333333	S	Belongs to the UPF0741 family
+rclA	16	6.85387196432	0.227525	0.227525	17.69375	C	Belongs to the class-I pyridine nucleotide-disulfide oxidoreductase family
+tarD	1	7.1214782045	0.0574	0.0574	18.3	IM	Glycerol-3-phosphate cytidylyltransferase
+bmrA	1	7.1214782045	0.0574	0.0574	18.3	V	ABC transporter
+ref_00455	2	7.79048498546	0.921	0.079	18.85	L	transposase IS116 IS110 IS902 family
+ref_00456	5	6.52870828894	0.9372	0.0628	16.98	L	transposase IS116 IS110 IS902 family
+zupT_2	5	6.52870828894	0.9372	0.0628	16.98	P	divalent heavy-metal cations transporter
+yclN	1	6.11577123037	0.1	0.1	17.5	P	Belongs to the binding-protein-dependent transport system permease family. FecCD subfamily
+ref_00573	1	7.1214782045	0.0526	0.0526	18.3	F	Belongs to the 5'-nucleotidase family
+dltD	1	6.52870828894	0.943	0.057	17.3	M	COG3966 Protein involved in D-alanine esterification of lipoteichoic acid and wall teichoic acid (D-alanine transfer protein)
+ref_00585	3	7.23657200644	0.633366666667	0.366633333333	18.1	L	Transposase
+ref_00622	4	6.52870828894	0.92125	0.07875	16.1	S	UPF0344 protein
+ref_00623	5	6.52870828894	0.9246	0.0754	16.34	L	Transposase
+clpB	2	6.52870828894	0.4954	0.4954	17.05	O	Part of a stress-induced multi-chaperone system, it is involved in the recovery of the cell from heat-induced damage, in cooperation with DnaK, DnaJ and GrpE
+ref_00630	4	6.52870828894	0.71795	0.28205	17.175	L	hmm pf02371
+ref_00642	2	7.79048498546	0.9235	0.0765	18.65	L	hmm pf02371
+mecA	1	6.52870828894	0.943	0.057	17.3	NOT	Enables the recognition and targeting of unfolded and aggregated proteins to the ClpC protease or to other proteins involved in proteolysis
+ref_00726	2	7.96257350206	0.50005	0.49995	20.4		
+suhB_1	1	7.79048498546	0.0957	0.0957	20	G	Inositol monophosphatase
+typA	3	6.47625353319	0.909333333333	0.0906666666667	17.3333333333	T	GTP-binding protein TypA
+ref_00756	3	6.47625353319	0.909333333333	0.0906666666667	17.3333333333	L	COG3666 Transposase and inactivated derivatives
+glpK	1	6.41793663709	0.12	0.12	18.2	F	Key enzyme in the regulation of glycerol uptake and metabolism. Catalyzes the phosphorylation of glycerol to yield sn- glycerol 3-phosphate
+glpD	1	6.41793663709	0.12	0.12	18.2	C	Belongs to the FAD-dependent glycerol-3-phosphate dehydrogenase family
+lysP_1	2	23.0109953843	0.50005	0.49995	21.3	E	amino acid
+trpA	1	6.69464863055	0.105	0.105	19	E	The alpha subunit is responsible for the aldol cleavage of indoleglycerol phosphate to indole and glyceraldehyde 3- phosphate
+pepF1_2	2	7.96257350206	0.49755	0.49755	18.15	E	Oligoendopeptidase F
+pbpH	1	6.69464863055	0.105	0.105	19	M	penicillin-binding protein
+tadA_2	4	7.96257350206	0.500075	0.499925	18.8	F	ComE operon protein 2
+ref_01307	3	16.651695137	0.615766666667	0.384233333333	16.3666666667	C	Malic enzyme
+ref_01316	9	7.96257350206	0.947222222222	0.0527777777778	18.3555555556		
+ackA	8	7.00524305541	0.943	0.057	18.1	F	Catalyzes the formation of acetyl phosphate from acetate and ATP. Can also catalyze the reverse reaction
+nagP	1	6.69464863055	0.105	0.105	19	G	PTS system
+ref_01356	4	7.96257350206	0.718775	0.281225	18.35	D	Domain of Unknown Function (DUF1542)
+ribH	4	9.71444269099	0.4127	0.4127	12.58	H	Catalyzes the formation of 6,7-dimethyl-8- ribityllumazine by condensation of 5-amino-6-(D- ribitylamino)uracil with 3,4-dihydroxy-2-butanone 4-phosphate. This is the penultimate step in the biosynthesis of riboflavin
+crcB_2	4	8.96657624451	0.725	0.275	15.775	D	Important for reducing fluoride concentration in the cell, thus reducing its toxicity
+ref_01379	5	8.96657624451	0.7676	0.2324	16.16	L	Transposase
+ref_01380	5	7.96257350206	0.59722	0.40278	18.88		
+ref_01381	1	6.10237290871	0.914	0.086	15.7	L	hmm pf02371
+yvgN	1	6.10237290871	0.914	0.086	15.7	S	aldo keto reductase
+mltF	1	6.16494389828	0.067	0.067	17	P	ABC transporter
+gseA	16	15.0767559814	0.7323875	0.2676125	24.1125	M	Belongs to the peptidase S1B family
+perR	16	15.0767559814	0.7323875	0.2676125	24.1125	K	Belongs to the Fur family
+aldH1	1	6.69464863055	0.105	0.105	19	C	Belongs to the aldehyde dehydrogenase family
+blaI	1	7.11804502866	0.914	0.086	14.5	K	Penicillinase repressor
+blaR1-2	9	7.83863199777	0.255444444444	0.255444444444	10.6622222222	KTV	Regulatory protein BlaR1
+blaR1-2	1	5.8894102897	0.172	0.172	9.92	KTV	Regulatory protein BlaR1
+blaZ	2	5.8894102897	0.172	0.172	9.92	V	beta-lactamase
+ref_01620	23	15.0767559814	0.670882608696	0.329117391304	22.5086956522	NA	NA
+ref_01626	23	15.0767559814	0.670882608696	0.329117391304	22.5086956522	S	Belongs to the SprT family
+tdk	2	16.651695137	0.50015	0.49985	16.4	F	thymidine kinase
+ref_01680	6	6.52870828894	0.6382	0.3618	17.35	L	Transposase
+murA2	2	6.52870828894	0.4787	0.4787	17.7	M	Belongs to the EPSP synthase family. MurA subfamily
+ref_01689	2	6.69464863055	0.5405	0.4595	18.75	M	COG0458 Carbamoylphosphate synthase large subunit (split gene in MJ)
+ref_01698	3	7.96257350206	0.6557	0.3443	20.0666666667	S	Protein of unknown function, DUF393
+cdaA	19	15.0767559814	0.759484210526	0.240515789474	23.4631578947	S	Catalyzes the condensation of 2 ATP molecules into cyclic di-AMP (c-di-AMP), a second messenger used to regulate differing processes in different bacteria
+salA	19	15.0767559814	0.759484210526	0.240515789474	23.4631578947	D	Binds and transfers iron-sulfur (Fe-S) clusters to target apoproteins. Can hydrolyze ATP
+lacG	1	6.55284196866	0.0574	0.0574	17.3	G	Belongs to the glycosyl hydrolase 1 family
+lacE	2	7.2076083105	0.5	0.5	13.4	G	PTS system, lactose-specific
+ref_01861	3	7.96257350206	0.938	0.062	17.7		
+ref_01862	3	7.79048498546	0.912333333333	0.0876666666667	17.5666666667	L	Transposase
+ref_01912	1	6.69464863055	0.105	0.105	19	P	resistance protein CopC
+ref_01938	8	7.00524305541	0.937	0.063	17.7125		
+ref_01939	12	12.474955193	0.859541666667	0.140458333333	17.5583333333	L	Transposase
+ref_02028	9	7.00524305541	0.844044444444	0.155955555556	18.0555555556		
+ref_02029	11	7.79048498546	0.858490909091	0.141509090909	18.1636363636	L	hmm pf02371
+sdhA	1	6.52870828894	0.943	0.057	17.3	E	L-serine dehydratase
+ref_02080	6	7.00524305541	0.943	0.057	18.1		
+ref_02081	6	7.00524305541	0.943	0.057	18.1		
+ref_02102	3	7.96257350206	0.6587	0.3413	19.9333333333		
+arcA_2	1	6.69464863055	0.105	0.105	19	E	Arginine
+ref_02171	5	7.00524305541	0.943	0.057	18.1		
+ref_02172	9	7.1214782045	0.640366666667	0.359633333333	17.7888888889		
+ref_02173	3	7.1214782045	0.3303	0.3303	17.1666666667	S	COG1853 Conserved protein domain typically associated with flavoprotein oxygenases, DIM6 NTAB family
+ref_02186	605	16.651695137	0.542483140496	0.457516859504	8.7280661157	UW	Hep Hag repeat protein
+ref_02196	7	13.6458915609	0.423814285714	0.423814285714	20.2857142857	L	Transposase
+pdxT	39	14.747146969	0.460166666667	0.460166666667	19.0230769231	F	Catalyzes the hydrolysis of glutamine to glutamate and ammonia as part of the biosynthesis of pyridoxal 5'-phosphate. The resulting ammonia molecule is channeled to the active site of PdxS
+pdxS	25	7.79048498546	0.547296	0.452704	19.248	H	Catalyzes the formation of pyridoxal 5'-phosphate from ribose 5-phosphate (RBP), glyceraldehyde 3-phosphate (G3P) and ammonia. The ammonia is provided by the PdxT subunit. Can also use ribulose 5-phosphate and dihydroxyacetone phosphate as substrates, resulting from enzyme-catalyzed isomerization of RBP and G3P, respectively
+gabR	122	15.0767559814	0.57756557377	0.42243442623	19.7344262295	K	Transcriptional regulator
+lysS	107	15.0767559814	0.562251401869	0.437748598131	19.9112149533	J	Belongs to the class-II aminoacyl-tRNA synthetase family
+folP	6	7.96257350206	0.636366666667	0.363633333333	19.5333333333	H	Catalyzes the condensation of para-aminobenzoate (pABA) with 6-hydroxymethyl-7,8-dihydropterin diphosphate (DHPt-PP) to form 7,8-dihydropteroate (H2Pte), the immediate precursor of folate derivatives
+hslO	23	6.47625353319	0.439608695652	0.439608695652	17.4608695652	O	Redox regulated molecular chaperone. Protects both thermally unfolding and oxidatively damaged proteins from irreversible aggregation. Plays an important role in the bacterial defense system toward oxidative stress
+ftsH	57	6.47625353319	0.475331578947	0.475331578947	17.349122807	O	Acts as a processive, ATP-dependent zinc metallopeptidase for both cytoplasmic and membrane proteins. Plays a role in the quality control of integral membrane proteins
+hpt	14	6.47625353319	0.498007142857	0.498007142857	17.0928571429	F	Belongs to the purine pyrimidine phosphoribosyltransferase family
+tilS	39	6.79860287568	0.508958974359	0.491041025641	17.1025641026	D	Ligates lysine onto the cytidine present at position 34 of the AUA codon-specific tRNA(Ile) that contains the anticodon CAU, in an ATP-dependent manner. Cytidine is converted to lysidine, thus changing the amino acid specificity of the tRNA from methionine to isoleucine
+purR	3	6.17134010346	0.3396	0.3396	17.2666666667	F	pur operon repressor
+metG	3	7.96257350206	0.365366666667	0.365366666667	19.6333333333	J	Is required not only for elongation of protein synthesis but also for the initiation of all mRNA translation through initiator tRNA(fMet) aminoacylation
+yfiC	3	7.96257350206	0.6587	0.3413	20.4	S	Methyltransferase small domain
+ref_02246	5	7.96257350206	0.4192	0.4192	18.92	L	DNA polymerase III
+darA	3	7.96257350206	0.365266666667	0.365266666667	20.2666666667	S	Cyclic-di-AMP receptor
+tmk	6	7.96257350206	0.510483333333	0.489516666667	18.6	F	Phosphorylation of dTMP to form dTDP in both de novo and salvage pathways of dTTP synthesis
+speA	12	6.17134010346	0.286266666667	0.286266666667	17.1916666667	E	Orn Lys Arg decarboxylase
+speG_3	30	15.0767559814	0.556146666667	0.443853333333	20.6833333333	J	Acetyltransferase (GNAT) domain
+recR	27	15.0767559814	0.580181481481	0.419818518519	20.8851851852	L	May play a role in DNA repair. It seems to be involved in an RecBC-independent recombinational process of DNA repair. It may act with RecF and RecO
+gltA	6	7.96257350206	0.512816666667	0.487183333333	20.3333333333	E	Glutamate synthase
+ref_02265	3	6.72815839346	0.317266666667	0.317266666667	17.4333333333	S	YibE F-like protein
+ref_02266	10	6.80410034759	0.41137	0.41137	17.69	L	COG0494 NTP pyrophosphohydrolases including oxidative damage repair enzymes
+ref_02267	9	6.72815839346	0.453944444444	0.453944444444	17.8777777778		
+tagE_2	19	7.96257350206	0.386321052632	0.386321052632	18.2210526316	M	Glycosyl transferase 1 domain A
+sle1	13	7.96257350206	0.261576923077	0.261576923077	18.0230769231	M	Peptidoglycan hydrolase involved in the splitting of the septum during cell division
+metQ_2	11	6.80410034759	0.300036363636	0.300036363636	17.8	P	Belongs to the nlpA lipoprotein family
+metN	21	7.1214782045	0.474142857143	0.474142857143	17.5380952381	P	Part of the ABC transporter complex MetNIQ involved in methionine import. Responsible for energy coupling to the transport system
+mccB	27	7.1214782045	0.449288888889	0.449288888889	17.6592592593	E	COG0626 Cystathionine beta-lyases cystathionine gamma-synthases
+mccA	14	6.85387196432	0.365385714286	0.365385714286	17.5357142857	E	Cysteine synthase
+ref_02275	20	6.85387196432	0.266515	0.266515	17.34	NA	NA
+ref_02276	27	10.8446639625	0.420877777778	0.420877777778	18.0888888889	S	Belongs to the sodium neurotransmitter symporter (SNF) (TC 2.A.22) family
+est_2	2	6.69897000434	0.05265	0.05265	17.95	S	Serine aminopeptidase, S33
+ref_02279	13	7.96257350206	0.2473	0.2473	18.7	I	PA-phosphatase related membrane protein
+ref_02280	5	7.96257350206	0.41924	0.41924	19.4		
+ref_02281	9	7.96257350206	0.5434	0.4566	18.4111111111	S	Uncharacterized conserved protein (DUF2294)
+ref_02282	72	7.96257350206	0.549536111111	0.450463888889	19.1333333333	S	Belongs to the UPF0753 family
+ref_02282	2	7.46092390121	0.10045	0.10045	18.95	S	Belongs to the UPF0753 family
+ndhB	54	7.96257350206	0.443275925926	0.443275925926	18.4962962963	CP	Proton-conducting membrane transporter
+yciC_2	24	7.96257350206	0.4105375	0.4105375	18	S	Cobalamin synthesis protein cobW C-terminal domain
+ref_02285	7	7.96257350206	0.439671428571	0.439671428571	19.2857142857	S	3-demethylubiquinone-9 3-methyltransferase
+ref_02286	17	7.96257350206	0.262329411765	0.262329411765	18.3705882353	G	Phosphotransferase system, EIIC
+guaA	43	6.57839607313	0.485295348837	0.485295348837	17.2976744186	F	Catalyzes the synthesis of GMP from XMP
+guaB	10	6.57839607313	0.40627	0.40627	17.18	F	Catalyzes the conversion of inosine 5'-phosphate (IMP) to xanthosine 5'-phosphate (XMP), the first committed and rate- limiting step in the de novo synthesis of guanine nucleotides, and therefore plays an important role in the regulation of cell growth
+ref_02299	7	7.96257350206	0.304914285714	0.304914285714	19.6857142857	A	protein ubiquitination
+tcyP	27	7.96257350206	0.348066666667	0.348066666667	19.862962963	U	Belongs to the dicarboxylate amino acid cation symporter (DAACS) (TC 2.A.23) family
+nfrA	3	7.96257350206	0.365266666667	0.365266666667	20.2666666667	C	Reduces FMN, organic nitro compounds and disulfide DTNB. Involved in maintenance of the cellular redox state and the disulfide stress response
+hpcG	13	7.96257350206	0.403807692308	0.403807692308	19.3846153846	Q	hydratase
+ahpC	7	7.96257350206	0.445671428571	0.445671428571	19.5857142857	O	Thiol-specific peroxidase that catalyzes the reduction of hydrogen peroxide and organic hydroperoxides to water and alcohols, respectively. Plays a role in cell protection against oxidative stress by detoxifying peroxides
+ahpF	20	7.96257350206	0.46442	0.46442	19.005	O	Alkyl hydroperoxide reductase
+ref_02305	6	7.96257350206	0.0677666666667	0.0677666666667	19.5333333333		
+ref_02306	12	7.96257350206	0.10765	0.10765	19.5083333333		
+gpmA_2	11	7.96257350206	0.2014	0.2014	18.6272727273	G	Belongs to the phosphoglycerate mutase family
+rhtC	14	7.96257350206	0.4959	0.4959	18.1214285714	E	LysE type translocator
+ref_02309	15	7.96257350206	0.45936	0.45936	17.5866666667	S	Transglycosylase associated protein
+ref_02310	29	15.0767559814	0.468986206897	0.468986206897	18.3	NA	NA
+rpsR	25	15.0767559814	0.390132	0.390132	19.032	J	Binds as a heterodimer with protein S6 to the central domain of the 16S rRNA, where it helps stabilize the platform of the 30S subunit
+rpsF	6	5.93930215965	0.350866666667	0.350866666667	16.5333333333	J	Binds together with S18 to 16S ribosomal RNA
+ref_02314	41	6.57839607313	0.451787804878	0.451787804878	17.4853658537	M	Glycosyl hydrolases family 25
+ref_02315	21	6.57839607313	0.313604761905	0.313604761905	17.5476190476		
+ychF	7	6.57839607313	0.1723	0.1723	17.5285714286	J	ATPase that binds to both the 70S ribosome and the 50S ribosomal subunit in a nucleotide-independent manner
+spo0J	8	7.96257350206	0.2733375	0.2733375	18.475	K	Belongs to the ParB family
+metI	29	7.96257350206	0.333617241379	0.333617241379	18.0551724138	E	COG0626 Cystathionine beta-lyases cystathionine gamma-synthases
+metI	2	6.37778597703	0.5002	0.4998	18.1	E	COG0626 Cystathionine beta-lyases cystathionine gamma-synthases
+metE	7	7.96257350206	0.308885714286	0.308885714286	18.4857142857	E	Catalyzes the transfer of a methyl group from 5- methyltetrahydrofolate to homocysteine resulting in methionine formation
+ref_02324	5	7.96257350206	0.75522	0.24478	17.68	S	Metal-dependent hydrolase
+ref_02325	9	7.96257350206	0.169011111111	0.169011111111	19.1666666667	I	Belongs to the thiolase family
+ref_02326	5	7.96257350206	0.05166	0.05166	19.6	S	YozE SAM-like fold
+ref_02327	7	7.96257350206	0.5318	0.4682	18.8571428571	K	transcriptional
+ref_02328	14	8.08830984125	0.36445	0.36445	16.8714285714	S	Protein of unknown function (DUF3169)
+btuD_8	6	7.96257350206	0.0566	0.0566	18.7333333333	V	ABC transporter, ATP-binding protein
+ydaF	9	8.08830984125	0.0562888888889	0.0562888888889	15.9177777778	J	Acetyltransferase (GNAT) domain
+gtfA_4	5	8.08830984125	0.07078	0.07078	14.012	M	Glycosyl transferases group 1
+ygcS	24	7.96257350206	0.2234625	0.2234625	18.4041666667	EGP	Sugar (and other) transporter
+spsB_3	6	7.96257350206	0.34135	0.34135	18.6833333333	U	Belongs to the peptidase S26 family
+ref_02339	8	7.34582345812	0.3952625	0.3952625	18.2875		
+bceA_2	4	7.96257350206	0.50005	0.49995	20.4	V	ABC transporter, ATP-binding protein
+bceB_3	19	7.96257350206	0.468694736842	0.468694736842	18.2210526316	V	ABC transporter (permease)
+ref_02343	10	6.55284196866	0.39704	0.39704	16.97		
+lip2_2	86	7.96257350206	0.29088372093	0.29088372093	17.4790697674	D	acetyltransferases and hydrolases with the alpha beta hydrolase fold
+ref_02345	27	6.85387196432	0.177518518519	0.177518518519	17.6	NA	NA
+macB	2	5.87942606879	0.5002	0.4998	16.3	V	COG0577 ABC-type antimicrobial peptide transport system, permease component
+macB	7	6.85387196432	0.5584	0.4416	17.4142857143	V	COG0577 ABC-type antimicrobial peptide transport system, permease component
+yknY	8	6.85387196432	0.385125	0.385125	17.85	V	ABC transporter, ATP-binding protein
+ref_02348	16	6.85387196432	0.32444375	0.32444375	17.74375	M	Belongs to the membrane fusion protein (MFP) (TC 8.A.1) family
+ref_02349	11	6.37778597703	0.218345454545	0.218345454545	16.7545454545	S	Yip1 domain
+ref_02350	17	6.48148606012	0.307335294118	0.307335294118	15.8258823529	K	Helix-turn-helix domain
+ref_02351	7	6.17134010346	0.300671428571	0.300671428571	16.04	K	Transcriptional regulator
+ref_02353	4	5.93930215965	0.281	0.281	16.35	S	Protein of unknown function (DUF3147)
+noc	10	7.96257350206	0.32385	0.32385	17.92	K	Belongs to the ParB family
+rsmG	4	7.96257350206	0.278625	0.278625	19.225	J	Specifically methylates the N7 position of guanine in position 535 of 16S rRNA
+mnmG	8	7.96257350206	0.51365	0.48635	18.6125	D	NAD-binding protein involved in the addition of a carboxymethylaminomethyl (cmnm) group at the wobble position (U34) of certain tRNAs, forming tRNA-cmnm(5)s(2)U34
+mnmE	7	6.37778597703	0.566114285714	0.433885714286	16.9857142857	J	Exhibits a very high intrinsic GTPase hydrolysis rate. Involved in the addition of a carboxymethylaminomethyl (cmnm) group at the wobble position (U34) of certain tRNAs, forming tRNA- cmnm(5)s(2)U34
+rpmH	2	7.96257350206	0.48105	0.48105	19.35	J	Belongs to the bacterial ribosomal protein bL34 family

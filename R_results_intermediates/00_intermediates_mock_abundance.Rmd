@@ -1,0 +1,110 @@
+---
+title: "mock community"
+author: "Sara"
+date: "1/17/2022"
+output: html_document
+---
+
+
+Rscript --vanilla scripts/BIB_stackedplot_mock.R data/03_bin_analyses/BIB_mock/abundance_all_vf.tsv data/03_bin_analyses/BIB_mock/seq_deffile.txt mock.png
+Mock community
+```{r}
+library(ggplot2)
+library(randomcoloR)
+library(cowplot)
+library(RColorBrewer)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+
+
+#args = commandArgs(trailingOnly=TRUE)
+comb=read.delim("results/strains/abundance/mock/abundance_all_vf.tsv",header=F, stringsAsFactors = F)
+colnames(comb)=c("Sample","rel_abund","id")
+deffile=read.delim("results/strains/abundance/mock/seq_deffile.txt",stringsAsFactors = F)
+colnames(deffile)[1]="filename"
+deffile$id=gsub("#Sequence","",rownames(deffile))
+deffile$id=gsub("File","",deffile$id)
+deffile=deffile[!(grepl("Format",deffile$id)),]
+deffile$filename=gsub(".*/","",deffile$filename)
+deffile$filename=gsub(".fasta","",deffile$filename)
+comb=merge(comb,deffile,by="id")
+comb$Sample=gsub(".*/","",comb$Sample)
+comb$Sample=gsub("_abundance.tsv","",comb$Sample)
+
+comb$community[comb$Sample =="1034_Staph_Mockcomm_1_acvsk.HHTCTDSXY_19026679_S192_L004"]="Mock1"
+comb$community[comb$Sample =="1034_Staph_Mockcomm_2_acvqp.HHTCTDSXY_19026538_S244_L004"]="Mock2"
+comb$community[comb$Sample =="1034_Staph_Mockcomm_3_acvqw.HHTCTDSXY_19026559_S183_L004_subset"]="Mock3"
+comb$community[comb$Sample =="1034_Staph_Mockcomm_4_acvrd.HHTCTDSXY_19026580_S240_L004"]="Mock4"
+comb$community[comb$Sample =="1034_Staph_Mockcomm_5_acvrk.HHTCTDSXY_19026601_S277_L004"]="Mock5"
+comb$community[comb$Sample =="1034_Staph_Mockcomm_6_acvrr.HHTCTDSXY_19026622_S280_L004"]="Mock6"
+comb$community[comb$Sample =="1034_Staph_Mockcomm_7_acvry.HHTCTDSXY_19026643_S270_L004"]="Mock7"
+comb$ST=gsub(".*_","",comb$filename)
+STs=c("ST16","ST32","ST59c","ST89","ST297","ST327","ST48","ST85","ST59b","ST59a","ST73") #"ShomA2","ShomA3",
+colors=c(brewer.pal(11,"Paired"))
+names(colors)=STs
+comb$ST=factor(comb$ST, levels=STs)
+comb=comb[,c("community","ST","rel_abund")]
+comb$status="Predicted composition"
+
+
+#plot mock true composition
+
+
+community=c("Mock1","Mock1","Mock1","Mock1")
+bacteria=c("ST16","ST32","ST59c","ST89")
+relative_abund=c(0.25,0.25,0.25,0.25)
+df_mock1=cbind.data.frame(community,bacteria,relative_abund)
+
+community=c("Mock2","Mock2","Mock2","Mock2")
+bacteria=c("ST16","ST32","ST59c","ST89")
+relative_abund=c(10,10,1,1)/sum(10+10+1+1)
+df_mock2=cbind.data.frame(community,bacteria,relative_abund)
+
+
+community=c("Mock3","Mock3","Mock3","Mock3")
+bacteria=c("ST16","ST32","ST59c","ST89")
+relative_abund=c(100,10,1,1)/sum(100+10+1+1)
+df_mock3=cbind.data.frame(community,bacteria,relative_abund)
+
+
+community=c("Mock4","Mock4","Mock4","Mock4","Mock4","Mock4")
+bacteria=c("ST48","ST16","ST297","ST59c","ST327","ST85")
+relative_abund=c(1,1,1,1,1,1)/sum(6)
+df_mock4=cbind.data.frame(community,bacteria,relative_abund)
+
+community=c("Mock5","Mock5","Mock5","Mock5","Mock5","Mock5")
+bacteria=c("ST48","ST16","ST297","ST59c","ST327","ST85")
+relative_abund=c(20,10,5,5,2,1)/sum(20+10+5+5+2+1)
+df_mock5=cbind.data.frame(community,bacteria,relative_abund)
+
+
+community=c("Mock6","Mock6","Mock6","Mock6","Mock6","Mock6")
+bacteria=c("ST48","ST16","ST85","ST73","ShomA2","ShomA3")
+relative_abund=c(1,1,1,1,1,1)/sum(6)
+df_mock6=cbind.data.frame(community,bacteria,relative_abund)
+
+
+community=c("Mock7","Mock7","Mock7","Mock7","Mock7","Mock7")
+bacteria=c("ST48","ST16","ST85","ST73","ShomA2","ShomA3")
+relative_abund=c(20,10,5,1,5,10)/sum(20+10+5+1+5+10)
+df_mock7=cbind.data.frame(community,bacteria,relative_abund)
+
+mock=rbind.data.frame(df_mock1,df_mock2,df_mock3,df_mock4,df_mock5,df_mock6,df_mock7)
+mock=mock[!(grepl("Shom",mock$bacteria)),]
+#mock$ST=mock$bacteria
+mock$ST=factor(mock$bacteria, levels=STs)
+mock=mock[,c("community","ST","relative_abund")]
+colnames(mock)[3]="rel_abund"
+
+mock$status="True composition"
+
+all=rbind.data.frame(mock,comb)
+
+saveRDS(all,"intermediates/strain_abundance_mock.RDS")
+ggplot(all, aes(fill=ST, y=rel_abund, x=community))+geom_bar(position="fill", stat="identity", alpha=0.9)+scale_fill_manual(values=colors)+xlab("Mock Community")+ylab("")+facet_grid(.~status)
+
+
+
+```
+
+

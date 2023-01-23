@@ -1,0 +1,682 @@
+---
+title: "Figure 2"
+output: html_document
+date: '2022-08-28'
+---
+
+
+
+```{r}
+# clear
+rm(list=ls())
+#libraries
+library(ape)
+library(dplyr)
+library(ggtree)
+library(randomcoloR)
+library(ggplot2)
+library(ggpubr)
+library(cowplot)
+library(data.table)
+library(RColorBrewer)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+unzip("results/panaroo/panaroo/saureus/gene_presence_absence.Rtab.zip") 
+
+```
+
+
+
+Remove failed and novel STs
+Subset to high quality genomes
+```{r}
+
+# load trees
+sepi_treefile="results/trees/gubbins/sepidermidis/gubbins.final_tree.tre"
+saur_treefile="results/trees/gubbins/saureus/gubbins.final_tree.tre"
+
+
+
+# load panaroo
+#unzip("results/trees/panaroo/sepidermidis/gene_presence_absence.Rtab.zip", exdir = "results/trees/panaroo/sepidermidis/")
+sepi_rtab.file="results/panaroo/sepidermidis/gene_presence_absence.Rtab"
+saur_rtab.file="results/panaroo/saureus/gene_presence_absence.Rtab"
+
+
+
+# load metadata
+metadata=read.csv("metadata/Table3.csv",stringsAsFactors = F)%>%
+  filter(QC=="Passed QC")%>%
+  filter(!(ST%in%c("NF_aur","Failed","NF_epi",NA)))
+metadata$Subject=paste(metadata$Study,metadata$Subject,sep="")
+
+#subset
+sepi_metadata=metadata[which(metadata$Species=="Staphylococcus epidermidis"),]
+saur_metadata=metadata[which(metadata$Species=="Staphylococcus aureus"),]
+
+
+
+# combine with metadata and format
+sepi_metadata$ST=gsub("_epi","",sepi_metadata$ST)
+sepi_metadata$ST=gsub("^","ST",sepi_metadata$ST)
+saur_metadata$ST=gsub("_aur","",saur_metadata$ST)
+saur_metadata$ST=gsub("^","ST",saur_metadata$ST)
+nih_sepi_metadata=sepi_metadata[which(sepi_metadata$Study=="To be announced"),]
+nih_saur_metadata=saur_metadata[which(saur_metadata$Study=="To be announced"),]
+
+#find most abundant STs epi
+#counts <- sepi_metadata %>%dplyr::group_by(ST)%>%
+ # dplyr::summarise(n=n_distinct(Subject))
+#counts_epi=counts[which(counts$n>2),]
+counts_epi=c("ST16","ST5","ST59","ST73","ST984","ST203","ST72","ST35","ST528","ST218","ST1004","ST467","ST7")
+palette_lis_sep=c("#00ffff","#00ff00","#7b92a8","#ff00ff","#ff7f00","#9c8847","#add8e6","#ffe474","#a0522d","#c0dcc0","#ff4500","#0000ff","#bfa19c" )
+names(palette_lis_sep)=sort(unique(counts_epi), decreasing = FALSE)
+
+#find most abundant STs
+counts <- saur_metadata %>%dplyr::group_by(ST)%>%
+  dplyr::summarise(n=n_distinct(Subject))
+counts_aur=counts[which(counts$n>5),]
+counts_aur=c("ST1","ST15","ST188","ST30","ST39","ST45","ST5","ST59","ST6","ST7","ST8","ST97","ST398","ST72","ST106")
+palette_lis_aur=c("#006000","#ffe474","#1a476f","#90353b","#6e8e84","#a0522d","#ff7f00","#ff00ff","#00ffff","#ff0000","#00ff00","#9c8847","#800080","#c0dcc0","#add8e6")
+names(palette_lis_aur)=sort(counts_aur, decreasing = FALSE)
+
+
+
+
+```
+
+
+
+
+
+
+
+functions for tsne and hamming distance
+
+```{r}
+
+#tsne panstripe
+plot_tsne <- function(pa, category=NULL, plot=TRUE, perplexity=20, pcadims=50, palette=NA){
+  pcadims <- min(pcadims, nrow(pa))
+  perplexity <- min(perplexity, nrow(pa))
+
+  pca <- stats::prcomp(pa)
+  
+  result <- Rtsne::Rtsne(X = pca$x[,1:pcadims], 
+                  check_duplicates=FALSE,
+                  pca = FALSE,
+                  perplexity = 12) #25
+  
+  if (is.null(category)){
+    stopifnot(all(names(category)==rownames(pa)))
+    plotdf <- tibble::tibble(
+      dim1 = result$Y[,1],
+      dim2 = result$Y[,2]
+    )
+  } else {
+    plotdf <- tibble::tibble(
+      category = category,
+      dim1 = result$Y[,1],
+      dim2 = result$Y[,2]
+    )
+  }
+  
+  if (!plot){
+    return(plotdf)
+  }
+  
+  if (is.null(category)){
+    gg <- ggplot2::ggplot(plotdf, ggplot2::aes(x=.data$dim1, y=.data$dim2)) +
+      ggplot2::geom_point() +
+      ggplot2::theme_bw(base_size = 14)
+  } else {
+    gg <- ggplot2::ggplot(plotdf, ggplot2::aes(x=.data$dim1, y=.data$dim2, colour=category)) +
+      ggplot2::geom_point() + theme_bw()+
+      scale_color_manual(values=palette)+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text.x = element_text(size=12)) +
+   theme(axis.title.x = element_text(size=14)) +
+   theme(axis.text.y = element_text(size=12)) +
+   theme(axis.title.y = element_text(size=14)) + 
+   theme(plot.title = ggtext::element_markdown())+theme(axis.title = ggtext::element_markdown())
+      
+      
+  }
+  
+  return(gg)
+  
+}
+
+
+#calculate distance
+
+hamming <- function(X) {
+    D <- (1 - X) %*% t(X)
+    D + t(D)
+}
+
+
+#accum curves
+
+
+plot_accum_step1 <- function(pa,metadata,nperm=100){
+metadata$ST=paste(metadata$Subject,metadata$ST,sep="__")
+
+ids=as.data.frame(table(metadata$ST))
+ids=ids$Var1[which(ids$Freq>4)]
+
+sum=data.frame()
+for (i in ids){
+
+ tmp_met=metadata[which(metadata$ST==i),]
+ tmp_pa=pa[,colnames(pa)%in%tmp_met$run_accession]
+
+ tmp_pa <- list(pangenome=t(tmp_pa))
+
+  plotdf <- purrr::imap_dfr(tmp_pa, ~{
+    .x <- t(.x)
+    purrr::map_dfr(1:nperm, function(i){
+      ppa <- .x[sample(nrow(.x), replace = FALSE), sample(ncol(.x), replace = FALSE)]
+      cumlative <- rowSums(apply(ppa, 1, cumsum)>0)
+      cumlative <- cumlative-cumlative[[1]]
+      df <- tibble::tibble(N = 1:length(cumlative),
+                           naccessory = cumlative,
+                           permutation = i)
+      return(df)
+    }) %>%
+      tibble::add_column(pangenome=.y)
+  })
+  
+  plotdf <- plotdf %>%
+    dplyr::group_by(.data$N,.data$pangenome) %>%
+    dplyr::summarise(
+      `accessory size` = mean(.data$naccessory),
+      `std` = stats::sd(.data$naccessory)
+    )
+  plotdf$ST=i
+ 
+  sum <- rbind(sum,plotdf)
+}
+return(sum)
+}
+
+plot_accum_step2 <- function(sum,label,palette){
+    sum$id=gsub("_.*","",sum$ST)
+    sum$`ST `=gsub(".*_","",sum$ST)
+
+      gg <- ggplot2::ggplot(sum, ggplot2::aes(.data$N, .data$`accessory size`, 
+                                             col=.data$`ST `, fill=.data$`ST `,group=interaction(id,`ST `))) + 
+    ggplot2::geom_line(size = 1) +
+    ggplot2::xlab(label) +
+    ggplot2::ylab("Number of genes") +
+    scale_fill_manual(values=palette)+
+    scale_color_manual(values=palette)+
+        xlim(0,10)+ylim(0,150)+
+         theme_bw()+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text.x = element_text(size=12)) +
+   theme(axis.title.x = element_text(size=14)) +
+   theme(axis.text.y = element_text(size=12)) +
+   theme(axis.title.y = element_text(size=14))+
+   theme(plot.title = ggtext::element_markdown())+theme(axis.title.x = ggtext::element_markdown())
+      
+  return(gg)
+}
+
+
+
+```
+
+
+
+
+tsne s.epi - subset to most abundant STs
+```{r}
+
+# load rtab
+pa <- panstripe::read_rtab(sepi_rtab.file)
+
+
+#subset
+metadata_rtab_epi=sepi_metadata[which(sepi_metadata$ST%in%counts_epi),]
+metadata_rtab_epi=metadata_rtab_epi[which(metadata_rtab_epi$run_accession%in%rownames(pa)),]
+metadata_rtab_epi=metadata_rtab_epi%>%dplyr::group_by(ST,Subject)%>%dplyr::slice_sample(n=3, replace=TRUE) #select a max per ST, subject
+
+pa=pa[metadata_rtab_epi$run_accession,]
+plot_ST_epi<-plot_tsne(pa,metadata_rtab_epi$ST,palette=palette_lis_sep)
+plot_ST_epi
+
+```
+
+
+
+
+tsne s.aur
+```{r}
+
+# load rtab
+pa <- panstripe::read_rtab(saur_rtab.file)
+
+
+#subset
+metadata_rtab_aur=saur_metadata[which(saur_metadata$ST%in%counts_aur),]
+metadata_rtab_aur=metadata_rtab_aur[which(metadata_rtab_aur$run_accession%in%rownames(pa)),]
+metadata_rtab_aur=metadata_rtab_aur%>%dplyr::group_by(ST,Subject)%>%dplyr::slice_sample(n=3, replace=TRUE) #select a max per ST, subject
+
+pa=pa[metadata_rtab_aur$run_accession,]
+plot_ST_aur<-plot_tsne(pa,metadata_rtab_aur$ST,palette=palette_lis_aur)
+plot_ST_aur
+
+```
+
+
+
+
+
+
+plot tree of s. epidermidis
+```{r}
+
+# load tree
+tree <- read.tree(sepi_treefile)
+
+
+# subset one per ST
+subset_sepi=metadata_rtab_epi%>%
+  dplyr::group_by(ST)%>%
+  dplyr::slice_sample(n=1)
+
+
+# exclude
+exclude=setdiff(tree$tip.label,subset_sepi$run_accession)
+
+
+# prune
+pruned.tree <- drop.tip(tree,c(exclude,"Reference"))
+
+sepi_tree<-ggtree(pruned.tree) %<+% subset_sepi + geom_text(aes(label=ST), hjust=-.5) +geom_tippoint(aes(color=ST),size=5)+scale_fill_manual(values=palette_lis_sep)+scale_color_manual(values=palette_lis_sep)+theme(legend.position = "none")+coord_cartesian(clip = 'off')+ggtitle("*S. epidermidis* STs (all isolates)")+theme(plot.title = ggtext::element_markdown())
+sepi_tree
+
+```
+
+
+plot tree of s. aureus
+```{r}
+
+# load tree
+tree <- read.tree(saur_treefile)
+
+
+# subset one per ST
+subset_saur=metadata_rtab_aur%>%
+  dplyr::group_by(ST)%>%
+  dplyr::slice_sample(n=1)
+
+
+# exclude
+exclude=setdiff(tree$tip.label,subset_saur$run_accession)
+
+# prune
+pruned.tree <- drop.tip(tree,c(exclude,"Reference"))
+
+
+saur_tree<-ggtree(pruned.tree) %<+% subset_saur + geom_text(aes(label=ST), hjust=-.5) +geom_tippoint(aes(color=ST),size=5)+scale_fill_manual(values=palette_lis_aur)+scale_color_manual(values=palette_lis_aur)+theme(legend.position = "none")+coord_cartesian(clip = 'off')+ggtitle("*S. aureus* STs (all isolates)")+theme(plot.title = ggtext::element_markdown())
+saur_tree
+
+```
+
+
+
+
+Generate within species gene composition distance matrices - sepi
+
+```{r}
+
+pa <- fread(sepi_rtab.file, data.table = FALSE) %>% as_tibble()
+pa_matrix <- data.matrix(pa[,2:ncol(pa)])
+rownames(pa_matrix) <- pa$Gene
+
+#subset to NIH
+met_tmp=sepi_metadata
+pa=pa[,met_tmp$run_accession]
+
+#get hamming distance
+sim=hamming(t(pa_matrix))
+
+sim_melt=melt(data.matrix(sim))
+colnames(sim_melt)=c("Var1","Var2","pangenome_distance")
+
+
+# get tree
+tree=ape::read.tree(sepi_treefile)
+tree_dist=ape::cophenetic.phylo(tree)
+tree_dist[lower.tri(tree_dist, diag = TRUE)] <- NA
+tree_dist_melt=melt(data.matrix(tree_dist))
+colnames(tree_dist_melt)=c("Var1","Var2","phylogenetic_distance")
+tree_dist_melt=tree_dist_melt[!(is.na(tree_dist_melt$phylogenetic_distance)),]
+
+#combine
+comb=merge(sim_melt,tree_dist_melt,by=c("Var1","Var2"))
+
+
+#merge with metadata
+comb_nodup2=comb %>% 
+  mutate(ST_var1 = plyr::mapvalues(Var1, met_tmp$run_accession,met_tmp$ST))%>%
+  mutate(ST_var2 = plyr::mapvalues(Var2, met_tmp$run_accession,met_tmp$ST))%>%
+  mutate(Subject1 = plyr::mapvalues(Var1, met_tmp$run_accession,met_tmp$Subject))%>%
+  mutate(Subject2 = plyr::mapvalues(Var2, met_tmp$run_accession,met_tmp$Subject))
+
+
+comb_nodup3=comb_nodup2[comb_nodup2$ST_var1==comb_nodup2$ST_var2,]
+comb_nodup3$ST=comb_nodup3$ST_var1
+
+comb_nodup3$Comparison="Different subjects"
+comb_nodup3$Comparison[comb_nodup3$Subject1==comb_nodup3$Subject2]="Same subject"
+comb_nodup3$Comparison[comb_nodup3$Subject2==comb_nodup3$Subject1]="Same subject"
+
+#show top hits only
+comb_nodup3=comb_nodup3[which(comb_nodup3$ST%in%counts_epi),]
+
+
+#positive relationship r^2
+#model <- lm(pangenome_distance~phylogenetic_distance, data=comb_nodup3)
+#summary(model)
+
+cor(comb_nodup3$pangenome_distance, comb_nodup3$phylogenetic_distance, method = c("pearson"))
+cor.test(comb_nodup3$pangenome_distance, comb_nodup3$phylogenetic_distance, method=c("pearson"))
+
+
+sepi_pang_phy<-ggplot(comb_nodup3,aes(x=pangenome_distance,y=phylogenetic_distance,color=ST,shape=Comparison))+geom_point(alpha=0.6,size=1.5)+ scale_color_manual(values=palette_lis_sep, guide="none")+xlab("Pangenome distance")+ylab("Phylogenetic distance")+  
+  theme_bw()+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text.x = element_text(size=12)) +
+   theme(axis.title.x = element_text(size=14)) +
+   theme(axis.text.y = element_text(size=12)) +
+   theme(axis.title.y = element_text(size=14))+
+    theme(legend.position="bottom")+xlim(0,500)+
+     theme(plot.title = ggtext::element_markdown())+theme(axis.title = ggtext::element_markdown())
+
+
+sepi_pang_phy
+
+
+```
+
+
+
+
+
+Generate within species gene composition distance matrices - saur
+
+```{r}
+
+pa <- fread(saur_rtab.file, data.table = FALSE) %>% as_tibble()
+pa_matrix <- data.matrix(pa[,2:ncol(pa)])
+rownames(pa_matrix) <- pa$Gene
+
+#subset to NIH
+met_tmp=saur_metadata
+pa=pa[,met_tmp$run_accession]
+
+
+#get hamming distance
+sim=hamming(t(pa_matrix))
+
+sim_melt=melt(data.matrix(sim))
+colnames(sim_melt)=c("Var1","Var2","pangenome_distance")
+
+
+# get tree
+tree=ape::read.tree(saur_treefile)
+tree_dist=ape::cophenetic.phylo(tree)
+tree_dist[lower.tri(tree_dist, diag = TRUE)] <- NA
+tree_dist_melt=melt(data.matrix(tree_dist))
+colnames(tree_dist_melt)=c("Var1","Var2","phylogenetic_distance")
+tree_dist_melt=tree_dist_melt[!(is.na(tree_dist_melt$phylogenetic_distance)),]
+
+#combine
+comb=merge(sim_melt,tree_dist_melt,by=c("Var1","Var2"))
+
+
+#merge with metadata
+comb_nodup2=comb %>% 
+  mutate(ST_var1 = plyr::mapvalues(Var1, met_tmp$run_accession,met_tmp$ST))%>%
+  mutate(ST_var2 = plyr::mapvalues(Var2, met_tmp$run_accession,met_tmp$ST))%>%
+  mutate(Subject1 = plyr::mapvalues(Var1, met_tmp$run_accession,met_tmp$Subject))%>%
+  mutate(Subject2 = plyr::mapvalues(Var2, met_tmp$run_accession,met_tmp$Subject))
+
+
+comb_nodup3=comb_nodup2[comb_nodup2$ST_var1==comb_nodup2$ST_var2,]
+comb_nodup3$ST=comb_nodup3$ST_var1
+
+comb_nodup3$Comparison="Different subjects"
+comb_nodup3$Comparison[comb_nodup3$Subject1==comb_nodup3$Subject2]="Same subject"
+comb_nodup3$Comparison[comb_nodup3$Subject2==comb_nodup3$Subject1]="Same subject"
+
+#show top hits only
+comb_nodup3=comb_nodup3[which(comb_nodup3$ST%in%counts_epi),]
+
+
+#positive relationship
+#model <- lm(pangenome_distance~phylogenetic_distance, data=comb_nodup3)
+#summary(model)
+
+cor(comb_nodup3$pangenome_distance, comb_nodup3$phylogenetic_distance, method = c("pearson"))
+cor.test(comb_nodup3$pangenome_distance, comb_nodup3$phylogenetic_distance, method=c("pearson"))
+
+saur_pang_phy<-ggplot(comb_nodup3,aes(x=pangenome_distance,y=phylogenetic_distance,color=ST,shape=Comparison))+geom_point(alpha=0.6,size=1.5)+ scale_color_manual(values=palette_lis_aur, guide="none")+xlab("Pangenome distance")+ylab("Phylogenetic distance")+  
+  theme_bw()+
+   theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +
+   theme(axis.text.x = element_text(size=12)) +
+   theme(axis.title.x = element_text(size=14)) +
+   theme(axis.text.y = element_text(size=12)) +
+   theme(axis.title.y = element_text(size=14))+
+    theme(legend.position="bottom")+xlim(0,500)+
+     theme(plot.title = ggtext::element_markdown())+theme(axis.title = ggtext::element_markdown())
+
+
+saur_pang_phy
+
+
+```
+
+
+
+
+Accessory by ST
+```{r,warning=FALSE,message=FALSE}
+nperm=100
+pa=read.delim(sepi_rtab.file,row.names = 1,stringsAsFactors = F)
+nih_sepi_metadata_count=nih_sepi_metadata[which(nih_sepi_metadata$ST%in%counts_epi),]
+pa=pa[,which(colnames(pa)%in%nih_sepi_metadata$run_accession)]
+
+#accessory genes
+sum_epi<-plot_accum_step1(pa,nih_sepi_metadata_count)
+
+sum_epi%>%group_by(ST)%>%dplyr::summarise(max=max(`accessory size`))
+
+accum_epi<-plot_accum_step2(sum_epi,label="Number of *S. epidermidis* genomes per ST,subject",palette_lis_sep)
+accum_epi
+
+pa=read.delim(saur_rtab.file,row.names = 1,stringsAsFactors = F)
+nih_saur_metadata_count=nih_saur_metadata[which(nih_saur_metadata$ST%in%counts_epi),]
+pa=pa[,which(colnames(pa)%in%nih_saur_metadata$run_accession)]
+
+#accessory genes
+sum_aur<-plot_accum_step1(pa,nih_saur_metadata_count)
+sum_aur%>%group_by(ST)%>%dplyr::summarise(max=max(`accessory size`))
+
+accum_aur<-plot_accum_step2(sum_aur,label="Number of *S. aureus* genomes per ST,subject",palette_lis_aur)
+accum_aur
+
+  
+```
+
+
+
+
+
+
+plot annotation of variable genes by ST
+```{r}
+
+#epi
+pa=read.delim(sepi_rtab.file,row.names = 1,stringsAsFactors = F)
+pa=t(pa)
+
+df=data.frame()
+metadata=nih_sepi_metadata
+
+#load eggnog
+eggnog_all=read.delim("results/trees/panaroo/sepidermidis/pangenome.emapper.annotations", skip=3)
+eggnog_all$gene=sub("_[^_]+$", "", eggnog_all$X.query_name)
+
+plot_in_d_epi=c("ST130","ST59","ST203","ST73","ST35","ST5")
+
+for (i in plot_in_d_epi){
+metadata_sub=metadata[which(metadata$ST==i),]
+pa_sub=pa[metadata_sub$run_accession,]
+
+variable_mat <- pa_sub[,colnames(pa_sub)[apply(pa_sub, 2, sd) > 0]]
+variable_genes <- colnames(variable_mat)
+
+
+eggnog=eggnog_all[which(eggnog_all$gene%in%colnames(pa_sub)),]
+eggnog=eggnog[which(eggnog$gene%in%variable_genes),]
+eggnog$COG.Functional.cat.[is.na(eggnog$COG.Functional.cat.)]="S"
+eggnog=eggnog[,c("X.query_name","COG.Functional.cat.")]
+eggnog$ST=i
+df=rbind.data.frame(df,eggnog)
+}
+
+df_epi_color=df%>%dplyr::group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())
+df_epi_color=df_epi_color[which(df_epi_color$n>30),]
+
+df$COG.Functional.cat.[!(df$COG.Functional.cat.%in%df_epi_color$COG.Functional.cat.)]="Other"
+df$COG.Functional.cat.[which(df$COG.Functional.cat.=="")]="S"
+
+#majority of genes had no known annotation
+stat=df%>%dplyr::group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())
+stat$n[which(stat$COG.Functional.cat.=="S")]/sum(stat$n)
+
+
+df_epi=df%>%dplyr::group_by(ST,COG.Functional.cat.)%>%dplyr::summarise(n=n())
+
+#Of the variable genes (Figure 2 G,H), 55% did not have a known functional annotation (S) for S. aureus and 51% for S. epidermidis and warrant further research into their contributions to host adaptation
+df_summary_epi=df%>%dplyr::group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())
+df_summary_epi$prop=df_summary_epi$n/sum(df_summary_epi$n)
+
+#saureus
+
+pa=read.delim(saur_rtab.file,row.names = 1,stringsAsFactors = F)
+pa=t(pa)
+
+df=data.frame()
+
+#metadata
+metadata=nih_saur_metadata
+eggnog_all=read.delim("results/trees/panaroo/saureus/pangenome.emapper.annotations", skip=3)
+eggnog_all$gene=sub("_[^_]+$", "", eggnog_all$X.query_name)
+plot_in_d_aur=c("ST72","ST30","ST5")
+
+for (i in plot_in_d_aur){
+metadata_sub=metadata[which(metadata$ST==i),]
+pa_sub=pa[metadata_sub$run_accession,]
+
+variable_mat <- pa_sub[,colnames(pa_sub)[apply(pa_sub, 2, sd) > 0]]
+variable_genes <- colnames(variable_mat)
+
+
+eggnog=eggnog_all[which(eggnog_all$gene%in%colnames(pa_sub)),]
+eggnog=eggnog[which(eggnog$gene%in%variable_genes),]
+eggnog$COG.Functional.cat.[is.na(eggnog$COG.Functional.cat.)]="S"
+eggnog=eggnog[,c("X.query_name","COG.Functional.cat.")]
+eggnog$ST=i
+df=rbind.data.frame(df,eggnog)
+}
+
+df_aur_color=df%>%dplyr::group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())
+df_aur_color=df_aur_color[which(df_aur_color$n>30),]
+
+df$COG.Functional.cat.[!(df$COG.Functional.cat.%in%df_aur_color$COG.Functional.cat.)]="Other"
+df$COG.Functional.cat.[which(df$COG.Functional.cat.=="")]="S"
+
+stat=df%>%dplyr::group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())
+stat$n[which(stat$COG.Functional.cat.=="S")]/sum(stat$n)
+
+df_aur=df%>%dplyr::group_by(ST,COG.Functional.cat.)%>%dplyr::summarise(n=n())
+
+
+#Of the variable genes (Figure 2 G,H), 55% did not have a known functional annotation (S) for S. aureus and 51% for S. epidermidis and warrant further research into their contributions to host adaptation
+df_summary_aur=df%>%dplyr::group_by(COG.Functional.cat.)%>%dplyr::summarise(n=n())
+df_summary_aur$prop=df_summary_aur$n/sum(df_summary_aur$n)
+
+
+#plot
+names=unique(c(unique(df_epi$COG.Functional.cat.),unique(df_aur$COG.Functional.cat.)))
+names=c(names[!(names=="Other")],"Other")
+
+palette=c(brewer.pal(12,"Paired"),"gray")
+palette=c("#6A3D9A","#1F78B4","#B15928","#33A02C","gray","#E31A1C","#FB9A99","#FDBF6F","#FF7F00","#CAB2D6","#B2DF8A","#A6CEE3","#FFFF99")
+names(palette)=names
+
+df_aur$`COG category`=df_aur$COG.Functional.cat.
+df_epi$`COG category`=df_epi$COG.Functional.cat.
+
+epi<-ggplot(df_epi,aes(x=ST,y=n,fill=`COG category`))+geom_bar(alpha=0.8,stat="identity",position="fill")+scale_fill_manual(values=palette)+theme_bw()+ylab("Proportion")+theme(legend.position="bottom")+theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) + theme(axis.text.x = element_text(size=12)) +
+   theme(axis.title.x = element_text(size=14)) +
+   theme(axis.text.y = element_text(size=12)) +
+   theme(axis.title.y = element_text(size=14))
+
+
+aur<-ggplot(df_aur,aes(x=ST,y=n,fill=`COG category`))+geom_bar(alpha=0.8,stat="identity",position="fill")+scale_fill_manual(values=palette)+theme_bw()+ylab("Proportion")+theme(legend.position="bottom")+theme(legend.text = element_text(size=12), legend.title = element_text(size=14)) +  theme(axis.text.x = element_text(size=12)) +
+   theme(axis.title.x = element_text(size=14)) +
+   theme(axis.text.y = element_text(size=12)) +
+   theme(axis.title.y = element_text(size=14))
+
+
+combined<-rbind.data.frame(df_aur,df_epi)
+ggcombined<-ggplot(combined,aes(x=ST,y=n,fill=`COG category`))+geom_bar(stat="identity",position="fill")+scale_fill_manual(values=palette)
+
+leg <- get_legend(ggcombined+theme(legend.position="right")+guides(fill=guide_legend(ncol=3)))
+
+row4<-plot_grid(aur+theme(legend.position="none")+ggtitle("Annotation of *S. aureus* within individual gene diversity\n(NIH dataset)")+   theme(plot.title = ggtext::element_markdown())+theme(axis.title = ggtext::element_markdown())
+,leg,epi+theme(legend.position="none")+ggtitle("Annotation of *S. epidermidis* within individual gene diversity\n(NIH dataset)")+   theme(plot.title = ggtext::element_markdown())+theme(axis.title = ggtext::element_markdown())
+,labels=c("G","","H"),rel_widths=c(0.3,0.2,0.5),nrow=1)
+row4
+
+```
+
+
+
+combine
+```{r}
+
+final_epi<-cowplot::plot_grid(sepi_tree,NULL,plot_ST_epi+theme(legend.position = "none"), nrow=1,rel_widths=c(0.35,0.13,0.52))
+final_aur<-cowplot::plot_grid(NULL,saur_tree,NULL,plot_ST_aur+theme(legend.position = "none"), nrow=1,rel_widths=c(0.02,0.38,0.08,0.52))
+row1<-cowplot::plot_grid(final_aur,final_epi,nrow=1)
+null<-cowplot::plot_grid(NULL,NULL,NULL,NULL,labels=c("A","","B",""),nrow=1)
+row1<-cowplot::plot_grid(null,row1,rel_heights=c(0.1,0.9),nrow=2)
+row1
+
+
+row2<-cowplot::plot_grid(saur_pang_phy+theme(legend.position = "none")+ggtitle("*S. aureus* within ST genetic diversity (all isolates)"),sepi_pang_phy+theme(legend.position = "none")+ggtitle("*S. epidermidis* within ST genetic diversity (all isolates)"),labels=c("C","D"))
+leg_row2<-get_legend(saur_pang_phy)
+row2=cowplot::plot_grid(row2,leg_row2,nrow=2,rel_heights=c(0.9,0.1))
+
+
+row3<-cowplot::plot_grid(accum_aur+theme(legend.position = "none")+ggtitle("*S. aureus* within individual gene diversity by ST \n(NIH dataset)"),accum_epi+theme(legend.position = "none")+ggtitle("*S. epidermidis* within individual gene diversity by ST\n(NIH dataset)"),labels=c("E","F"))
+
+fig2<-cowplot::plot_grid(row1,NULL,row2,NULL,row3,NULL,row4,nrow=7,rel_heights = c(0.26,0.02, 0.36,0.02,0.17,0.02,0.17))+theme(plot.background = element_rect(fill = "white")+theme(plot.background = element_blank()))
+
+
+ggsave("figures/Figure2.png",fig2,width=13.5,height=13,bg='white')
+ggsave("figures/Figure2.svg",fig2,width=13.5,height=13,bg='white')
+
+
+```
+
+
+
+
+

@@ -1,0 +1,186 @@
+---
+title: "Figure3"
+output: html_document
+date: '2022-04-05'
+---
+
+```{r}
+rm(list=ls())
+library(tidyverse)
+library(cowplot)
+library(ggrepel)
+library(ape)
+library(ggtree)
+library(RColorBrewer)
+library(dplyr)
+library(cowplot)
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+```
+
+
+
+
+###Sepidermidis
+The differences between SAP and SEP patients -- manhattan plot 
+```{r}
+
+limits <- read_tsv("results/GWAS/sepidermidis/gwas_unitig_SAP_vs_SEP_ratio/significance_limits.txt", col_names = F)
+p_threshold <- limits[[2,2]]
+p_threshold
+
+unzip("results/GWAS/sepidermidis/gwas_unitig_SAP_vs_SEP_ratio/unitig_significance_annotated.txt.zip",exdir="results/GWAS/sepidermidis/gwas_unitig_SAP_vs_SEP_ratio/")
+unitigs <- read_tsv("results/GWAS/sepidermidis/gwas_unitig_SAP_vs_SEP_ratio/unitig_significance_annotated.txt", 
+                              col_names = c("unitig", "af", "filter_p", "lrt_p", "beta", "beta_std_err", "h2","k-samples","nk-samples","annotation"))
+
+
+unitigs <- unitigs %>% mutate(annotation = ifelse(is.na(annotation), notes, annotation))
+unitigs <- unitigs %>% separate(annotation, c("annotation1", "annotation2", "annotation3", "annotation4", "annotation5", "annotation6"), sep = ',') %>%
+  pivot_longer(annotation1:annotation6, names_to = "annotation_number", values_to = "annotation", values_drop_na = T) %>%
+  separate(annotation, c("reference", "location"), sep = ":") %>%
+  separate(location, c("coordinates", "gene"), sep = ";") %>%
+  separate(coordinates, c("start", "stop"), sep = "-") %>%
+  mutate(start = as.numeric(start)) 
+
+unitigs$replicon="none"
+unitigs$replicon=gsub("ref_1","chromosome",unitigs$reference)
+
+chromosome=unitigs %>% mutate(significant = if_else((lrt_p < p_threshold) & ((af > 0.05) & (af < 0.95)), T, F))
+chromosome=chromosome[which(chromosome$replicon=="chromosome"),]
+
+chromosome$`Effect size`=chromosome$significant
+chromosome$`Effect size`=gsub("FALSE","Not significant",chromosome$`Effect size`)
+chromosome$`Effect size`[(chromosome$beta>0)&(chromosome$significant==T)]="Beta>0"
+chromosome$`Effect size`[(chromosome$beta<0)&(chromosome$significant==T)]="Beta=<0"
+
+labels=chromosome[which(chromosome$significant==T),]
+n_distinct(labels$gene)
+labels=labels[!(grepl("ref",labels$gene)),]
+labels <- labels %>% 
+             group_by(gene) %>%
+             dplyr::slice(which.max(lrt_p))
+labels$gene_annotation=labels$gene
+labels=labels[!(labels$gene_annotation%in%c("ribH","tadA_2","nagP","blaI")),]
+
+chromosome=merge(chromosome,labels[,c("gene","unitig","gene_annotation")],by=c("gene","unitig"),all.x=T)
+
+
+
+p_chromosome_epi <- ggplot(chromosome, 
+            aes(x = start, y = -log10(lrt_p), color = `Effect size`,label=gene_annotation)) + #,
+  geom_point(alpha=0.7) + 
+  scale_color_manual(values = c("#A6CEE3","#1F78B4","#D3D3D3")) + # "#756bb1")) +
+  theme_minimal() +
+  xlab("Genomic position") +
+  ylab("Significance (-log10(p))") +
+  geom_text_repel(aes(size=60), show.legend = FALSE, colour='black') +
+  geom_hline(yintercept = -log10(p_threshold), linetype = "dashed")+ggtitle('*S. epidermidis* GWAS')+
+  theme(plot.title = ggtext::element_markdown())
+p_chromosome_epi
+
+
+
+```
+
+
+
+###S.aureus
+
+SCORAD - manhattan plot
+```{r}
+
+library(tidyverse)
+library(cowplot)
+
+limits <- read_tsv("results/GWAS/saureus/gwas_unitig_scorad/significance_limits.txt", col_names = F)
+p_threshold <- limits[[2,2]]
+p_threshold
+
+#unzip("results/GWAS/saureus/gwas_unitig_scorad/unitig_significance_annotated.txt.zip",exdir="results/GWAS/saureus/gwas_unitig_scorad/")
+#df=fread("results/GWAS/saureus/gwas_unitig_scorad/unitig_significance_annotated.txt",stringsAsFactors = F,header=F)
+#df$V4=as.numeric(as.vector(vector(df$V4)))
+#df$V3=as.numeric(as.vector(vector(df$V3)))
+#df$V8=NULL
+#df$V9=NULL
+#write.table(df,"results/GWAS/saureus/gwas_unitig_scorad/unitig_significance_annotated.txt",quote=F,row.names=F,sep="\t",col.names = F)
+unitigs <- read_tsv("results/GWAS/saureus/gwas_unitig_scorad/unitig_significance_annotated.txt", 
+                    col_names = c("unitig", "af", "filter_p", "lrt_p", "beta", "beta_std_err", "h2","annotation"))
+
+
+#unitigs <- unitigs %>% mutate(annotation = ifelse(is.na(annotation), notes, annotation))
+unitigs <- unitigs %>% separate(annotation, c("annotation1", "annotation2", "annotation3", "annotation4", "annotation5", "annotation6"), sep = ',') %>%
+  pivot_longer(annotation1:annotation6, names_to = "annotation_number", values_to = "annotation", values_drop_na = T) %>%
+  separate(annotation, c("reference", "location"), sep = ":") %>%
+  separate(location, c("coordinates", "gene"), sep = ";") %>%
+  separate(coordinates, c("start", "stop"), sep = "-") %>%
+  mutate(start = as.numeric(start)) 
+
+unitigs$replicon="none"
+unitigs$replicon=gsub("ref_1","chromosome",unitigs$reference)
+unitigs$replicon=gsub("ref_4","plasmid",unitigs$replicon)
+
+chromosome=unitigs %>% mutate(significant = if_else((lrt_p < p_threshold) & ((af > 0.05) & (af < 0.95)), T, F))
+chromosome=chromosome[which(chromosome$replicon=="chromosome"),]
+
+chromosome$`Effect size`=chromosome$significant
+chromosome$`Effect size`=gsub("FALSE","Not significant",chromosome$`Effect size`)
+chromosome$`Effect size`[(chromosome$beta>0)&(chromosome$significant==T)]="Beta>0"
+chromosome$`Effect size`[(chromosome$beta<0)&(chromosome$significant==T)]="Beta=<0"
+
+labels=chromosome[which(chromosome$significant==T),]
+n_distinct(labels$gene)
+labels=labels[!(grepl("ref",labels$gene)),]
+labels <- labels %>% 
+             group_by(gene) %>%
+             dplyr::slice(which.max(lrt_p))
+labels$gene_annotation=labels$gene
+
+chromosome=merge(chromosome,labels[,c("gene","unitig","gene_annotation")],by=c("gene","unitig"),all.x=T)
+
+p_chromosome_saureus <- ggplot(chromosome, 
+            aes(x = start, y = -log10(lrt_p), color = `Effect size`, label=gene_annotation)) +
+  geom_point(alpha=0.7) + 
+  scale_color_manual(values = c("#A6CEE3","#1F78B4","#D3D3D3")) + # "#756bb1")) +
+  theme_minimal() +
+  xlab("Genomic position") +
+  ylab("Significance (-log10(p))") +
+  geom_text_repel(aes(size=60), show.legend = FALSE, colour='black') +
+  geom_hline(yintercept = -log10(p_threshold), linetype = "dashed") +
+  ggtitle('*S. aureus* GWAS')+
+  theme(plot.title = ggtext::element_markdown())
+p_chromosome_saureus
+
+```
+
+
+
+
+
+```{r}
+
+a<-ggplot()+ggtitle('*S. aureus* tree')+theme_void()+theme(plot.title = ggtext::element_markdown())
+b<-ggplot()+ggtitle('*S. epidermidis* tree')+theme_void()+theme(plot.title = ggtext::element_markdown())
+
+#aur_final,epi_final,
+bottom<-plot_grid(p_chromosome_saureus+theme(legend.position="bottom"),p_chromosome_epi+theme(legend.position="bottom"),nrow=1, labels=c("C","D"))
+top<-plot_grid(a,b,nrow=1, labels=c("A","B"))
+
+fig4<-plot_grid(top,bottom,rel_heights = c(0.55,0.45),nrow=2)
+ggsave("figures/Figure3.png",width=16,height=11,bg='white')
+ggsave("figures/Figure3.eps",width=16,height=11,device=cairo_ps,bg='white')
+
+
+
+unlink("results/GWAS/sepidermidis/gwas_unitig_scorad/unitig_significance_annotated.txt")
+
+```
+
+
+
+
+
+
+
+
+
+

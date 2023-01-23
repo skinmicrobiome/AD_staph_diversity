@@ -1,0 +1,192 @@
+---
+title: "Figure S9"
+output: html_document
+date: "2023-01-11"
+---
+
+
+
+PAI tree
+
+
+```{r, warning=FALSE, message=FALSE}
+
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(ggtree)
+library(cowplot)
+library(ggnewscale)
+library(paletteer)
+
+rm(list=ls())
+
+setwd("~/Documents/AD_staph_diversity/R_results_intermediates/")
+unlink("results/phage/mmseqs_matrix.tsv")
+unzip("results/phage/mmseqs_matrix.tsv.zip",exdir = "results/phage/")
+
+```
+
+
+
+```{r}
+
+#virulence genes
+vfdb=readRDS("results/phage/diamond_blastp_vfdb.tsv.rds")
+
+
+#get isolate medata
+iso_met_staph=read.csv("metadata/Table3.csv", stringsAsFactors = F)%>%
+  filter(QC=="Passed QC")%>%filter(Genus=="g__Staphylococcus")
+iso_met_staph$Species=gsub("^","*",iso_met_staph$Species) #italicize
+iso_met_staph$Species=gsub("$","*",iso_met_staph$Species)
+
+#add clonal complex
+CC=read.delim("results/amr/profiles_csv.txt", stringsAsFactors = F) ##https://rest.pubmlst.org/db/pubmlst_saureus_seqdef/schemes/1/profiles_csv
+CC$ST=gsub("$","_aur",CC$ST)
+iso_met_staph=merge(iso_met_staph,CC[,c("ST","clonal_complex")],by="ST",all.x=T)
+#load tree and create metadata table
+tree=read.tree("results/phage/PAI_tree.tree")
+tip.label=as.data.frame(tree$tip.label)
+tip.label$run_accession=sub("_[^_]+$", "", tip.label$`tree$tip.label`)
+tip.label=merge(tip.label,iso_met_staph,by="run_accession")%>%select(-run_accession)
+colnames(tip.label)[1]="Contig.id"
+rownames(tip.label)=tip.label$Contig.id
+tip.label$clonal_complex[(grepl("aureus",tip.label$Species))&((is.na(tip.label$clonal_complex))|(tip.label$clonal_complex==""))]="Other *S.aureus*"
+tip.label$clonal_complex[!(grepl("aureus",tip.label$Species))]="Other species"
+
+CC=tip.label[,"clonal_complex", drop=FALSE]
+colnames(CC)[1]="S.aureus CC"
+
+#load protein clustering results
+mmseq_blastp_cat=read.delim("results/phage/mmseqs_matrix.tsv",stringsAsFactors = F,row.names=1)
+mmseq_blastp_cat=t(mmseq_blastp_cat)
+#format column names using VFDB metadata
+mmseq_blastp_cat=mmseq_blastp_cat[,intersect(colnames(mmseq_blastp_cat),vfdb$V1)]
+colnames(mmseq_blastp_cat)<-vfdb$V2.y[match(colnames(mmseq_blastp_cat), vfdb$V1)]
+colnames(mmseq_blastp_cat)<-gsub("\\(","",colnames(mmseq_blastp_cat))
+colnames(mmseq_blastp_cat)<-gsub("\\)","",colnames(mmseq_blastp_cat))
+#take most common hits (top 6)
+mmseq_blastp_cat=mmseq_blastp_cat[tree$tip.label,]
+keep_threshold=sort(colSums(mmseq_blastp_cat),decreasing = T)[6]
+mmseq_blastp_cat=mmseq_blastp_cat[,colSums(mmseq_blastp_cat)>=keep_threshold]
+#format to present/absent
+mmseq_blastp_cat[mmseq_blastp_cat==1]="Present"
+mmseq_blastp_cat[mmseq_blastp_cat==0]="Absent"
+
+#load fusB amr analysis
+amr=read.delim("results/phage/all_amr.txt",stringsAsFactors = F)
+amr=amr[,c("Contig.id","Gene.symbol")] %>%filter(Gene.symbol=="fusB")
+amr=merge(tip.label,amr,by="Contig.id",all.x=T)
+#present/absent
+mmseq_amr = amr%>%mutate(fusB = ifelse(grepl("fusB",Gene.symbol),"Present","Absent"))%>%select(Contig.id,fusB)
+rownames(mmseq_amr)=mmseq_amr$Contig.id
+mmseq_amr$Contig.id=NULL
+table(mmseq_amr$fusB)
+
+
+#plot
+#load species palette
+breaks=c("*Staphylococcus epidermidis*","*Staphylococcus aureus*","*Staphylococcus capitis*","*Staphylococcus argenteus"   ,"Staphylococcus warneri*","*Staphylococcus hominis*","*Staphylococcus caprae*","*Staphylococcus pettenkoferi*","*Staphylococcus succinus*","*Staphylococcus lugdunensis*","Present","Absent")
+palette2=c("#A6CEE3","#1F78B4","#B2DF8A","#33A02C","#FB9A99","#E31A1C","#FDBF6F","#FF7F00","#CAB2D6","#944DE6","#999999","#F2F2F2")
+names(palette2)=breaks
+
+q<-ggtree(tree)%<+%tip.label+geom_tippoint(aes(color=Species),size=1,na.rm = T)+scale_color_manual(values=palette2) 
+p2 <- q + new_scale_fill()
+
+
+figs9<-gheatmap(p2,CC, offset=0.4, width=0.1, font.size=3,colnames_angle=-45, hjust=0,color=NULL)+coord_cartesian(clip = "off")+ggplot2::ylim(-0.5, NA)+labs(fill="*S. aureus*<br>CC")+scale_fill_manual(values=c("#4E79A7FF","#F28E2BFF","#E15759FF","#76B7B2FF","#59A14FFF","#EDC948FF","#B07AA1FF", "#FF9DA7FF","#9C755FFF","white"),breaks=c("CC97","CC5","CC30","CC8","CC121","CC45","CC1","CC15","Other *S.aureus*","Other species"))+theme(legend.text = ggtext::element_markdown())+theme(legend.title = ggtext::element_markdown())
+figs9 <- figs9 + new_scale_fill()
+figs9<-gheatmap(figs9,mmseq_amr, offset=0.8, width=0.1, font.size=3,colnames_angle=-45, hjust=0,color=NULL)+scale_fill_brewer(palette = "Paired")+coord_cartesian(clip = "off")+ggplot2::ylim(-0.5, NA)
+figs9
+figs9<-gheatmap(figs9, mmseq_blastp_cat[tree$tip.label,], offset=1.2, width=5, font.size=3, colnames_angle=-45, hjust=0,color=NULL)+scale_fill_manual(values=palette2)+coord_cartesian(clip = "off")+ggplot2::ylim(-0.5, NA)+guides(colour = guide_legend(override.aes = list(size=3)))+labs(fill="Status")+
+  theme(strip.text = ggtext::element_markdown())+theme(axis.title.x = ggtext::element_markdown())+theme(legend.title = ggtext::element_markdown())
+figs9
+
+
+figs9=plot_grid(figs9,NULL,nrow=2,rel_heights=c(0.9,0.1))
+ggsave("figures/figuresS9.png",figs9,width=7,height=7, bg='white')
+ggsave("figures/figuresS9.svg",figs9,width=7,height=7, bg='white')
+ggsave("figures/figuresS9.eps",figs9,width=7,height=7,device=cairo_ps, bg='white')
+unlink("results/phage/mmseqs_matrix.tsv")
+
+
+
+```
+
+
+
+
+
+Delete:
+
+
+
+```{r}
+
+# 
+# #virulence genes
+# virulence=read.delim("results/ARCHIVE_results/phage/diamond_blastp_vfdb.tsv",stringsAsFactors = F,header=F)
+# virulence$vfdb=gsub("\\(.*","",virulence$V2)
+# vfdb=read.delim("results/phage/vfdb_meta.txt",stringsAsFactors = F,header=F)
+# colnames(vfdb)[1]="vfdb"
+# vfdb$vfdb=gsub("\\(.*","",vfdb$vfdb)
+# 
+# #exclude what we dont want
+# vfdb=vfdb[!(grepl("invertase",vfdb$V3)),]
+# vfdb=vfdb[which(!(vfdb$vfdb%in%c("VFG049879" ))),]
+# comb=merge(virulence,vfdb,by="vfdb")
+# vfdb=comb %>% group_by(V1) %>% slice(which.min(V11))
+# vfdb=vfdb %>% group_by(V2.y) %>% slice(which.min(V11))
+# vfdb=vfdb[vfdb$vfdb!="VFG017174",]
+# vfdb=vfdb[vfdb$vfdb!="VFG001798",]
+# vfdb=vfdb[vfdb$vfdb!="VFG004730",]
+# vfdb=vfdb[vfdb$vfdb!="VFG004728",]
+# 
+# vfdb$V2.y[is.na(vfdb$V2.y)]="unknown"
+# 
+# saveRDS(vfdb,"results/phage/diamond_blastp_vfdb.tsv.rds")
+# 
+# vfdb=readRDS("results/phage/diamond_blastp_vfdb.tsv.rds")
+```
+
+
+
+get subsetted tree
+```{r}
+# 
+# #get gtdb
+# tree=read.tree("results/phage/concat_notrim.treefile_vf.tree")
+# 
+# #notviruses=read.csv("results/phage/all_not_viruses.txt",stringsAsFactors = F)
+# #tree<-drop.tip(tree,setdiff(tree$tip.label,notviruses$x))
+# #write.tree(tree,"~/Documents/AD_staph_diversity/results/phage/concat_notrim.treefile_vf.tree")
+# 
+# #tree<-drop.tip(tree,setdiff(tree$tip.label,notviruses$x))
+# 
+# #subset pathogenicity island
+# #mmseq=read.delim("results/phage/mmseqs_matrix.tsv",stringsAsFactors = F,row.names=1)
+# #mmseq=mmseq["adtrf_2_16",]
+# #mmseq=as.data.frame(melt(mmseq))
+# #mmseq=mmseq[mmseq$value>0,]
+# #write.csv(mmseq$variable,"results/phage/PAIs.txt",quote=F,row.names = F)
+# pai=read.csv("results/ARCHIVE_results/phage/PAIs.txt",stringsAsFactors = F)
+# #notviruses=read.csv("results/ARCHIVE_results/phage/all_not_viruses.txt",stringsAsFactors = F)
+# comb=c(pai$x) #,notviruses$x)
+# tree<-drop.tip(tree,setdiff(tree$tip.label,comb))
+# 
+# tip.label=as.data.frame(tree$tip.label)
+# tip.label$run_accession=sub("_[^_]+$", "", tip.label$`tree$tip.label`)
+# tip.label=merge(tip.label,iso_met_staph,by="run_accession")%>%select(-run_accession)
+# tree<-drop.tip(tree,setdiff(tree$tip.label,tip.label$`tree$tip.label`))
+# 
+# write.tree(tree,"~/Documents/AD_staph_diversity/results/phage/PAI_tree.tree")
+# 
+# 
+# 
+# 
+
+```
+
+
+
