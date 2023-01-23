@@ -1,6 +1,6 @@
 # AD Staphylococcal Diversity 
 
-Code to reproduce Staphylococcal diversity in atopic dermatitis from an individual to a global scale
+Code to reproduce our work "Staphylococcal diversity in atopic dermatitis from an individual to a global scale"
 
 ## Links
 
@@ -14,10 +14,11 @@ Code to reproduce Staphylococcal diversity in atopic dermatitis from an individu
 
 
 ## Dependencies
+Under construction
 
 
 ## Link to paper
-
+TBA
 
 
 
