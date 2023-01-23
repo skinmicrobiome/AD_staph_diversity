@@ -8,7 +8,7 @@ Code to reproduce our work "Staphylococcal diversity in atopic dermatitis from a
 
 -[R code for visualization of the data](https://github.com/skinmicrobiome/AD_staph_diversity/tree/main/R_results_intermediates)
 
--[Intermediates](https://github.com/skinmicrobiome/AD_staph_diversity/tree/main/R_results_intermediates](https://github.com/skinmicrobiome/AD_staph_diversity/tree/main/R_results_intermediates/intermediates))
+-[Intermediates](https://github.com/skinmicrobiome/AD_staph_diversity/tree/main/R_results_intermediates/intermediates)
 
 
 
